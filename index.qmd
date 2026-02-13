@@ -1,15 +1,125 @@
 ---
 title: "Public Health Automation Clinic"
+subtitle: "Reclaiming Time for the Work That Matters"
 ---
 
-# Public Health Automation Clinic
+# Welcome {.unnumbered}
 
-This site hosts the public materials for the Public Health Automation Clinic.
+**The Public Health Automation Clinic** is a free, community-driven initiative that helps public health professionals automate the repetitive, manual work that consumes their days. Whether you are an epidemiologist renaming hundreds of files by hand, a registrar copy-pasting data between incompatible systems, or an analyst reformatting the same spreadsheet every reporting cycle, this resource is for you.
 
-## Included resources
+::: {.callout-note title="About This Resource"}
+The Public Health Automation Clinic is a work in progress. The examples and solutions throughout are designed to be anonymized and generalizable so that anyone facing a similar problem can benefit, regardless of their specific team, agency, or jurisdiction.
 
-- [Automation Clinic chapter](chapters/13-automation-intake.qmd)
+Feedback and submissions are welcome as this resource continues to evolve. See [Chapter 1: The Automation Clinic](chapters/01-automation-intake.qmd) for how to submit your own problem.
+:::
 
-## Quick start
+## The Challenge
 
-- Read the clinic model and scope in the Automation Clinic chapter.
+Public health professionals are drowning in tasks that machines should handle. Every hour spent on a task a script could handle in seconds is an hour not spent on disease surveillance, community outreach, or data interpretation.
+
+The barrier is rarely the solution itself. It is knowing that the solution exists, and having someone with the right skills translate the problem into code. That is what the Public Health Automation Clinic aims to address.
+
+The guiding principle is simple: **if you are doing the same thing twice, find a way to make the computer do it.**
+
+::: {.callout-note title="Automation in Context"}
+Automation is the **medium-term fix** for public health professionals stuck in inefficient systems. Scripts, pipelines, and APIs can eliminate mechanical tasks and free people to think. But the long-term answer requires thinking in terms of architecture: interoperability standards like [HL7](https://www.hl7.org/) and [FHIR](https://www.hl7.org/fhir/), governance reform, and incorporating these skills into how we prepare public health professionals for the workplace.
+
+This book focuses on the practical, immediate wins. The broader vision of systems architecture, interoperability, and workforce education is explored in the companion resource, [Bridgeframe](https://andre-inter-collab-llc.github.io/Bridgeframe-Toolkit/).
+:::
+
+## The Solution
+
+The Public Health Automation Clinic provides:
+
+- **Practical automation solutions** built with R, Python, and the [Posit](https://posit.co/) ecosystem (RStudio, Quarto, Shiny)
+- **A free intake process** where you describe a manual problem and receive a working, documented solution
+- **A growing solutions library** organized by the flow of data, from desktop operations to analysis and reporting
+- **Local-first tools** that run on your computer, with no cloud AI services or commercial software required
+- **Anonymized, published solutions** so the entire public health workforce benefits from each submission
+
+## Who This Is For
+
+- **Epidemiologists, registrars, and data managers** who perform repetitive data tasks that could be scripted
+- **IT business analysts** working in public health who need to demonstrate the value of automation to program teams
+- **Project managers** overseeing health IT implementations who want to streamline reporting and project tracking
+- **Data scientists and informaticians** working with epidemiological systems who want reusable, shareable code
+- **Students** in health informatics or public health programs looking for practical examples of applied automation
+
+## How to Use This Book
+
+This book is organized into three parts, with appendices, to take you from understanding the problem to submitting your own automation challenge and eventually contributing back to the community.
+
+### Part I: The Clinic
+
+1. **[The Automation Clinic](chapters/01-automation-intake.qmd)** — Why automation matters for public health. Focus areas and the local-first philosophy. The free intake model: how to submit, what qualifies, submission formats and examples, what to expect. Paid services for urgent or evolving needs.
+
+### Part II: Desktop Automation
+
+File renaming, format conversion, directory organization, batch operations on local files. The starting point for most automation journeys.
+
+- Placeholder subchapters will be added as solutions are developed.
+
+### Part III: Data Access and Integration
+
+Connecting to databases, working with APIs ([Google Sheets](https://developers.google.com/sheets/api), [REDCap](https://www.project-redcap.org/), CDC data portals), importing and exporting data, transferring files between systems.
+
+- Placeholder subchapters will be added as solutions are developed.
+
+### Part IV: Data Cleaning and Transformation
+
+Standardizing messy datasets, deduplication, edit rule validation, exception reporting. Turning raw data into analysis-ready inputs.
+
+- Placeholder subchapters will be added as solutions are developed.
+
+### Part V: Data Analysis and Reporting
+
+Recurring surveillance analyses, reproducible reports with [Quarto](https://quarto.org/) and R Markdown, interactive dashboards with [Shiny](https://shiny.posit.co/), automated chart and table generation.
+
+- Placeholder subchapters will be added as solutions are developed.
+
+### Part VI: Business Process Automation
+
+Project status reports, grant milestone tracking, workload distribution, cross-agency data exchange. Automating the work around the analytical work.
+
+- Placeholder subchapters will be added as solutions are developed.
+
+### Part VII: The Automation Mindset
+
+7. **From Manual to Automated** — The optimization hierarchy (eliminate, automate, standardize). How to think about your own workflows. Getting started with scripting.
+8. **Building a Community of Practice** — Contributing solutions. The pattern library vision. Workforce development. Public GitHub repository plans.
+9. **Automation and Public Health Education** — Gaps in MPH curricula. R and Python as general-purpose tools beyond statistics. The case for teaching "automating the work around the work."
+
+### Appendices
+
+- **A: Tool Recommendations** — Commercial vs Open Source/Public Health tools comparison.
+- **B: Submission Templates and Examples** — Detailed templates for User Story, GPS, and Situational Protocol formats.
+- **D: [Development Tools and AI Transparency](chapters/D-development-tools.qmd)** — How this book is built, the role of AI in development, and the commitment to local-first, AI-independent solutions.
+- **C: Glossary** — Key terms for automation, public health data, and the tools ecosystem.
+
+::: {.callout-note title="Book Status"}
+This book is a work in progress. The current published content covers [Chapter 1: The Automation Clinic](chapters/01-automation-intake.qmd), which contains the complete clinic model, intake process, and submission guidance. Additional chapters will be developed as the solutions library grows and community submissions shape priorities.
+:::
+
+::: {.callout-tip title="Getting Started"}
+If you have a repetitive task you want automated, start with [Chapter 1](chapters/01-automation-intake.qmd) and then **[submit the intake form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**. If you want to understand the philosophy and scope first, continue reading this preface.
+:::
+
+## Local-First Philosophy
+
+The clinic prioritizes solutions that **run on your computer or local server**. A script you can execute on your own machine is more reliable, efficient, and sustainable than a workflow that depends on a cloud-based large language model.
+
+AI tools may be used in the *development* and *documentation* of solutions, but the solutions themselves will not require AI or LLM access to run. A well-written R or Python script that processes 50,000 records deterministically on your laptop will always be more dependable than sending that data to a remote API.
+
+## Building a Community of Practice
+
+The long-term vision extends beyond individual problem-solving. Each submission and solution contributes to a pattern library of common public health automation needs, reusable code templates that can be adapted across jurisdictions, and a feedback loop that identifies the most impactful areas for tool development.
+
+The goal is for the solution library to become a shared, community-maintained public GitHub repository where public health professionals can contribute their own solutions, submit improvements, and help build beyond what any single person could produce.
+
+## About the Author
+
+**[André van Zyl, MPH](https://www.linkedin.com/in/andre-van-zyl/)** is an epidemiologist and data science professional with close to two decades of experience spanning public health, health informatics, and technical system development. His career has taken him across local, state, federal, tribal, and international health systems, from helping establish global surveillance systems at the CDC to implementing health interventions in resource-constrained settings.
+
+His work has focused on surveillance modernization, data acquisition and reporting workflows, and practical automation using R, Python, Quarto, and related local-first tools. A consistent theme throughout his work has been technical translation: bridging communication gaps between public health teams and technical developers.
+
+He is the founder of **[Intersect Collaborations LLC](https://www.intersectcollaborations.com/)**, a consultancy supporting public health organizations in improving data systems, analytics workflows, and operational decision-making for community health outcomes.

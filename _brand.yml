@@ -1,0 +1,37 @@
+meta:
+  name: Intersect Collaborations
+  link: https://intersectcollaborations.com
+  linkedin: https://www.linkedin.com/company/intersect-collaborations-llc/
+
+color:
+  palette:
+    # Primary brand colors (from logo)
+    blue: "#2494f7"           # Bright blue - main brand color (Intersect text, icon)
+    teal: "#00a4bb"           # Teal/cyan - accent color (Version 2 elements)
+    navy: "#01272f"           # Dark teal/navy - dark backgrounds
+    dark: "#020506"           # Near black - text on light backgrounds
+    slate: "#204d70"          # Dark blue - secondary text (Collaborations LLC)
+    ivory: "#fffff0"          # Off-white - text on dark backgrounds
+    white: "#ffffff"          # Pure white - light backgrounds
+  
+  # Semantic color mappings
+  foreground: dark
+  background: white
+  primary: blue
+  secondary: teal
+
+logo:
+  small: assets/branding/icons/intesect icon v1.png
+  medium: assets/branding/logos/intesect_logo_v1.png
+
+typography:
+  fonts:
+    - family: "Inter"
+      source: google
+    - family: "Fira Code"
+      source: google
+  base: "Inter"
+  headings:
+    family: "Inter"
+    weight: 800
+  monospace: "Fira Code"

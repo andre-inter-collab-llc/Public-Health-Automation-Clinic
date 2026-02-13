@@ -1,0 +1,24 @@
+---
+title: "Business Process Automation"
+---
+
+# Business Process Automation
+
+Project status reports, grant milestone tracking, workload distribution, and cross-agency data exchange. These solutions automate the work around the analytical work.
+
+::: {.callout-note title="Solutions Coming Soon"}
+This part of the book will be populated as solutions are developed through the [Automation Clinic intake process](01-automation-intake.qmd). Each solution will be published as a subchapter below.
+
+Have a business process automation problem? **[Submit it to the clinic](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**.
+:::
+
+## What Belongs Here
+
+Solutions in this part address operational and administrative tasks:
+
+- **Project status reports** generated from project management tool exports (e.g., [GanttProject](https://www.ganttproject.biz/), [OpenProject](https://www.openproject.org/))
+- **Grant milestone tracking** automated from workplan data
+- **Workload distribution reports** generated from task management or timesheet data
+- **Cross-agency data exchange** with automated format conversion and packaging
+- **Meeting preparation** with automated agenda, status summary, or slide generation
+- **Email or notification automation** for recurring status updates or deadline reminders

@@ -1,0 +1,34 @@
+---
+title: "Building a Community of Practice"
+---
+
+# Building a Community of Practice
+
+The long-term vision for the Automation Clinic extends beyond individual problem-solving. Each submission and solution contributes to a growing, shared resource for the public health workforce.
+
+## The Pattern Library
+
+Every automation problem submitted to the clinic reveals a pattern: a type of task, a category of data, a workflow structure that recurs across teams, agencies, and jurisdictions. Over time, these patterns form a library that makes it faster to develop solutions for new submissions and easier for professionals to find existing solutions that match their needs.
+
+## Contributing Solutions
+
+Public health professionals who have solved their own automation challenges are encouraged to share those solutions. The clinic is not a one-way service; it is a community resource. If you have written a script that saves your team time, consider contributing it to the library so others facing the same problem can benefit.
+
+## The Public GitHub Repository
+
+While this is currently a one-person effort, the plan is to make the solution library available as a public [GitHub](https://github.com/) repository. This will allow others to:
+
+- Browse and download existing solutions
+- Submit improvements or bug fixes to published solutions
+- Contribute entirely new solutions
+- Request features or report issues through GitHub Issues
+
+The goal is for the repository to become a shared, community-maintained resource for public health automation, growing beyond what any single person could produce.
+
+## Workforce Development
+
+Each published solution serves a dual purpose: it solves an immediate problem, and it demonstrates what is possible with accessible tools. For professionals who have never seen automation applied to their workflows, a single working example can shift their understanding of what R, Python, and open source tools can do.
+
+::: {.callout-note title="Placeholder"}
+This chapter will be expanded with contribution guidelines, community governance plans, and examples of successful public health open source collaborations as the initiative matures.
+:::

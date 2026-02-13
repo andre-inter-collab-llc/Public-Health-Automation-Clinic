@@ -1,0 +1,81 @@
+---
+title: "Glossary"
+---
+
+# Glossary
+
+Key terms used throughout this book, organized alphabetically.
+
+## A
+
+**API (Application Programming Interface)**
+: A set of rules and protocols that allows software programs to communicate with each other. In public health automation, APIs are commonly used to send or receive data from services like Google Sheets, REDCap, or CDC data portals.
+
+**Automation**
+: The use of scripts, tools, or software to perform tasks that would otherwise require manual effort. In this book, automation refers primarily to R and Python scripts that handle repetitive data and file operations.
+
+## B
+
+**Batch processing**
+: Running a single operation across many files or records at once, rather than processing them one at a time. Example: renaming 500 files using a script instead of renaming each manually.
+
+## D
+
+**Data pipeline**
+: A sequence of automated steps that moves data from its source through cleaning, transformation, and analysis to a final output such as a report or dashboard.
+
+**Deduplication**
+: The process of identifying and resolving duplicate records in a dataset, using either exact matching (deterministic) or probabilistic methods.
+
+## E
+
+**Edit rules**
+: Validation checks applied to data to ensure logical consistency. Example: "diagnosis date must precede treatment date" or "age at diagnosis must be between 0 and 120."
+
+**Exception report**
+: A report that lists records failing one or more validation checks, enabling targeted review and correction.
+
+## G
+
+**GPS format (Given-Person-Should)**
+: A submission format for describing automation needs: "Given [context], the [role] should [action] to [outcome]."
+
+## L
+
+**Local-first**
+: A design philosophy prioritizing solutions that run on the user's own computer or local server, without requiring cloud services, AI subscriptions, or remote API access.
+
+## P
+
+**Parameterized report**
+: A report template (typically in Quarto or R Markdown) that accepts input parameters (e.g., jurisdiction, time period) and generates customized output for each set of parameters.
+
+**Posit**
+: The company (formerly RStudio) behind RStudio, Quarto, Shiny, and related open source tools widely used in data science and public health analytics. Website: [posit.co](https://posit.co/)
+
+## Q
+
+**Quarto**
+: An open source publishing system for creating reproducible documents, reports, presentations, and websites. Supports R, Python, Julia, and Observable. Website: [quarto.org](https://quarto.org/)
+
+## R
+
+**Reproducible analysis**
+: An analysis that can be re-run by anyone with access to the code and data, producing the same results. Quarto and R Markdown facilitate reproducibility by combining code and narrative in a single document.
+
+## S
+
+**Shiny**
+: An R framework for building interactive web applications. In the clinic context, Shiny apps are provided as code that users run locally; hosting is not included. Website: [shiny.posit.co](https://shiny.posit.co/)
+
+**Situational Protocol format**
+: A submission format for describing automation needs: "When [trigger], the [process/system] shall [action] within [constraint]."
+
+## U
+
+**User Story format**
+: A submission format for describing automation needs: "As a [role], I want [action], so that [outcome]."
+
+::: {.callout-note title="Placeholder"}
+This glossary will be expanded as new terms are introduced in the solutions library and mindset chapters.
+:::

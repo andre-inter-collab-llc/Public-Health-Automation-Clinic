@@ -1,0 +1,24 @@
+---
+title: "Data Access and Integration"
+---
+
+# Data Access and Integration
+
+Connecting to databases, working with APIs, importing and exporting data, and transferring files between systems. These solutions bridge the gap between where data lives and where it needs to go.
+
+::: {.callout-note title="Solutions Coming Soon"}
+This part of the book will be populated as solutions are developed through the [Automation Clinic intake process](01-automation-intake.qmd). Each solution will be published as a subchapter below.
+
+Have a data access or integration problem? **[Submit it to the clinic](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**.
+:::
+
+## What Belongs Here
+
+Solutions in this part address tasks involving data movement between systems:
+
+- **API integration** with services like [Google Sheets](https://developers.google.com/sheets/api), [REDCap](https://www.project-redcap.org/), and CDC data portals (e.g., [CDC WONDER](https://wonder.cdc.gov/), [data.cdc.gov](https://data.cdc.gov/))
+- **Database connections** to read from or write to SQL databases, Access files, or other structured data stores
+- **Automated data downloads** from web portals, FTP servers, or shared drives
+- **Data uploads and submissions** to reporting systems or partner agencies
+- **File transfer automation** between local systems, network drives, and cloud storage
+- **Web scraping** of publicly available health data from government websites

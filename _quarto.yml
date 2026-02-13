@@ -1,24 +1,69 @@
 project:
-  type: website
+  type: book
   output-dir: _site
-  render:
-    - index.qmd
-    - chapters/**/*.qmd
 
-website:
+title-block-banner: assets/branding/images/cover-image.jpg
+
+book:
   title: "Public Health Automation Clinic"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: chapters/13-automation-intake.qmd
-        text: Automation Clinic
+  author:
+    - name: "André van Zyl"
+      id: avz
+      orcid: 0000-0001-6872-5276
+      url: https://www.linkedin.com/in/andre-van-zyl/
+      affiliation:
+        - name: Intersect Collaborations LLC
+          city: Cincinnati
+          state: OH
+          url: https://www.intersectcollaborations.com/
+  date: last-modified
+  date-format: "MMMM YYYY"
+  cover-image: assets/branding/images/cover-image.jpg
+  favicon: assets/branding/icons/intesect icon v1.png
+  chapters:
+    - index.qmd
+    - part: "The Clinic"
+      chapters:
+        - chapters/01-automation-intake.qmd
+    - part: "Desktop Automation"
+      chapters:
+        - chapters/02-desktop-automation.qmd
+    - part: "Data Access and Integration"
+      chapters:
+        - chapters/03-data-access-integration.qmd
+    - part: "Data Cleaning and Transformation"
+      chapters:
+        - chapters/04-data-cleaning-transformation.qmd
+    - part: "Data Analysis and Reporting"
+      chapters:
+        - chapters/05-data-analysis-reporting.qmd
+    - part: "Business Process Automation"
+      chapters:
+        - chapters/06-business-process-automation.qmd
+    - part: "The Automation Mindset"
+      chapters:
+        - chapters/07-from-manual-to-automated.qmd
+        - chapters/08-community-of-practice.qmd
+        - chapters/09-automation-education.qmd
+    - part: "Appendices"
+      chapters:
+        - chapters/A-tool-recommendations.qmd
+        - chapters/B-submission-templates.qmd
+        - chapters/D-development-tools.qmd
+        - chapters/C-glossary.qmd
+  sidebar:
+    search: true
 
 format:
   html:
-    theme: cosmo
+    theme:
+      - brand
+      - assets/styles/custom.scss
     toc: true
+    toc-depth: 5
     number-sections: true
+    code-fold: true
+    code-tools: true
 
 execute:
   freeze: auto

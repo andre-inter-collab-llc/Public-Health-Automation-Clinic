@@ -1,8 +1,8 @@
 ---
-title: "Public Health Automation Clinic"
+title: "The Automation Clinic"
 ---
 
-## The Problem: Death by Manual Process
+# The Problem: Death by Manual Process
 
 Public health professionals are drowning in repetitive, manual work. Renaming hundreds of files by hand. Copy-pasting data between incompatible systems. Reformatting spreadsheets every reporting cycle. Running the same analysis steps month after month with slight variations.
 
@@ -13,16 +13,6 @@ The irony is that most of these problems have straightforward solutions. A short
 The barrier is rarely the solution itself. It is knowing that the solution exists, and having someone with the right skills translate the problem into code.
 
 That is what the **Public Health Automation Clinic** aims to address.
-
-## Who This Is For
-
-The Automation Clinic serves the same audiences as the rest of this toolkit:
-
-- **Public health professionals** (epidemiologists, registrars, program analysts, data managers) who perform repetitive data tasks that could be scripted
-- **IT business analysts** working in public health who need to demonstrate the value of automation to program teams
-- **Project managers** overseeing health IT implementations who want to streamline reporting and project tracking
-- **Data scientists and informaticians** working with epidemiological systems who want reusable, shareable code
-- **Students** in health informatics or public health programs looking for practical examples of applied automation
 
 ## Focus Areas
 
@@ -214,6 +204,22 @@ Submitting a problem to the clinic is valuable even if the solution is simple. T
 1. **Can the task be eliminated?** Sometimes the answer is yes, and the submission process reveals it.
 2. **Can it be automated?** Most submissions fall here: a script, a tool, a macro.
 3. **Can it be standardized?** Even if full automation is not feasible, documenting the process reduces variability and training time.
+
+### Automation and Workforce Identity
+
+A concern that deserves honest acknowledgment: some people's entire job descriptions are built around the manual processes that automation would replace. That is a real and uncomfortable tension.
+
+Automating a task is straightforward. Rethinking someone's role so they can contribute at a higher level is a much harder organizational problem, one that requires leadership willing to invest in retraining and redesigning positions rather than simply eliminating them.
+
+The vision behind this initiative is not fewer people. It is the same people doing more meaningful work: interpreting data instead of copying it, investigating outbreaks instead of renaming files, designing surveillance strategies instead of reformatting spreadsheets. But that only happens if organizations commit to the transition, not just the tool.
+
+::: {.callout-important title="Where Automation Fits in the Bigger Picture"}
+Automation is the **medium-term fix** for public health professionals stuck in inefficient systems. It addresses the immediate pain: scripts and pipelines that eliminate mechanical tasks and free people to think.
+
+But the long-term answer is architecture. Interoperability standards like [HL7](https://www.hl7.org/) and [FHIR](https://www.hl7.org/fhir/) aim to make data move between systems without manual translation, but the technology alone is not enough. The true barriers to integration often include governance, funding silos, and misaligned incentives. And critically, we must rethink how we educate and prepare public health professionals for this landscape.
+
+This book focuses on the practical, immediate wins. The broader vision of systems architecture, interoperability, and workforce education is explored in the companion resource, [Bridgeframe: Bridging Business Analysis and Public Health](https://andre-inter-collab-llc.github.io/Bridgeframe-Toolkit/).
+:::
 
 ### Building a Community of Practice
 

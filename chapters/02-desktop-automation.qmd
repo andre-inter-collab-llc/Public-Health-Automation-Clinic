@@ -1,0 +1,23 @@
+---
+title: "Desktop Automation"
+---
+
+# Desktop Automation
+
+File renaming, format conversion, directory organization, and batch operations on local files. This is the starting point for most automation journeys: taking control of the files and folders on your own computer.
+
+::: {.callout-note title="Solutions Coming Soon"}
+This part of the book will be populated as solutions are developed through the [Automation Clinic intake process](01-automation-intake.qmd). Each solution will be published as a subchapter below.
+
+Have a desktop automation problem? **[Submit it to the clinic](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**.
+:::
+
+## What Belongs Here
+
+Solutions in this part address tasks that happen entirely on your local machine:
+
+- **Batch file renaming** based on naming conventions, metadata, or content patterns
+- **File format conversion** (e.g., PDF to text, CSV to Excel, image format changes)
+- **Directory organization** to sort, move, or archive files based on rules
+- **Batch operations** such as splitting, merging, or compressing files
+- **Template generation** to create standardized folder structures for new projects or reporting cycles

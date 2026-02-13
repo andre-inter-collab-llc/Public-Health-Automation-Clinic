@@ -1,0 +1,24 @@
+---
+title: "Data Analysis and Reporting"
+---
+
+# Data Analysis and Reporting
+
+Recurring surveillance analyses, reproducible reports with [Quarto](https://quarto.org/) and R Markdown, interactive dashboards with [Shiny](https://shiny.posit.co/), and automated chart and table generation. These solutions turn analysis-ready data into actionable outputs.
+
+::: {.callout-note title="Solutions Coming Soon"}
+This part of the book will be populated as solutions are developed through the [Automation Clinic intake process](01-automation-intake.qmd). Each solution will be published as a subchapter below.
+
+Have a data analysis or reporting problem? **[Submit it to the clinic](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**.
+:::
+
+## What Belongs Here
+
+Solutions in this part address tasks involving analysis and output generation:
+
+- **Recurring surveillance reports** automated with parameterized Quarto or R Markdown documents
+- **Automated chart and table generation** for standard epidemiological outputs (incidence tables, trend charts, demographic breakdowns)
+- **Interactive dashboards** built with R Shiny for local or team use (code provided; hosting is not included)
+- **Parameterized report templates** that generate jurisdiction-specific or time-period-specific outputs from a single script
+- **Automated data visualization** pipelines using ggplot2, Plotly, or similar tools
+- **Spatial analysis and mapping** using [QGIS](https://qgis.org/) or R spatial packages for geographic health data

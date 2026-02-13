@@ -1,0 +1,45 @@
+/*-- scss:defaults --*/
+/*
+ * Bridgeframe Toolkit Custom Styles
+ * Extends _brand.yml theme with additional customizations
+ */
+
+/*-- scss:rules --*/
+/* Callout box customizations */
+.callout-note {
+  border-left-color: var(--bs-primary);
+}
+
+.callout-tip {
+  border-left-color: var(--bs-secondary);
+}
+
+/* Table styling */
+table {
+  margin-bottom: 1.5rem;
+}
+
+th {
+  background-color: rgba(36, 148, 247, 0.1);
+}
+
+/* Code block styling */
+pre {
+  border-radius: 0.5rem;
+}
+
+/* Mermaid diagram containers */
+.mermaid {
+  margin: 1.5rem 0;
+}
+
+/* Print-friendly adjustments */
+@media print {
+  .callout {
+    break-inside: avoid;
+  }
+  
+  table {
+    break-inside: avoid;
+  }
+}
