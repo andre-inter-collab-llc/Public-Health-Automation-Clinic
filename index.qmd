@@ -9,11 +9,7 @@ This site hosts the public materials for the Public Health Automation Clinic.
 ## Included resources
 
 - [Automation Clinic chapter](chapters/13-automation-intake.qmd)
-- [Google Forms intake blueprint](communications/google-forms-automation-clinic-blueprint.md)
-- [LinkedIn launch post](communications/linkedin-automation-clinic-launch-post.md)
 
 ## Quick start
 
 - Read the clinic model and scope in the Automation Clinic chapter.
-- Build the intake form from the blueprint.
-- Use the launch post to announce the initiative.

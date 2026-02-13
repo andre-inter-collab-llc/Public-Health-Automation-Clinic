@@ -4,11 +4,11 @@
 
 **Public Health Automation Clinic** is an open-source, local-first initiative that helps public health professionals automate repetitive manual workflows.
 
-The repository packages three core assets:
+The public repository packages one core public asset:
 
 1. **Clinic model and scope** in `chapters/13-automation-intake.qmd`
-2. **Google Form intake blueprint** in `communications/google-forms-automation-clinic-blueprint.md`
-3. **Launch and engagement messaging** in `communications/linkedin-automation-clinic-launch-post.md`
+
+Internal development assets are kept locally in `communications/` and are not part of public publishing scope.
 
 ## Core Philosophy
 
@@ -34,16 +34,13 @@ Public-Health-Automation-Clinic/
 ├── LICENSE
 ├── .gitignore
 ├── .nojekyll
-├── publish.bat
 ├── .github/
 │   ├── copilot-instructions.md
 │   └── workflows/
 │       └── publish.yml
 ├── chapters/
 │   └── 13-automation-intake.qmd
-└── communications/
-    ├── google-forms-automation-clinic-blueprint.md
-    └── linkedin-automation-clinic-launch-post.md
+└── communications/ (local internal only; not committed/published)
 ```
 
 ## Publishing Model
@@ -51,7 +48,13 @@ Public-Health-Automation-Clinic/
 - Local render: `quarto render`
 - Local preview: `quarto preview`
 - GitHub Pages publish: handled by `.github/workflows/publish.yml`
-- Windows helper: `publish.bat` performs backup, render, and `quarto publish gh-pages --no-prompt`
+
+## Privacy and Handling Rules
+
+- Treat everything in `communications/` as internal development context.
+- Do not commit `communications/` files to GitHub and do not include them in public site publishing.
+- `communications/` content should only be backed up to `GDRIVE_DEST=G:\My Drive\Intersect_Collaborations_LLC\04_projects\Public-Health-Automation-Clinic`.
+- Treat `publish.bat` as internal operational tooling; do not surface it in public-facing documentation.
 
 ## Content Scope Guidance
 
@@ -59,7 +62,7 @@ This repository focuses on:
 
 - intake and triage workflow definitions
 - automation use-case framing
-- reusable communication assets
+- public, reusable workflow guidance
 
 This repository does not aim to host full software products, large proprietary data, or organization-specific implementation details.
 
@@ -71,3 +74,4 @@ When editing posts and blueprint content:
 - emphasize repetitive task automation, quality improvement, and time recovery
 - maintain clear expectations for free community support versus paid consulting
 - keep solutions anonymous and generalizable
+- keep files local-only under `communications/` and exclude them from public publication
