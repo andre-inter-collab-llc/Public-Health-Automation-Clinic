@@ -1,0 +1,254 @@
+---
+title: "Public Health Automation Clinic"
+---
+
+## The Problem: Death by Manual Process
+
+Public health professionals are drowning in repetitive, manual work. Renaming hundreds of files by hand. Copy-pasting data between incompatible systems. Reformatting spreadsheets every reporting cycle. Running the same analysis steps month after month with slight variations.
+
+These tasks are not complex. They are tedious, time-consuming, and error-prone. Worse, every hour spent on a task a script could handle in seconds is an hour not spent on disease surveillance, community outreach, or data interpretation.
+
+The irony is that most of these problems have straightforward solutions. A short R or Python script can rename 10,000 files in the time it takes to rename one manually. A well-structured Excel macro can eliminate hours of copy-paste work. An open source tool, freely available, can automate a workflow that currently consumes an entire afternoon each week.
+
+The barrier is rarely the solution itself. It is knowing that the solution exists, and having someone with the right skills translate the problem into code.
+
+That is what the **Public Health Automation Clinic** aims to address.
+
+## Who This Is For
+
+The Automation Clinic serves the same audiences as the rest of this toolkit:
+
+- **Public health professionals** (epidemiologists, registrars, program analysts, data managers) who perform repetitive data tasks that could be scripted
+- **IT business analysts** working in public health who need to demonstrate the value of automation to program teams
+- **Project managers** overseeing health IT implementations who want to streamline reporting and project tracking
+- **Data scientists and informaticians** working with epidemiological systems who want reusable, shareable code
+- **Students** in health informatics or public health programs looking for practical examples of applied automation
+
+## Focus Areas
+
+While the clinic accepts any public health automation problem, it is primarily oriented toward **data management and analysis**. This reflects where the greatest time savings tend to be found and where the tools are most mature.
+
+### Data Management and Analysis
+
+The core focus: automating the ingestion, cleaning, transformation, validation, and reporting of health data. Solutions are built primarily in **R** and **Python**, leveraging the open source ecosystem from [Posit](https://posit.co/) (the company behind RStudio, Quarto, Shiny, and related tools).
+
+Typical problems in this area include:
+
+- Extracting structured data from PDFs, spreadsheets, or legacy exports
+- Cleaning and standardizing messy datasets
+- Automating recurring statistical analyses or surveillance reports
+- Building reproducible analytic pipelines with R Markdown or Quarto
+- Creating interactive dashboards with Shiny for local or team use
+- Data quality validation and exception reporting
+
+### Business Process Analysis
+
+Automation is not limited to epidemiological data. Public health programs also generate substantial overhead in project management, grant reporting, and operational tracking. These processes are equally amenable to scripting.
+
+For example, one solution developed through this model used R scripts to generate custom project status reports from data exported by [GanttProject](https://www.ganttproject.biz/), a free desktop project management tool. The script parsed the XML export, calculated milestone progress, and produced a formatted Quarto report, replacing a manual process that previously required assembling information from multiple sources each reporting cycle.
+
+Other business process examples include:
+
+- Automating grant milestone tracking from project management exports
+- Generating workload distribution reports from task management data
+- Converting between file formats for cross-agency data exchange
+- Batch file renaming and organization based on consistent conventions
+
+### Local-First Philosophy
+
+::: {.callout-important title="Local-First Tools"}
+The clinic prioritizes solutions that **run on your computer or local server**. A script you can execute on your own machine is more reliable, efficient, and sustainable than a workflow that depends on a cloud-based large language model.
+
+AI tools (ChatGPT, Copilot, Claude, and similar) may be used in the *development* and *documentation* of solutions, but the solutions themselves will not require AI or LLM access to run. A well-written R or Python script that processes 50,000 records deterministically on your laptop will always be more dependable than sending that data to a remote API.
+
+When AI-based approaches are genuinely the best fit for a problem, they will be noted as an option, but they are never the default recommendation.
+:::
+
+## The Initiative
+
+The Public Health Automation Clinic is a free, community-driven service offered through [Intersect Collaborations](https://www.intersectcollaborations.com/). The concept is simple:
+
+1. **You describe a problem.** A repetitive, tedious, or error-prone task that consumes your time.
+2. **We develop a solution.** An R or Python script, Shiny app, tool recommendation, or workflow that automates or streamlines the task.
+3. **We publish it.** All solutions are made publicly available as anonymized, generic resources so that anyone facing a similar problem can benefit.
+
+This is not consulting. There are no contracts, no invoices, no deliverable timelines for the free service. Submissions are reviewed and addressed as time and capacity allow. The goal is to build a growing library of practical, reusable automation solutions for the public health workforce.
+
+You may submit anonymously through the intake form. Your specific details are never published; solutions are generalized so they are useful to people doing similar tasks across different teams, agencies, and fields.
+
+### What Qualifies
+
+The clinic focuses on tasks that meet these criteria:
+
+| Criterion | Description |
+|:----------|:------------|
+| **Repetitive** | The task is performed regularly (daily, weekly, monthly, per reporting cycle) |
+| **Manual** | The task currently requires significant hands-on effort |
+| **Definable** | The task can be described with clear inputs, steps, and expected outputs |
+| **Realistic** | A solution can be built with commonly available tools (R, Python, Posit tools, Microsoft Office, open source software) |
+| **Generalizable** | The solution, once anonymized, could help people doing similar tasks outside your specific team or field |
+
+#### Examples of Good Submissions
+
+A well-structured submission describes the context, the role, and what needs to happen using clear requirement-style language. Standard **User Stories**, **Given-Person-Should (GPS)**, and **Situational Protocol** formats all work well:
+
+**User Story Format** (As a [role], I want [action], so that [outcome]):
+
+- "As an epidemiologist, I want to automatically extract patient demographics from 200 monthly PDF lab reports into a single spreadsheet, so that I can eliminate 8 hours of manual data entry and transcription errors."
+- "As a data analyst, I want to geocode 5,000 addresses using free tools without ArcGIS, so that I can produce maps for a community health assessment on a limited budget."
+
+**GPS Format** (Given [context], the [role] should [action] to [outcome]):
+
+- "Given a surveillance system export that produces cryptic filenames (e.g., `RPT_20260115_0847_A3F2.pdf`), the registrar should be able to batch-rename all files to the convention `[PatientID]_[FacilityCode]_[ReportDate].pdf`, to enable rapid file retrieval and consistent record-keeping."
+
+**Situational Protocol Format** (When [trigger], the [process/system] shall [action] within [constraint]):
+
+- "When the quarterly reporting cycle begins, the analyst's workflow shall merge incidence data from three Excel workbooks into a summary template automatically, because the structure is identical every quarter and the current manual copy-paste process takes a full day."
+- "When a new registry extract is received, the data quality process shall check all 15 edit rules (e.g., diagnosis date precedes treatment date, age between 0 and 120) and generate an exception report, because these rules never change and manual checking is error-prone."
+
+::: {.callout-tip title="Writing a Good Submission"}
+You do not need to use these exact formats. But the more clearly you describe the **context** (what triggers the task), the **role** (who performs it), the **current process** (what you do now), and the **desired outcome** (what the result should look like), the faster we can develop a useful solution.
+:::
+
+#### Examples of Tasks Outside Scope
+
+- Building a full web application or database system
+- Tasks requiring access to proprietary or classified systems
+- Work that requires domain-specific clinical judgment (e.g., case adjudication)
+- Integration with systems that require vendor coordination
+
+### How It Works
+
+```{mermaid}
+%%| label: fig-automation-clinic-flow
+%%| fig-cap: "Public Health Automation Clinic Workflow"
+flowchart TD
+    A[Submit Intake Form] --> B[Review & Triage]
+    B --> C{Feasible?}
+    C -->|Yes| D[Develop Solution]
+    C -->|Needs Info| E[Follow Up]
+    C -->|Out of Scope| F[Provide Guidance]
+    E --> B
+    D --> G[Test & Document]
+    G --> H[Anonymize & Generalize]
+    H --> I[Publish to Library]
+```
+
+**Step 1: Submit the Intake Form**
+
+Complete the [Public Health Automation Clinic Intake Form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"} describing your problem. You can submit anonymously or provide contact information for follow-up. The more detail you provide, the faster and more accurately we can develop a solution.
+
+**Step 2: Review and Triage**
+
+Submissions are reviewed based on feasibility, impact (how many people face this problem), and clarity of the description. Problems that are well-defined and broadly applicable are prioritized.
+
+**Step 3: Solution Development**
+
+Solutions are developed using free and open source tools, with a strong preference for R, Python, and the [Posit](https://posit.co/) ecosystem (RStudio, Quarto, Shiny). Typical deliverables include:
+
+- **R or Python scripts** with documentation and usage instructions
+- **Quarto documents or R Markdown reports** that automate recurring analyses and produce formatted output
+- **R Shiny web applications** for interactive tools (code provided; hosting is not included)
+- **Tool recommendations** with setup guides for existing open source software
+- **Workflow redesigns** using commonly available tools (Excel, Google Sheets, etc.)
+- **Step-by-step guides** for configuring software to automate a task
+
+All solutions are designed to run locally on your computer. They do not require cloud AI services or LLM access.
+
+**Step 4: Anonymize, Generalize, and Publish**
+
+All solutions are anonymized and generalized before being published to the shared library. No submission-specific details, organization names, or identifying information are included. The goal is to produce solutions that are useful to anyone facing a similar problem, regardless of their specific team or field.
+
+### What You Will Need to Provide
+
+The intake form captures the information necessary to develop a practical solution:
+
+- **The Problem**: What task are you trying to automate? What makes it tedious or error-prone?
+- **Current Workflow**: How do you currently perform this task? What are the steps?
+- **Volume and Frequency**: How often do you do this? How many records, files, or items are involved?
+- **Tools Available**: What software do you have access to? (R/RStudio, Python, Quarto, Microsoft Office, Google Workspace, etc.)
+- **Technical Environment**: Can you install software on your machine, or do you need IT administrator approval?
+- **Sample Data**: Can you point us to a publicly available dataset or file that resembles your data? (See the note below on sharing examples.)
+- **Contact Preference**: Anonymous submission, or would you like follow-up?
+
+::: {.callout-note title="Sharing Example Data"}
+To help us understand your problem, find a **publicly available** dataset or file online that resembles the structure of your data. This could be a sample dataset from a government open data portal, a dataset on [Kaggle](https://www.kaggle.com/datasets), a CDC data download, or any publicly accessible file. Paste the URL in the intake form.
+
+Do **not** upload or share your actual data, even if de-identified. Linking to a public example keeps your submission anonymous and avoids any risk of exposing sensitive information. If no public example exists, describe the data structure in your problem description (column names, data types, number of rows, file format).
+:::
+
+### Setting Expectations
+
+The Automation Clinic in its free form is a personal project, developed between paid engagements. I have benefitted tremendously from open source tools and communities throughout my career, and this initiative is my way of giving back to the public health workforce.
+
+This means the free service has real limitations, and it is important to be transparent about them:
+
+::: {.callout-note title="Free Service Guidelines"}
+- **No guaranteed timelines.** Submissions are addressed as capacity allows. This is a one-person effort run alongside paid consulting work.
+- **No guaranteed solutions.** Some problems may be outside scope or require more context than can be provided through a form.
+- **No ongoing updates or maintenance.** Solutions from the free service are provided as a snapshot: a working script or tool delivered at a point in time. If your workflows evolve, your data formats change, or you need iterative refinement, the free service cannot guarantee follow-up development. Solutions are designed to be modular and well-documented so that someone with basic R or Python familiarity can adapt them independently, but sustained maintenance and updates for a specific organization's needs fall under paid consulting.
+- **Solutions use free, local-first tools.** We prioritize R, Python, and the Posit ecosystem (RStudio, Quarto, Shiny). Solutions run on your computer and do not require cloud AI services. We will not develop solutions that require purchasing commercial software.
+- **All solutions are published.** Solutions from the free service are anonymized, generalized, and made publicly available. If you need a private, organization-specific solution, that falls under paid consulting.
+:::
+
+### Paid Services for Urgent or Evolving Needs
+
+If you have a task that is time-sensitive, requires dedicated attention, needs ongoing updates as workflows evolve, or involves more complex integration work, [Intersect Collaborations](https://www.intersectcollaborations.com/) offers paid consulting services. Paid engagements include:
+
+- **Priority development** with agreed-upon timelines
+- **Custom solutions** tailored to your specific environment and systems
+- **Ongoing support, maintenance, and iterative updates** as your needs evolve
+- **Private deliverables** that remain confidential to your organization (unlike the free service, where all solutions are published)
+- **Training** for your team to maintain and extend the solution
+
+One thing I hope to build into paid engagements: where clients are willing, the generalizable portions of the work (anonymized, with no organization-specific details) would be published to the public library so that others facing similar problems can benefit. This is entirely at the client's discretion, but it is how the free and paid sides of this initiative can reinforce each other and grow the shared resource over time.
+
+For those interested in getting started with automation, Intersect Collaborations also offers a training course: **"Automating Public Health Analytics with R, Quarto, and Windows Tools."** The course is designed to help public health professionals automate basic tasks and build the background, skills, and familiarity with tools needed to get the most out of the solutions the clinic provides. It is not a prerequisite for submitting to or using the clinic, but it can help participants hit the ground running when applying solutions to their own workflows.
+
+To inquire about paid services or training, contact André van Zyl directly through the [Intersect Collaborations website](https://www.intersectcollaborations.com/contact) or [LinkedIn](https://www.linkedin.com/company/intersect-collaborations-llc).
+
+## The Automation Mindset
+
+Submitting a problem to the clinic is valuable even if the solution is simple. The act of describing a manual process in structured terms is itself the first step toward optimization. The optimization hierarchy applies here:
+
+1. **Can the task be eliminated?** Sometimes the answer is yes, and the submission process reveals it.
+2. **Can it be automated?** Most submissions fall here: a script, a tool, a macro.
+3. **Can it be standardized?** Even if full automation is not feasible, documenting the process reduces variability and training time.
+
+### Building a Community of Practice
+
+The long-term vision for the Automation Clinic extends beyond individual problem-solving. Each submission and solution contributes to:
+
+- **A pattern library** of common public health automation needs
+- **Reusable code templates** that can be adapted across jurisdictions
+- **Workforce development** by demonstrating what is possible with accessible tools
+- **A feedback loop** that identifies the most impactful areas for tool development
+
+Public health professionals who have solved their own automation challenges are encouraged to share those solutions as well. The clinic is not a one-way service; it is a community resource.
+
+While this is currently a one-person effort, the plan is to make the solution library available as a public GitHub repository. This will allow others to contribute their own solutions, submit improvements to existing ones, and help build the library beyond what any single person could produce. The goal is for the repository to become a shared, community-maintained resource for public health automation.
+
+## CancerSurv Example
+
+::: {.callout-note title="CancerSurv Example"}
+In the CancerSurv project, registrars identified several tasks ripe for the Automation Clinic model:
+
+- **File renaming**: Lab report PDFs arrived with system-generated filenames (e.g., `RPT_20260115_0847_A3F2.pdf`). Registrars manually renamed each file to follow the convention `[PatientID]_[FacilityCode]_[ReportDate].pdf`. An R script using string parsing and file system operations eliminated this entirely.
+- **Data quality checks**: Fifteen edit rules (e.g., "diagnosis date must precede treatment date," "age at diagnosis must be between 0 and 120") were checked manually in Excel. A Python script with `pandas` automated all checks and generated an exception report in under two seconds.
+- **Quarterly report assembly**: Data from three source workbooks was manually copied into a summary template. An R Markdown script automated the extraction, transformation, and report generation, reducing a full-day task to a five-minute execution.
+- **Project status reporting**: The registry director tracked milestones in GanttProject. An R script parsed the GanttProject XML export, calculated completion rates by program area, and generated a formatted Quarto report for the monthly steering committee, replacing a half-day of manual slide preparation.
+
+Each of these solutions required less than a day to develop and saved the registry team dozens of hours per quarter.
+:::
+
+## Submit Your Problem
+
+Ready to reclaim your time? Complete the intake form:
+
+::: {.callout-tip title="Submit to the Public Health Automation Clinic"}
+**[Complete the Intake Form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**
+
+Submissions are anonymous by default. Provide your contact information only if you would like follow-up on your specific problem.
+:::
+
+If your need is urgent or involves complex systems integration, [contact Intersect Collaborations](https://www.intersectcollaborations.com/contact) for paid consulting services.

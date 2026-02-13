@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Public Health Automation Clinic"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: chapters/13-automation-intake.qmd
+        text: Automation Clinic
+      - href: communications/google-forms-automation-clinic-blueprint.md
+        text: Form Blueprint
+      - href: communications/linkedin-automation-clinic-launch-post.md
+        text: Launch Post
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+
+execute:
+  freeze: auto
