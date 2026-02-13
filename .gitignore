@@ -8,3 +8,6 @@ Thumbs.db
 
 /.quarto/
 **/*.quarto_ipynb
+
+communications/
+publish.bat

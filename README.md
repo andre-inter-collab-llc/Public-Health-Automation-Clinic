@@ -5,8 +5,6 @@ Public Health Automation Clinic is an open-source initiative to help public heal
 ## What this repository contains
 
 - A standalone chapter: `chapters/13-automation-intake.qmd`
-- Intake form implementation blueprint: `communications/google-forms-automation-clinic-blueprint.md`
-- Launch and engagement messaging: `communications/linkedin-automation-clinic-launch-post.md`
 
 ## Core idea
 
@@ -26,25 +24,6 @@ quarto preview
 
 ```bash
 quarto render
-```
-
-## Publish
-
-This repository includes a GitHub Actions workflow for publishing to GitHub Pages from `main`.
-
-For a one-command local workflow on Windows (backup, render, publish):
-
-```bat
-publish.bat
-```
-
-Useful options:
-
-```bat
-publish.bat --render-only
-publish.bat --skip-backup
-publish.bat --backup-only
-publish.bat --dest "G:\My Drive\Intersect_Collaborations_LLC\04_projects\Public-Health-Automation-Clinic"
 ```
 
 ## Contributing
