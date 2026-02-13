@@ -1,0 +1,33 @@
+---
+title: "Tool Recommendations"
+---
+
+# Tool Recommendations
+
+This appendix provides a comparison of commercial and open source tools relevant to public health automation, organized by category. The clinic prioritizes free and open source options, but commercial alternatives are noted where they are commonly encountered in public health settings.
+
+## Tool Comparison
+
+| Category | Commercial / Enterprise | Open Source / Public Health | Notes |
+|:---------|:-----------------------|:---------------------------|:------|
+| **Data Analysis** | SAS, SPSS, Stata | R (tidyverse), Python (pandas), [Epi Info](https://www.cdc.gov/epiinfo/) | R and Python are the core clinic tools |
+| **Reporting** | | [Quarto](https://quarto.org/), R Markdown | Reproducible documents and reports |
+| **Interactive Tools** | Tableau, Power BI | [R Shiny](https://shiny.posit.co/), Plotly | Code provided; hosting not included |
+| **IDE** | | [RStudio](https://posit.co/products/open-source/rstudio/), [VS Code](https://code.visualstudio.com/) | Free, full-featured environments |
+| **Visualization** | Tableau | [ggplot2](https://ggplot2.tidyverse.org/), Plotly, [QGIS](https://qgis.org/) | QGIS for spatial epidemiology |
+| **Data Collection** | Qualtrics, Microsoft Forms | [REDCap](https://www.project-redcap.org/), [KoBoToolbox](https://www.kobotoolbox.org/) | REDCap is HIPAA-compliant |
+| **Project Management** | Jira, MS Project | [GanttProject](https://www.ganttproject.biz/), [OpenProject](https://www.openproject.org/) | Free desktop tools |
+| **GIS / Mapping** | ArcGIS, Mapbox | QGIS, [Leaflet](https://leafletjs.com/), R (sf package) | QGIS widely used for disease mapping |
+| **Version Control** | Azure Repos | [Git](https://git-scm.com/), [GitHub](https://github.com/) | For solution sharing and collaboration |
+
+## When to Recommend Which Tool
+
+- **REDCap** over commercial survey tools: For research studies requiring compliance (HIPAA, 21 CFR Part 11)
+- **Epi Info** over Excel: For rapid outbreak investigation with built-in epidemiological statistics
+- **QGIS** over ArcGIS: When budget is constrained but spatial analysis is critical
+- **R/Python** over SAS: When licensing costs are prohibitive and the team can invest in learning open tools
+- **GanttProject** over MS Project: For lightweight project tracking without enterprise licensing
+
+::: {.callout-note title="Placeholder"}
+This appendix will be expanded with setup guides, configuration tips, and integration patterns as the solutions library grows.
+:::

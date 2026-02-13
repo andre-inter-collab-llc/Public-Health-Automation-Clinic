@@ -1,0 +1,46 @@
+---
+title: "Automation and Public Health Education"
+---
+
+# Automation and Public Health Education
+
+This chapter addresses a structural gap: the way public health professionals are trained to use programming tools, and the opportunities being missed as a result.
+
+## The Curriculum Gap
+
+Most MPH programs treat scripting as an epidemiology tool. Students learn to clean data, run models, and generate output, typically in SAS, R, or increasingly Python. The result is a workforce that can run a logistic regression but still manually renames 200 files by hand.
+
+What is often overlooked is that R and Python are incredibly powerful general-purpose programming languages capable of far more than data cleaning and statistical analysis. They can rename thousands of files, parse XML exports, generate formatted reports, interact with APIs, automate email workflows, and orchestrate entire data pipelines. These capabilities are standard knowledge in software engineering and IT business analysis, but they are almost entirely absent from public health training.
+
+## R and Python as General-Purpose Tools
+
+The public health workforce has access to two of the most versatile programming languages in existence, yet uses them for a narrow slice of what they can do. Consider the gap:
+
+| What MPH programs teach | What R and Python can also do |
+|:------------------------|:-----------------------------|
+| Data import and cleaning | Batch file operations (rename, move, convert) |
+| Statistical modeling | API integration (Google Sheets, REDCap, CDC portals) |
+| Visualization (ggplot2, matplotlib) | Automated report generation (Quarto, R Markdown) |
+| Epidemiological analysis | Web scraping of public health data |
+| | Project management reporting from tool exports |
+| | Email and notification automation |
+| | Interactive dashboards (Shiny) |
+
+## Business Process Automation: The Missing Module
+
+Business process automation, desktop automation, and workflow design are core competencies in IT business analysis but almost entirely absent from public health training. This is precisely the gap that [Bridgeframe](https://andre-inter-collab-llc.github.io/Bridgeframe-Toolkit/) tries to address: translating tools and thinking between the IT and public health worlds.
+
+A single module in an MPH program on "automating the work around the work" could transform how graduates approach their first positions. Instead of accepting manual reporting processes as inevitable, they would arrive with the mindset and skills to ask: can this be scripted?
+
+## What Schools of Public Health Could Do
+
+Even modest curriculum changes could have significant impact:
+
+- **Add a module on desktop automation** to existing R or Python courses, covering file operations, batch processing, and task scheduling
+- **Include API integration** as a practical skill alongside data analysis, since public health data increasingly lives in web-accessible systems
+- **Teach report automation** with Quarto or R Markdown as a standard output format, not just a research tool
+- **Frame scripting as problem-solving**, not just analysis, so students recognize automation opportunities beyond the analytical pipeline
+
+::: {.callout-note title="Placeholder"}
+This chapter will be expanded with specific curriculum recommendations, examples from programs that are already incorporating automation skills, and resources for instructors interested in adding automation content to existing courses.
+:::

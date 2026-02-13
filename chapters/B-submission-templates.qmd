@@ -1,0 +1,53 @@
+---
+title: "Submission Templates and Examples"
+---
+
+# Submission Templates and Examples
+
+This appendix provides detailed templates and worked examples for the three submission formats accepted by the Automation Clinic. Use whichever format feels most natural; the goal is to clearly communicate the problem, not to follow a rigid structure.
+
+## User Story Format
+
+**Template**: As a [role], I want [action], so that [outcome].
+
+### Worked Examples
+
+> "As an epidemiologist, I want to automatically extract patient demographics from 200 monthly PDF lab reports into a single spreadsheet, so that I can eliminate 8 hours of manual data entry and transcription errors."
+
+> "As a data analyst, I want to geocode 5,000 addresses using free tools without ArcGIS, so that I can produce maps for a community health assessment on a limited budget."
+
+> "As a program manager, I want to generate a weekly summary of task completion rates from our project tracking spreadsheet, so that I can report progress to the steering committee without manually compiling data from multiple tabs."
+
+## GPS Format (Given-Person-Should)
+
+**Template**: Given [context], the [role] should [action] to [outcome].
+
+### Worked Examples
+
+> "Given a surveillance system export that produces cryptic filenames (e.g., `RPT_20260115_0847_A3F2.pdf`), the registrar should be able to batch-rename all files to the convention `[PatientID]_[FacilityCode]_[ReportDate].pdf`, to enable rapid file retrieval and consistent record-keeping."
+
+> "Given a monthly data extract from the state vital records system in fixed-width text format, the analyst should be able to automatically convert and load the data into a standardized CSV with proper column headers, to eliminate manual reformatting before analysis."
+
+## Situational Protocol Format
+
+**Template**: When [trigger], the [process/system] shall [action] within [constraint].
+
+### Worked Examples
+
+> "When the quarterly reporting cycle begins, the analyst's workflow shall merge incidence data from three Excel workbooks into a summary template automatically, because the structure is identical every quarter and the current manual copy-paste process takes a full day."
+
+> "When a new registry extract is received, the data quality process shall check all 15 edit rules (e.g., diagnosis date precedes treatment date, age between 0 and 120) and generate an exception report, because these rules never change and manual checking is error-prone."
+
+## Tips for Any Format
+
+Regardless of format, the most useful submissions clearly describe:
+
+- **Context**: What triggers the task? What system or data source is involved?
+- **Role**: Who performs this task? What is their expertise level?
+- **Current process**: What steps do you follow today? How long does it take?
+- **Desired outcome**: What should the result look like? What format, structure, or output do you need?
+- **Volume and frequency**: How many records, files, or items? How often?
+
+::: {.callout-note title="Placeholder"}
+This appendix will be expanded with additional examples drawn from actual clinic submissions (anonymized) as the solutions library grows.
+:::

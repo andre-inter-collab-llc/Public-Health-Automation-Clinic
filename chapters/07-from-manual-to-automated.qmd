@@ -1,0 +1,50 @@
+---
+title: "From Manual to Automated"
+---
+
+# From Manual to Automated
+
+This chapter covers the practical thinking behind automation: how to evaluate your own workflows, where to start, and how to navigate the organizational realities of changing how work gets done.
+
+## The Optimization Hierarchy
+
+Before writing a single line of code, ask three questions in order:
+
+1. **Can the task be eliminated?** Sometimes a process exists because it always has, not because it still serves a purpose. The most efficient automation is realizing you do not need the task at all.
+2. **Can it be automated?** If the task has clear inputs, defined steps, and predictable outputs, a script or tool can likely handle it. This is where most automation wins are found.
+3. **Can it be standardized?** Even if full automation is not feasible, documenting the process with clear steps, naming conventions, and templates reduces variability and training time.
+
+## Where to Start
+
+The best first automation project is one that:
+
+- You perform frequently (weekly or more)
+- Follows the same steps every time
+- Involves files, spreadsheets, or data you can access on your own machine
+- Would take less than a day to automate (even if it saves only 30 minutes per cycle)
+
+Desktop automation tasks (file renaming, folder organization, format conversion) are ideal first projects because they are self-contained, low-risk, and produce immediate, visible results.
+
+## Automation and Workforce Identity
+
+A concern that deserves honest acknowledgment: in many public health organizations, some people's entire job descriptions are built around the manual processes that automation would replace. That is a real and uncomfortable tension.
+
+Automating a task is straightforward. Rethinking someone's role so they can contribute at a higher level is a much harder organizational problem, one that requires leadership willing to invest in retraining and redesigning positions rather than simply eliminating them.
+
+The vision behind this initiative is not fewer people. It is the same people doing more meaningful work: interpreting data instead of copying it, investigating outbreaks instead of renaming files, designing surveillance strategies instead of reformatting spreadsheets. But that only happens if organizations commit to the transition, not just the tool.
+
+::: {.callout-tip title="Framing Automation for Your Team"}
+When introducing automation to colleagues or leadership, frame it in terms of **time recovered**, not tasks eliminated. "This script saves 8 hours per month that can be redirected to case investigation" is more effective than "This script replaces what someone currently does."
+:::
+
+## Getting Started with Scripting
+
+If you have never written a script before, the barrier feels higher than it actually is. A few practical starting points:
+
+- **R with RStudio**: The [Posit](https://posit.co/) ecosystem provides a free, integrated environment. Start with the `fs` package for file operations and `readxl`/`writexl` for spreadsheet automation.
+- **Python**: The standard library's `os`, `shutil`, and `pathlib` modules handle file operations. `pandas` covers spreadsheet work. Install [Anaconda](https://www.anaconda.com/) for a batteries-included setup.
+- **Start small**: Automate one task you do every week. Prove the value to yourself before expanding.
+
+::: {.callout-note title="Placeholder"}
+This chapter will be expanded with worked examples, decision frameworks, and practical guidance as the solutions library grows.
+:::

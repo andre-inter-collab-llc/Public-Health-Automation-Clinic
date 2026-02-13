@@ -1,0 +1,25 @@
+---
+title: "Data Cleaning and Transformation"
+---
+
+# Data Cleaning and Transformation
+
+Standardizing messy datasets, deduplication, edit rule validation, and exception reporting. These solutions turn raw data into analysis-ready inputs.
+
+::: {.callout-note title="Solutions Coming Soon"}
+This part of the book will be populated as solutions are developed through the [Automation Clinic intake process](01-automation-intake.qmd). Each solution will be published as a subchapter below.
+
+Have a data cleaning or transformation problem? **[Submit it to the clinic](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**.
+:::
+
+## What Belongs Here
+
+Solutions in this part address tasks involving data preparation and quality:
+
+- **Data standardization** to normalize inconsistent formats, codes, or naming conventions across sources
+- **Deduplication** using deterministic or probabilistic matching to identify and resolve duplicate records
+- **Edit rule validation** to automatically check data against defined business rules (e.g., diagnosis date precedes treatment date, age within valid range)
+- **Exception reporting** to flag records that fail validation checks and generate actionable reports
+- **Data reshaping** to pivot, merge, split, or restructure datasets for downstream analysis
+- **Missing data handling** with standardized imputation or flagging strategies
+- **Geocoding and address standardization** using free tools to prepare location data for mapping
