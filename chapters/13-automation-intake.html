@@ -100,14 +100,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="../chapters/13-automation-intake.html" aria-current="page"> 
 <span class="menu-text">Automation Clinic</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../communications/google-forms-automation-clinic-blueprint.html"> 
-<span class="menu-text">Form Blueprint</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../communications/linkedin-automation-clinic-launch-post.html"> 
-<span class="menu-text">Launch Post</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -577,7 +569,7 @@ Figure&nbsp;1: Public Health Automation Clinic Workflow
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/andre-inter-collab-llc\.github\.io\/Public-Health-Automation-Clinic\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

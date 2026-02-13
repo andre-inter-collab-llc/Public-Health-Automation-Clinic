@@ -97,14 +97,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./chapters/13-automation-intake.html"> 
 <span class="menu-text">Automation Clinic</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./communications/google-forms-automation-clinic-blueprint.html"> 
-<span class="menu-text">Form Blueprint</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./communications/linkedin-automation-clinic-launch-post.html"> 
-<span class="menu-text">Launch Post</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -158,16 +150,12 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1.1" class="anchored" data-anchor-id="included-resources"><span class="header-section-number">1.1</span> Included resources</h2>
 <ul>
 <li><a href="./chapters/13-automation-intake.html">Automation Clinic chapter</a></li>
-<li><a href="./communications/google-forms-automation-clinic-blueprint.html">Google Forms intake blueprint</a></li>
-<li><a href="./communications/linkedin-automation-clinic-launch-post.html">LinkedIn launch post</a></li>
 </ul>
 </section>
 <section id="quick-start" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="quick-start"><span class="header-section-number">1.2</span> Quick start</h2>
 <ul>
 <li>Read the clinic model and scope in the Automation Clinic chapter.</li>
-<li>Build the intake form from the blueprint.</li>
-<li>Use the launch post to announce the initiative.</li>
 </ul>
 
 
@@ -248,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/andre-inter-collab-llc\.github\.io\/Public-Health-Automation-Clinic\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
