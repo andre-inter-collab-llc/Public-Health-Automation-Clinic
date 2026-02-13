@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="André van Zyl">
 
 <title>Public Health Automation Clinic</title>
 <style>
@@ -20,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,6 +66,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./chapters/01-automation-intake.html" rel="next">
+<link href="./assets/branding/icons/intesect icon v1.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -37,16 +75,20 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-391dc9eaa9d5ee7385b50e8209b8eefe.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-afa37c5c79185640b9c231024f4fe5ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-918fc90af0c5bd24b3d86d0be3ea439e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-14b0813053c1f8e69c6a55b2d51ea82e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-918fc90af0c5bd24b3d86d0be3ea439e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -68,96 +110,470 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background-image: url(assets/branding/images/cover-image.jpg);
+background-size: cover;
+      }
+</style>
 
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Public Health Automation Clinic</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./chapters/13-automation-intake.html"> 
-<span class="menu-text">Automation Clinic</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Public Health Automation Clinic</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Public Health Automation Clinic</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+            <p class="subtitle lead">Reclaiming Time for the Work That Matters</p>
+                      </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://www.linkedin.com/in/andre-van-zyl/">André van Zyl</a> <a href="https://orcid.org/0000-0001-6872-5276" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              <a href="https://www.intersectcollaborations.com/">
+              Intersect Collaborations LLC
+              </a>
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/branding/logos/intesect_logo_v1.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./assets/branding/logos/intesect_logo_v1.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Public Health Automation Clinic</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Public Health Automation Clinic</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Clinic</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/01-automation-intake.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Automation Clinic</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Desktop Automation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/02-desktop-automation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Desktop Automation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Access and Integration</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/03-data-access-integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Access and Integration</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Cleaning and Transformation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/04-data-cleaning-transformation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Cleaning and Transformation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Analysis and Reporting</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/05-data-analysis-reporting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Analysis and Reporting</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Business Process Automation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/06-business-process-automation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Business Process Automation</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Automation Mindset</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/07-from-manual-to-automated.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">From Manual to Automated</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/08-community-of-practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Building a Community of Practice</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/09-automation-education.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Automation and Public Health Education</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/A-tool-recommendations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tool Recommendations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/B-submission-templates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Submission Templates and Examples</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/D-development-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Development Tools and AI Transparency</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/C-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#public-health-automation-clinic" id="toc-public-health-automation-clinic" class="nav-link active" data-scroll-target="#public-health-automation-clinic"><span class="header-section-number">1</span> Public Health Automation Clinic</a>
-  <ul class="collapse">
-  <li><a href="#included-resources" id="toc-included-resources" class="nav-link" data-scroll-target="#included-resources"><span class="header-section-number">1.1</span> Included resources</a></li>
-  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start"><span class="header-section-number">1.2</span> Quick start</a></li>
+  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
+  <ul>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link" data-scroll-target="#the-challenge"><span class="header-section-number">0.1</span> The Challenge</a></li>
+  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution"><span class="header-section-number">0.2</span> The Solution</a></li>
+  <li><a href="#who-this-is-for" id="toc-who-this-is-for" class="nav-link" data-scroll-target="#who-this-is-for"><span class="header-section-number">0.3</span> Who This Is For</a></li>
+  <li><a href="#how-to-use-this-book" id="toc-how-to-use-this-book" class="nav-link" data-scroll-target="#how-to-use-this-book"><span class="header-section-number">0.4</span> How to Use This Book</a>
+  <ul>
+  <li><a href="#part-i-the-clinic" id="toc-part-i-the-clinic" class="nav-link" data-scroll-target="#part-i-the-clinic"><span class="header-section-number">0.4.1</span> Part I: The Clinic</a></li>
+  <li><a href="#part-ii-desktop-automation" id="toc-part-ii-desktop-automation" class="nav-link" data-scroll-target="#part-ii-desktop-automation"><span class="header-section-number">0.4.2</span> Part II: Desktop Automation</a></li>
+  <li><a href="#part-iii-data-access-and-integration" id="toc-part-iii-data-access-and-integration" class="nav-link" data-scroll-target="#part-iii-data-access-and-integration"><span class="header-section-number">0.4.3</span> Part III: Data Access and Integration</a></li>
+  <li><a href="#part-iv-data-cleaning-and-transformation" id="toc-part-iv-data-cleaning-and-transformation" class="nav-link" data-scroll-target="#part-iv-data-cleaning-and-transformation"><span class="header-section-number">0.4.4</span> Part IV: Data Cleaning and Transformation</a></li>
+  <li><a href="#part-v-data-analysis-and-reporting" id="toc-part-v-data-analysis-and-reporting" class="nav-link" data-scroll-target="#part-v-data-analysis-and-reporting"><span class="header-section-number">0.4.5</span> Part V: Data Analysis and Reporting</a></li>
+  <li><a href="#part-vi-business-process-automation" id="toc-part-vi-business-process-automation" class="nav-link" data-scroll-target="#part-vi-business-process-automation"><span class="header-section-number">0.4.6</span> Part VI: Business Process Automation</a></li>
+  <li><a href="#part-vii-the-automation-mindset" id="toc-part-vii-the-automation-mindset" class="nav-link" data-scroll-target="#part-vii-the-automation-mindset"><span class="header-section-number">0.4.7</span> Part VII: The Automation Mindset</a></li>
+  <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices"><span class="header-section-number">0.4.8</span> Appendices</a></li>
+  </ul></li>
+  <li><a href="#local-first-philosophy" id="toc-local-first-philosophy" class="nav-link" data-scroll-target="#local-first-philosophy"><span class="header-section-number">0.5</span> Local-First Philosophy</a></li>
+  <li><a href="#building-a-community-of-practice" id="toc-building-a-community-of-practice" class="nav-link" data-scroll-target="#building-a-community-of-practice"><span class="header-section-number">0.6</span> Building a Community of Practice</a></li>
+  <li><a href="#about-the-author" id="toc-about-the-author" class="nav-link" data-scroll-target="#about-the-author"><span class="header-section-number">0.7</span> About the Author</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Public Health Automation Clinic</h1>
+
+
+
+
+
+<section id="welcome" class="level1 unnumbered">
+<h1 class="unnumbered">Welcome</h1><p><img src="assets/branding/images/cover-image.jpg" title="Public Health Automation Clinic" class="quarto-cover-image nolightbox img-fluid"></p>
+<p><strong>The Public Health Automation Clinic</strong> is a free, community-driven initiative that helps public health professionals automate the repetitive, manual work that consumes their days. Whether you are an epidemiologist renaming hundreds of files by hand, a registrar copy-pasting data between incompatible systems, or an analyst reformatting the same spreadsheet every reporting cycle, this resource is for you.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="About This Resource">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="public-health-automation-clinic" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Public Health Automation Clinic</h1>
-<p>This site hosts the public materials for the Public Health Automation Clinic.</p>
-<section id="included-resources" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="included-resources"><span class="header-section-number">1.1</span> Included resources</h2>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>About This Resource
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Public Health Automation Clinic is a work in progress. The examples and solutions throughout are designed to be anonymized and generalizable so that anyone facing a similar problem can benefit, regardless of their specific team, agency, or jurisdiction.</p>
+<p>Feedback and submissions are welcome as this resource continues to evolve. See <a href="./chapters/01-automation-intake.html">Chapter 1: The Automation Clinic</a> for how to submit your own problem.</p>
+</div>
+</div>
+<section id="the-challenge" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="the-challenge"><span class="header-section-number">0.1</span> The Challenge</h2>
+<p>Public health professionals are drowning in tasks that machines should handle. Every hour spent on a task a script could handle in seconds is an hour not spent on disease surveillance, community outreach, or data interpretation.</p>
+<p>The barrier is rarely the solution itself. It is knowing that the solution exists, and having someone with the right skills translate the problem into code. That is what the Public Health Automation Clinic aims to address.</p>
+<p>The guiding principle is simple: <strong>if you are doing the same thing twice, find a way to make the computer do it.</strong></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Automation in Context">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Automation in Context
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Automation is the <strong>medium-term fix</strong> for public health professionals stuck in inefficient systems. Scripts, pipelines, and APIs can eliminate mechanical tasks and free people to think. But the long-term answer requires thinking in terms of architecture: interoperability standards like <a href="https://www.hl7.org/">HL7</a> and <a href="https://www.hl7.org/fhir/">FHIR</a>, governance reform, and incorporating these skills into how we prepare public health professionals for the workplace.</p>
+<p>This book focuses on the practical, immediate wins. The broader vision of systems architecture, interoperability, and workforce education is explored in the companion resource, <a href="https://andre-inter-collab-llc.github.io/Bridgeframe-Toolkit/">Bridgeframe</a>.</p>
+</div>
+</div>
+</section>
+<section id="the-solution" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="the-solution"><span class="header-section-number">0.2</span> The Solution</h2>
+<p>The Public Health Automation Clinic provides:</p>
 <ul>
-<li><a href="./chapters/13-automation-intake.html">Automation Clinic chapter</a></li>
+<li><strong>Practical automation solutions</strong> built with R, Python, and the <a href="https://posit.co/">Posit</a> ecosystem (RStudio, Quarto, Shiny)</li>
+<li><strong>A free intake process</strong> where you describe a manual problem and receive a working, documented solution</li>
+<li><strong>A growing solutions library</strong> organized by the flow of data, from desktop operations to analysis and reporting</li>
+<li><strong>Local-first tools</strong> that run on your computer, with no cloud AI services or commercial software required</li>
+<li><strong>Anonymized, published solutions</strong> so the entire public health workforce benefits from each submission</li>
 </ul>
 </section>
-<section id="quick-start" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="quick-start"><span class="header-section-number">1.2</span> Quick start</h2>
+<section id="who-this-is-for" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="who-this-is-for"><span class="header-section-number">0.3</span> Who This Is For</h2>
 <ul>
-<li>Read the clinic model and scope in the Automation Clinic chapter.</li>
+<li><strong>Epidemiologists, registrars, and data managers</strong> who perform repetitive data tasks that could be scripted</li>
+<li><strong>IT business analysts</strong> working in public health who need to demonstrate the value of automation to program teams</li>
+<li><strong>Project managers</strong> overseeing health IT implementations who want to streamline reporting and project tracking</li>
+<li><strong>Data scientists and informaticians</strong> working with epidemiological systems who want reusable, shareable code</li>
+<li><strong>Students</strong> in health informatics or public health programs looking for practical examples of applied automation</li>
 </ul>
+</section>
+<section id="how-to-use-this-book" class="level2" data-number="0.4">
+<h2 data-number="0.4" class="anchored" data-anchor-id="how-to-use-this-book"><span class="header-section-number">0.4</span> How to Use This Book</h2>
+<p>This book is organized into three parts, with appendices, to take you from understanding the problem to submitting your own automation challenge and eventually contributing back to the community.</p>
+<section id="part-i-the-clinic" class="level3" data-number="0.4.1">
+<h3 data-number="0.4.1" class="anchored" data-anchor-id="part-i-the-clinic"><span class="header-section-number">0.4.1</span> Part I: The Clinic</h3>
+<ol type="1">
+<li><strong><a href="./chapters/01-automation-intake.html">The Automation Clinic</a></strong> — Why automation matters for public health. Focus areas and the local-first philosophy. The free intake model: how to submit, what qualifies, submission formats and examples, what to expect. Paid services for urgent or evolving needs.</li>
+</ol>
+</section>
+<section id="part-ii-desktop-automation" class="level3" data-number="0.4.2">
+<h3 data-number="0.4.2" class="anchored" data-anchor-id="part-ii-desktop-automation"><span class="header-section-number">0.4.2</span> Part II: Desktop Automation</h3>
+<p>File renaming, format conversion, directory organization, batch operations on local files. The starting point for most automation journeys.</p>
+<ul>
+<li>Placeholder subchapters will be added as solutions are developed.</li>
+</ul>
+</section>
+<section id="part-iii-data-access-and-integration" class="level3" data-number="0.4.3">
+<h3 data-number="0.4.3" class="anchored" data-anchor-id="part-iii-data-access-and-integration"><span class="header-section-number">0.4.3</span> Part III: Data Access and Integration</h3>
+<p>Connecting to databases, working with APIs (<a href="https://developers.google.com/sheets/api">Google Sheets</a>, <a href="https://www.project-redcap.org/">REDCap</a>, CDC data portals), importing and exporting data, transferring files between systems.</p>
+<ul>
+<li>Placeholder subchapters will be added as solutions are developed.</li>
+</ul>
+</section>
+<section id="part-iv-data-cleaning-and-transformation" class="level3" data-number="0.4.4">
+<h3 data-number="0.4.4" class="anchored" data-anchor-id="part-iv-data-cleaning-and-transformation"><span class="header-section-number">0.4.4</span> Part IV: Data Cleaning and Transformation</h3>
+<p>Standardizing messy datasets, deduplication, edit rule validation, exception reporting. Turning raw data into analysis-ready inputs.</p>
+<ul>
+<li>Placeholder subchapters will be added as solutions are developed.</li>
+</ul>
+</section>
+<section id="part-v-data-analysis-and-reporting" class="level3" data-number="0.4.5">
+<h3 data-number="0.4.5" class="anchored" data-anchor-id="part-v-data-analysis-and-reporting"><span class="header-section-number">0.4.5</span> Part V: Data Analysis and Reporting</h3>
+<p>Recurring surveillance analyses, reproducible reports with <a href="https://quarto.org/">Quarto</a> and R Markdown, interactive dashboards with <a href="https://shiny.posit.co/">Shiny</a>, automated chart and table generation.</p>
+<ul>
+<li>Placeholder subchapters will be added as solutions are developed.</li>
+</ul>
+</section>
+<section id="part-vi-business-process-automation" class="level3" data-number="0.4.6">
+<h3 data-number="0.4.6" class="anchored" data-anchor-id="part-vi-business-process-automation"><span class="header-section-number">0.4.6</span> Part VI: Business Process Automation</h3>
+<p>Project status reports, grant milestone tracking, workload distribution, cross-agency data exchange. Automating the work around the analytical work.</p>
+<ul>
+<li>Placeholder subchapters will be added as solutions are developed.</li>
+</ul>
+</section>
+<section id="part-vii-the-automation-mindset" class="level3" data-number="0.4.7">
+<h3 data-number="0.4.7" class="anchored" data-anchor-id="part-vii-the-automation-mindset"><span class="header-section-number">0.4.7</span> Part VII: The Automation Mindset</h3>
+<ol start="7" type="1">
+<li><strong>From Manual to Automated</strong> — The optimization hierarchy (eliminate, automate, standardize). How to think about your own workflows. Getting started with scripting.</li>
+<li><strong>Building a Community of Practice</strong> — Contributing solutions. The pattern library vision. Workforce development. Public GitHub repository plans.</li>
+<li><strong>Automation and Public Health Education</strong> — Gaps in MPH curricula. R and Python as general-purpose tools beyond statistics. The case for teaching “automating the work around the work.”</li>
+</ol>
+</section>
+<section id="appendices" class="level3" data-number="0.4.8">
+<h3 data-number="0.4.8" class="anchored" data-anchor-id="appendices"><span class="header-section-number">0.4.8</span> Appendices</h3>
+<ul>
+<li><strong>A: Tool Recommendations</strong> — Commercial vs Open Source/Public Health tools comparison.</li>
+<li><strong>B: Submission Templates and Examples</strong> — Detailed templates for User Story, GPS, and Situational Protocol formats.</li>
+<li><strong>D: <a href="./chapters/D-development-tools.html">Development Tools and AI Transparency</a></strong> — How this book is built, the role of AI in development, and the commitment to local-first, AI-independent solutions.</li>
+<li><strong>C: Glossary</strong> — Key terms for automation, public health data, and the tools ecosystem.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Book Status">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Book Status
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This book is a work in progress. The current published content covers <a href="./chapters/01-automation-intake.html">Chapter 1: The Automation Clinic</a>, which contains the complete clinic model, intake process, and submission guidance. Additional chapters will be developed as the solutions library grows and community submissions shape priorities.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Getting Started">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Getting Started
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have a repetitive task you want automated, start with <a href="./chapters/01-automation-intake.html">Chapter 1</a> and then <strong><a href="https://forms.gle/cmE2un2njSVPid8C9" target="_blank">submit the intake form</a></strong>. If you want to understand the philosophy and scope first, continue reading this preface.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="local-first-philosophy" class="level2" data-number="0.5">
+<h2 data-number="0.5" class="anchored" data-anchor-id="local-first-philosophy"><span class="header-section-number">0.5</span> Local-First Philosophy</h2>
+<p>The clinic prioritizes solutions that <strong>run on your computer or local server</strong>. A script you can execute on your own machine is more reliable, efficient, and sustainable than a workflow that depends on a cloud-based large language model.</p>
+<p>AI tools may be used in the <em>development</em> and <em>documentation</em> of solutions, but the solutions themselves will not require AI or LLM access to run. A well-written R or Python script that processes 50,000 records deterministically on your laptop will always be more dependable than sending that data to a remote API.</p>
+</section>
+<section id="building-a-community-of-practice" class="level2" data-number="0.6">
+<h2 data-number="0.6" class="anchored" data-anchor-id="building-a-community-of-practice"><span class="header-section-number">0.6</span> Building a Community of Practice</h2>
+<p>The long-term vision extends beyond individual problem-solving. Each submission and solution contributes to a pattern library of common public health automation needs, reusable code templates that can be adapted across jurisdictions, and a feedback loop that identifies the most impactful areas for tool development.</p>
+<p>The goal is for the solution library to become a shared, community-maintained public GitHub repository where public health professionals can contribute their own solutions, submit improvements, and help build beyond what any single person could produce.</p>
+</section>
+<section id="about-the-author" class="level2" data-number="0.7">
+<h2 data-number="0.7" class="anchored" data-anchor-id="about-the-author"><span class="header-section-number">0.7</span> About the Author</h2>
+<p><strong><a href="https://www.linkedin.com/in/andre-van-zyl/">André van Zyl, MPH</a></strong> is an epidemiologist and data science professional with close to two decades of experience spanning public health, health informatics, and technical system development. His career has taken him across local, state, federal, tribal, and international health systems, from helping establish global surveillance systems at the CDC to implementing health interventions in resource-constrained settings.</p>
+<p>His work has focused on surveillance modernization, data acquisition and reporting workflows, and practical automation using R, Python, Quarto, and related local-first tools. A consistent theme throughout his work has been technical translation: bridging communication gaps between public health teams and technical developers.</p>
+<p>He is the founder of <strong><a href="https://www.intersectcollaborations.com/">Intersect Collaborations LLC</a></strong>, a consultancy supporting public health organizations in improving data systems, analytics workflows, and operational decision-making for community health outcomes.</p>
 
+
+<!-- -->
 
 </section>
 </section>
@@ -234,9 +650,60 @@ ul.task-list li input[type="checkbox"] {
       });
       clipboardModal.on('success', onCopySuccess);
     }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/andre-inter-collab-llc\.github\.io\/Public-Health-Automation-Clinic\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -563,6 +1030,141 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapters/01-automation-intake.html" class="pagination-link" aria-label="The Automation Clinic">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Automation Clinic</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Public Health Automation Clinic"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Reclaiming Time for the Work That Matters"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Welcome {.unnumbered}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>**The Public Health Automation Clinic** is a free, community-driven initiative that helps public health professionals automate the repetitive, manual work that consumes their days. Whether you are an epidemiologist renaming hundreds of files by hand, a registrar copy-pasting data between incompatible systems, or an analyst reformatting the same spreadsheet every reporting cycle, this resource is for you.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="About This Resource"}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>The Public Health Automation Clinic is a work in progress. The examples and solutions throughout are designed to be anonymized and generalizable so that anyone facing a similar problem can benefit, regardless of their specific team, agency, or jurisdiction.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Feedback and submissions are welcome as this resource continues to evolve. See <span class="co">[</span><span class="ot">Chapter 1: The Automation Clinic</span><span class="co">](chapters/01-automation-intake.qmd)</span> for how to submit your own problem.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Challenge</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Public health professionals are drowning in tasks that machines should handle. Every hour spent on a task a script could handle in seconds is an hour not spent on disease surveillance, community outreach, or data interpretation.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>The barrier is rarely the solution itself. It is knowing that the solution exists, and having someone with the right skills translate the problem into code. That is what the Public Health Automation Clinic aims to address.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>The guiding principle is simple: **if you are doing the same thing twice, find a way to make the computer do it.**</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Automation in Context"}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Automation is the **medium-term fix** for public health professionals stuck in inefficient systems. Scripts, pipelines, and APIs can eliminate mechanical tasks and free people to think. But the long-term answer requires thinking in terms of architecture: interoperability standards like <span class="co">[</span><span class="ot">HL7</span><span class="co">](https://www.hl7.org/)</span> and <span class="co">[</span><span class="ot">FHIR</span><span class="co">](https://www.hl7.org/fhir/)</span>, governance reform, and incorporating these skills into how we prepare public health professionals for the workplace.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>This book focuses on the practical, immediate wins. The broader vision of systems architecture, interoperability, and workforce education is explored in the companion resource, <span class="co">[</span><span class="ot">Bridgeframe</span><span class="co">](https://andre-inter-collab-llc.github.io/Bridgeframe-Toolkit/)</span>.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## The Solution</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>The Public Health Automation Clinic provides:</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Practical automation solutions** built with R, Python, and the <span class="co">[</span><span class="ot">Posit</span><span class="co">](https://posit.co/)</span> ecosystem (RStudio, Quarto, Shiny)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A free intake process** where you describe a manual problem and receive a working, documented solution</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A growing solutions library** organized by the flow of data, from desktop operations to analysis and reporting</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Local-first tools** that run on your computer, with no cloud AI services or commercial software required</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Anonymized, published solutions** so the entire public health workforce benefits from each submission</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Who This Is For</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Epidemiologists, registrars, and data managers** who perform repetitive data tasks that could be scripted</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**IT business analysts** working in public health who need to demonstrate the value of automation to program teams</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Project managers** overseeing health IT implementations who want to streamline reporting and project tracking</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data scientists and informaticians** working with epidemiological systems who want reusable, shareable code</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Students** in health informatics or public health programs looking for practical examples of applied automation</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## How to Use This Book</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>This book is organized into three parts, with appendices, to take you from understanding the problem to submitting your own automation challenge and eventually contributing back to the community.</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part I: The Clinic</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**[The Automation Clinic](chapters/01-automation-intake.qmd)** — Why automation matters for public health. Focus areas and the local-first philosophy. The free intake model: how to submit, what qualifies, submission formats and examples, what to expect. Paid services for urgent or evolving needs.</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part II: Desktop Automation</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>File renaming, format conversion, directory organization, batch operations on local files. The starting point for most automation journeys.</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Placeholder subchapters will be added as solutions are developed.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part III: Data Access and Integration</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>Connecting to databases, working with APIs (<span class="co">[</span><span class="ot">Google Sheets</span><span class="co">](https://developers.google.com/sheets/api)</span>, <span class="co">[</span><span class="ot">REDCap</span><span class="co">](https://www.project-redcap.org/)</span>, CDC data portals), importing and exporting data, transferring files between systems.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Placeholder subchapters will be added as solutions are developed.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part IV: Data Cleaning and Transformation</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Standardizing messy datasets, deduplication, edit rule validation, exception reporting. Turning raw data into analysis-ready inputs.</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Placeholder subchapters will be added as solutions are developed.</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part V: Data Analysis and Reporting</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>Recurring surveillance analyses, reproducible reports with <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span> and R Markdown, interactive dashboards with <span class="co">[</span><span class="ot">Shiny</span><span class="co">](https://shiny.posit.co/)</span>, automated chart and table generation.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Placeholder subchapters will be added as solutions are developed.</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part VI: Business Process Automation</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>Project status reports, grant milestone tracking, workload distribution, cross-agency data exchange. Automating the work around the analytical work.</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Placeholder subchapters will be added as solutions are developed.</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part VII: The Automation Mindset</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>**From Manual to Automated** — The optimization hierarchy (eliminate, automate, standardize). How to think about your own workflows. Getting started with scripting.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>**Building a Community of Practice** — Contributing solutions. The pattern library vision. Workforce development. Public GitHub repository plans.</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>**Automation and Public Health Education** — Gaps in MPH curricula. R and Python as general-purpose tools beyond statistics. The case for teaching "automating the work around the work."</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### Appendices</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A: Tool Recommendations** — Commercial vs Open Source/Public Health tools comparison.</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**B: Submission Templates and Examples** — Detailed templates for User Story, GPS, and Situational Protocol formats.</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**D: [Development Tools and AI Transparency](chapters/D-development-tools.qmd)** — How this book is built, the role of AI in development, and the commitment to local-first, AI-independent solutions.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**C: Glossary** — Key terms for automation, public health data, and the tools ecosystem.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Book Status"}</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>This book is a work in progress. The current published content covers <span class="co">[</span><span class="ot">Chapter 1: The Automation Clinic</span><span class="co">](chapters/01-automation-intake.qmd)</span>, which contains the complete clinic model, intake process, and submission guidance. Additional chapters will be developed as the solutions library grows and community submissions shape priorities.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Getting Started"}</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>If you have a repetitive task you want automated, start with <span class="co">[</span><span class="ot">Chapter 1</span><span class="co">](chapters/01-automation-intake.qmd)</span> and then **[submit the intake form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**. If you want to understand the philosophy and scope first, continue reading this preface.</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local-First Philosophy</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>The clinic prioritizes solutions that **run on your computer or local server**. A script you can execute on your own machine is more reliable, efficient, and sustainable than a workflow that depends on a cloud-based large language model.</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>AI tools may be used in the *development* and *documentation* of solutions, but the solutions themselves will not require AI or LLM access to run. A well-written R or Python script that processes 50,000 records deterministically on your laptop will always be more dependable than sending that data to a remote API.</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Building a Community of Practice</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>The long-term vision extends beyond individual problem-solving. Each submission and solution contributes to a pattern library of common public health automation needs, reusable code templates that can be adapted across jurisdictions, and a feedback loop that identifies the most impactful areas for tool development.</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>The goal is for the solution library to become a shared, community-maintained public GitHub repository where public health professionals can contribute their own solutions, submit improvements, and help build beyond what any single person could produce.</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="fu">## About the Author</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>**[André van Zyl, MPH](https://www.linkedin.com/in/andre-van-zyl/)** is an epidemiologist and data science professional with close to two decades of experience spanning public health, health informatics, and technical system development. His career has taken him across local, state, federal, tribal, and international health systems, from helping establish global surveillance systems at the CDC to implementing health interventions in resource-constrained settings.</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>His work has focused on surveillance modernization, data acquisition and reporting workflows, and practical automation using R, Python, Quarto, and related local-first tools. A consistent theme throughout his work has been technical translation: bridging communication gaps between public health teams and technical developers.</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>He is the founder of **[Intersect Collaborations LLC](https://www.intersectcollaborations.com/)**, a consultancy supporting public health organizations in improving data systems, analytics workflows, and operational decision-making for community health outcomes.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
