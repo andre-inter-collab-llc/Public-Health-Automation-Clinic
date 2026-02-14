@@ -9,7 +9,7 @@ Project status reports, grant milestone tracking, workload distribution, and cro
 ::: {.callout-note title="Solutions Coming Soon"}
 This part of the book will be populated as solutions are developed through the [Automation Clinic intake process](01-automation-intake.qmd). Each solution will be published as a subchapter below.
 
-Have a business process automation problem? **[Submit it to the clinic](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**.
+Have a business process automation problem? **[Submit it to the clinic](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}** or **[open a GitHub Issue](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues){target="_blank"}**.
 :::
 
 ## What Belongs Here
