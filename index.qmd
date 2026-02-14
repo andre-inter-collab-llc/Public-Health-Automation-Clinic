@@ -101,7 +101,7 @@ This book is a work in progress. The current published content covers [Chapter 1
 :::
 
 ::: {.callout-tip title="Getting Started"}
-If you have a repetitive task you want automated, start with [Chapter 1](chapters/01-automation-intake.qmd) and then **[submit the intake form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**. If you want to understand the philosophy and scope first, continue reading this preface.
+If you have a repetitive task you want automated, start with [Chapter 1](chapters/01-automation-intake.qmd) and then **[submit the intake form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}** or **[open a GitHub Issue](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues){target="_blank"}**. If you want to understand the philosophy and scope first, continue reading this preface.
 :::
 
 ## Local-First Philosophy

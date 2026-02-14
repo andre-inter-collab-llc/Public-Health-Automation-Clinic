@@ -4,6 +4,9 @@
 
 **Public Health Automation Clinic** is an open-source, local-first initiative that helps public health professionals automate repetitive manual workflows. It is published as a Quarto Book to GitHub Pages.
 
+- **Public repository**: <https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic>
+- **Published book**: <https://andre-inter-collab-llc.github.io/Public-Health-Automation-Clinic/>
+
 The public repository packages:
 
 1. **Preface and book front matter** in `index.qmd`
@@ -246,6 +249,15 @@ This repository focuses on:
 - a growing library of published automation solutions
 
 This repository does not aim to host full software products, large proprietary data, or organization-specific implementation details.
+
+## Submission Channels
+
+The clinic accepts problem submissions through two channels. **Both should be referenced together** wherever submission links appear in the book content.
+
+1. **Google Form (anonymous by default)**: <https://forms.gle/cmE2un2njSVPid8C9>
+2. **GitHub Issues (public, not anonymous)**: <https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues>
+
+When adding or editing submission links, always present both options so readers can choose based on their privacy preference.
 
 ## Communications Guidance
 

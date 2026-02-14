@@ -124,9 +124,9 @@ flowchart TD
     H --> I[Publish to Library]
 ```
 
-**Step 1: Submit the Intake Form**
+**Step 1: Submit Your Problem**
 
-Complete the [Public Health Automation Clinic Intake Form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"} describing your problem. You can submit anonymously or provide contact information for follow-up. The more detail you provide, the faster and more accurately we can develop a solution.
+Complete the [Public Health Automation Clinic Intake Form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"} describing your problem (anonymous submissions welcome), or [open a GitHub Issue](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues){target="_blank"} to share your problem publicly. The more detail you provide, the faster and more accurately we can develop a solution.
 
 **Step 2: Review and Triage**
 
