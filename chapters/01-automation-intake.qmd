@@ -232,7 +232,7 @@ The long-term vision for the Automation Clinic extends beyond individual problem
 
 Public health professionals who have solved their own automation challenges are encouraged to share those solutions as well. The clinic is not a one-way service; it is a community resource.
 
-While this is currently a one-person effort, the plan is to make the solution library available as a public GitHub repository. This will allow others to contribute their own solutions, submit improvements to existing ones, and help build the library beyond what any single person could produce. The goal is for the repository to become a shared, community-maintained resource for public health automation.
+The solution library is available as a [public GitHub repository](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic){target="_blank"}. Contributors can submit their own solutions, suggest improvements to existing ones, and help build the library beyond what any single person could produce. You can also use [GitHub Issues](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues){target="_blank"} to share problems, suggestions, or solutions directly (note that GitHub Issues are public and not anonymous).
 
 ## CancerSurv Example
 
@@ -249,12 +249,16 @@ Each of these solutions required less than a day to develop and saved the regist
 
 ## Submit Your Problem
 
-Ready to reclaim your time? Complete the intake form:
+Ready to reclaim your time? There are two ways to submit:
 
 ::: {.callout-tip title="Submit to the Public Health Automation Clinic"}
-**[Complete the Intake Form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**
+**Option 1: [Complete the Intake Form](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}**
 
 Submissions are anonymous by default. Provide your contact information only if you would like follow-up on your specific problem.
+
+**Option 2: [Open a GitHub Issue](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues){target="_blank"}**
+
+For those comfortable working in the open, GitHub Issues allow you to share problems, suggestions, or solutions and engage directly with the development process. Note that GitHub Issues are public and not anonymous.
 :::
 
 If your need is urgent or involves complex systems integration, [contact Intersect Collaborations](https://www.intersectcollaborations.com/contact) for paid consulting services.
