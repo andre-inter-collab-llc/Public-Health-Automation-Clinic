@@ -114,7 +114,7 @@ AI tools may be used in the *development* and *documentation* of solutions, but 
 
 The long-term vision extends beyond individual problem-solving. Each submission and solution contributes to a pattern library of common public health automation needs, reusable code templates that can be adapted across jurisdictions, and a feedback loop that identifies the most impactful areas for tool development.
 
-The goal is for the solution library to become a shared, community-maintained public GitHub repository where public health professionals can contribute their own solutions, submit improvements, and help build beyond what any single person could produce.
+The [Public Health Automation Clinic GitHub repository](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic){target="_blank"} is the home for collaboration. Public health professionals can contribute solutions, suggest improvements, or report issues directly through [GitHub Issues](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues){target="_blank"}. This is especially useful for those comfortable working in the open and who want to engage with the development process directly.
 
 ## About the Author
 
