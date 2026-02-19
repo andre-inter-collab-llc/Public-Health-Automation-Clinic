@@ -118,7 +118,7 @@ The [Public Health Automation Clinic GitHub repository](https://github.com/andre
 
 ## About the Author
 
-**[André van Zyl, MPH](https://www.linkedin.com/in/andre-van-zyl/)** is an epidemiologist and data science professional with close to two decades of experience spanning public health, health informatics, and technical system development. His career has taken him across local, state, federal, tribal, and international health systems, from helping establish global surveillance systems at the CDC to implementing health interventions in resource-constrained settings.
+**[André van Zyl, MPH](https://www.linkedin.com/in/andre-van-zyl/)** is an epidemiologist and data science professional with close to two decades of experience spanning public health, health informatics, and technical system development. His career has taken him across local, state, federal, tribal, and international health systems, from helping establish global monitoring and response informatics and data science systems at the CDC to implementing health interventions in resource-constrained settings.
 
 His work has focused on surveillance modernization, data acquisition and reporting workflows, and practical automation using R, Python, Quarto, and related local-first tools. A consistent theme throughout his work has been technical translation: bridging communication gaps between public health teams and technical developers.
 
