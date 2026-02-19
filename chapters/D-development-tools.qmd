@@ -38,6 +38,43 @@ That said, it is clear that LLMs are often better than most humans at writing th
 
 This is the model the Automation Clinic follows: AI accelerates the development of solutions that, once delivered, are entirely self-sufficient.
 
+## Recommended Software for Using This Resource
+
+To run the solutions published in this book, you will need a small set of free, open source software. Nothing here requires a paid license or cloud subscription.
+
+### Essential
+
+| Software | Purpose | Download |
+|:---------|:--------|:---------|
+| **[R](https://cloud.r-project.org/)** | Core language for most solutions | [cloud.r-project.org](https://cloud.r-project.org/) |
+| **An IDE** (see recommendations below) | Writing, running, and debugging code | See below |
+
+R is the primary language used across the clinic's solutions. Most scripts, reports, and workflows are written in R and require it to run.
+
+### Recommended IDEs
+
+Any of the following integrated development environments will work well. All three are free:
+
+| IDE | Best For | Download |
+|:-----|:--------|:---------|
+| **[RStudio Desktop](https://posit.co/download/rstudio-desktop/)** | R-focused work; the most widely used IDE for R among public health professionals | [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/) |
+| **[Positron](https://positron.posit.co/)** | A next-generation IDE from Posit with native support for both R and Python | [positron.posit.co](https://positron.posit.co/) |
+| **[VS Code](https://code.visualstudio.com/)** | A general-purpose editor with R and Python support via extensions; ideal if you already use it for other work | [code.visualstudio.com](https://code.visualstudio.com/) |
+
+If you are new to programming or primarily working in R, **RStudio Desktop** is the most straightforward starting point. If you work in both R and Python, **Positron** or **VS Code** may be a better fit.
+
+### Used in Some Solutions
+
+| Software | Purpose | Download |
+|:---------|:--------|:---------|
+| **[Python](https://www.python.org/downloads/)** | Used in some solutions, particularly for data quality checks and file operations | [python.org/downloads](https://www.python.org/downloads/) |
+| **[Quarto](https://quarto.org/docs/get-started/)** | Required for solutions that produce formatted reports or documents | [quarto.org/docs/get-started](https://quarto.org/docs/get-started/) |
+| **[Git](https://git-scm.com/)** | Version control; useful for downloading and tracking updates to solutions | [git-scm.com](https://git-scm.com/) |
+
+::: {.callout-tip title="Getting Started"}
+At minimum, install **R** and **RStudio Desktop**. This combination is sufficient to run the majority of solutions published in this book. Install Python, Quarto, or Git only when a specific solution requires them; each solution's documentation will note its dependencies.
+:::
+
 ## Technology Stack
 
 The following tools are used to build and maintain this book and develop its solutions:
