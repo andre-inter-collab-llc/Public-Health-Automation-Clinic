@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-14f82c463c8fe26062a60e93003a4987.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-31e31e4e7d1317add0186254dcf5e9b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-14f82c463c8fe26062a60e93003a4987.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-918fc90af0c5bd24b3d86d0be3ea439e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-14b0813053c1f8e69c6a55b2d51ea82e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-918fc90af0c5bd24b3d86d0be3ea439e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -161,8 +161,8 @@ background-size: cover;
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../assets\branding\logos\intesect_logo_v1.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../assets\branding\logos\intesect_logo_v1.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../assets/branding/logos/intesect_logo_v1.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../assets/branding/logos/intesect_logo_v1.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Public Health Automation Clinic</a> 
@@ -602,33 +602,30 @@ background-size: cover;
 </ul>
 <section id="llm-models-used" class="level3" data-number="14.6.1">
 <h3 data-number="14.6.1" class="anchored" data-anchor-id="llm-models-used"><span class="header-section-number">14.6.1</span> LLM Models Used</h3>
-<p>GitHub Copilot provides access to multiple large language models during development:</p>
+<p>GitHub Copilot provides access to large language models from multiple providers during development:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Provider</th>
-<th style="text-align: left;">Models</th>
 <th style="text-align: left;">Primary Use</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong><a href="https://www.anthropic.com/">Anthropic</a></strong></td>
-<td style="text-align: left;">Claude (Sonnet, Opus)</td>
 <td style="text-align: left;">Complex analysis, long-form content development</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><a href="https://deepmind.google/technologies/gemini/">Google</a></strong></td>
-<td style="text-align: left;">Gemini</td>
 <td style="text-align: left;">Research, cross-referencing, fact-checking</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><a href="https://openai.com/">OpenAI</a></strong></td>
-<td style="text-align: left;">GPT-4, GPT-4o</td>
 <td style="text-align: left;">Code generation, quick edits, formatting</td>
 </tr>
 </tbody>
 </table>
+<p>Specific models evolve frequently. For the current list of available models, see the <a href="https://docs.github.com/en/copilot/reference/ai-models/model-comparison">GitHub Copilot model comparison</a>.</p>
 </section>
 <section id="copilot-features-used" class="level3" data-number="14.6.2">
 <h3 data-number="14.6.2" class="anchored" data-anchor-id="copilot-features-used"><span class="header-section-number">14.6.2</span> Copilot Features Used</h3>
@@ -1347,150 +1344,152 @@ background-size: cover;
 <span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### LLM Models Used</span></span>
 <span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>GitHub Copilot provides access to multiple large language models during development:</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>GitHub Copilot provides access to large language models from multiple providers during development:</span>
 <span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Provider <span class="pp">|</span> Models <span class="pp">|</span> Primary Use <span class="pp">|</span></span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---------|:-------|:------------|</span></span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **[Anthropic](https://www.anthropic.com/)** <span class="pp">|</span> Claude (Sonnet, Opus) <span class="pp">|</span> Complex analysis, long-form content development <span class="pp">|</span></span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **[Google](https://deepmind.google/technologies/gemini/)** <span class="pp">|</span> Gemini <span class="pp">|</span> Research, cross-referencing, fact-checking <span class="pp">|</span></span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **[OpenAI](https://openai.com/)** <span class="pp">|</span> GPT-4, GPT-4o <span class="pp">|</span> Code generation, quick edits, formatting <span class="pp">|</span></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Provider <span class="pp">|</span> Primary Use <span class="pp">|</span></span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---------|:------------|</span></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **[Anthropic](https://www.anthropic.com/)** <span class="pp">|</span> Complex analysis, long-form content development <span class="pp">|</span></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **[Google](https://deepmind.google/technologies/gemini/)** <span class="pp">|</span> Research, cross-referencing, fact-checking <span class="pp">|</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **[OpenAI](https://openai.com/)** <span class="pp">|</span> Code generation, quick edits, formatting <span class="pp">|</span></span>
 <span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### Copilot Features Used</span></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>Specific models evolve frequently. For the current list of available models, see the <span class="co">[</span><span class="ot">GitHub Copilot model comparison</span><span class="co">](https://docs.github.com/en/copilot/reference/ai-models/model-comparison)</span>.</span>
 <span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Chat**: Interactive development sessions for complex content and solution design</span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Inline suggestions**: Real-time code and prose completion during editing</span>
-<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Agent mode**: Multi-step tasks including file creation, refactoring, and terminal operations</span>
-<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deep Research Tools</span></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="fu">### Copilot Features Used</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Chat**: Interactive development sessions for complex content and solution design</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Inline suggestions**: Real-time code and prose completion during editing</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Agent mode**: Multi-step tasks including file creation, refactoring, and terminal operations</span>
 <span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>Extended research and analysis is supported by deep research capabilities in:</span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deep Research Tools</span></span>
 <span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**[Google Gemini](https://gemini.google.com/)**: Literature review, public health context research, and tool landscape analysis</span>
-<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**[OpenAI ChatGPT](https://chat.openai.com/)**: Deep research mode for exploring automation patterns, public health data standards, and implementation approaches</span>
-<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>These tools complement GitHub Copilot by providing broader research context beyond the immediate codebase.</span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>Extended research and analysis is supported by deep research capabilities in:</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**[Google Gemini](https://gemini.google.com/)**: Literature review, public health context research, and tool landscape analysis</span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**[OpenAI ChatGPT](https://chat.openai.com/)**: Deep research mode for exploring automation patterns, public health data standards, and implementation approaches</span>
 <span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a><span class="fu">### Project Context for AI</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>These tools complement GitHub Copilot by providing broader research context beyond the immediate codebase.</span>
 <span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>A detailed project context file (<span class="in">`.github/copilot-instructions.md`</span>) provides Copilot with specifics about the repository, including:</span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### Project Context for AI</span></span>
 <span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Book structure and chapter organization</span>
-<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Content style guidelines and deduplication rules</span>
-<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Public health terminology and conventions</span>
-<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Privacy rules (e.g., keeping <span class="in">`communications/`</span> content local-only)</span>
-<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Branding and formatting standards</span>
-<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>This context file ensures that AI-generated contributions are consistent with the book's voice, scope, and technical standards.</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>A detailed project context file (<span class="in">`.github/copilot-instructions.md`</span>) provides Copilot with specifics about the repository, including:</span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Book structure and chapter organization</span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Content style guidelines and deduplication rules</span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Public health terminology and conventions</span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Privacy rules (e.g., keeping <span class="in">`communications/`</span> content local-only)</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Branding and formatting standards</span>
 <span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why This Transparency Matters</span></span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>This context file ensures that AI-generated contributions are consistent with the book's voice, scope, and technical standards.</span>
 <span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>Public health professionals deserve to know how the tools they rely on are built. AI-assisted development raises legitimate questions:</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why This Transparency Matters</span></span>
 <span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Can I trust the output?** Every solution is reviewed for correctness before publication. AI drafts are starting points, not final products.</span>
-<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Will I need AI to use this?** No. Solutions are standard R and Python scripts. They require no AI tools to execute.</span>
-<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Is the content original?** AI assists with drafting and refinement, but the domain expertise, problem framing, and quality assurance come from the author's experience in public health informatics and epidemiology.</span>
-<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**What about data privacy?** No real patient data, protected health information, or identifiable submission details are shared with AI tools. All examples are anonymized and generalized.</span>
-<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="A Practical View of AI in Development"}</span>
-<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>Using AI to build automation tools for public health is analogous to using a calculator for arithmetic. The calculator does not replace the understanding of what to calculate or why; it accelerates the mechanical work. Similarly, AI accelerates the writing of scripts and documentation while the public health logic, context, and quality standards remain human responsibilities.</span>
-<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a><span class="fu">## What AI Does Not Replace</span></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>Public health professionals deserve to know how the tools they rely on are built. AI-assisted development raises legitimate questions:</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Can I trust the output?** Every solution is reviewed for correctness before publication. AI drafts are starting points, not final products.</span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Will I need AI to use this?** No. Solutions are standard R and Python scripts. They require no AI tools to execute.</span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Is the content original?** AI assists with drafting and refinement, but the domain expertise, problem framing, and quality assurance come from the author's experience in public health informatics and epidemiology.</span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**What about data privacy?** No real patient data, protected health information, or identifiable submission details are shared with AI tools. All examples are anonymized and generalized.</span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="A Practical View of AI in Development"}</span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>Using AI to build automation tools for public health is analogous to using a calculator for arithmetic. The calculator does not replace the understanding of what to calculate or why; it accelerates the mechanical work. Similarly, AI accelerates the writing of scripts and documentation while the public health logic, context, and quality standards remain human responsibilities.</span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>AI tools are powerful accelerators, but they do not replace:</span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## What AI Does Not Replace</span></span>
 <span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Domain expertise**: Understanding which public health workflows need automation, and why, requires years of field experience</span>
-<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Problem framing**: Translating a vague "this takes too long" into a clear automation specification is a human skill</span>
-<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Quality assurance**: Every script must be tested against realistic data and edge cases</span>
-<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ethical judgment**: Decisions about data privacy, anonymization, and appropriate use require human oversight</span>
-<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Community relationships**: Building trust with submitters and understanding their real working conditions cannot be automated</span>
-<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Authorship and AI</span></span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a>AI tools are powerful accelerators, but they do not replace:</span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Domain expertise**: Understanding which public health workflows need automation, and why, requires years of field experience</span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Problem framing**: Translating a vague "this takes too long" into a clear automation specification is a human skill</span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Quality assurance**: Every script must be tested against realistic data and edge cases</span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ethical judgment**: Decisions about data privacy, anonymization, and appropriate use require human oversight</span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Community relationships**: Building trust with submitters and understanding their real working conditions cannot be automated</span>
 <span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>AI raises legitimate questions about authorship, and this project takes those questions seriously. The guiding principles are straightforward:</span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a><span class="fu">## Authorship and AI</span></span>
 <span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Is the intent helpful?** Every use of AI in this project serves the goal of advancing public health practice.</span>
-<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Am I the author?** The intellectual work (problem identification, solution design, domain context, quality review) is mine. AI assists with drafting, editing, and code generation, but those contributions do not constitute authorship.</span>
-<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Does the output reflect my thinking?** My drafts, original code, and ideas are the starting points. AI refines and extends that work under my direction. Code is only used if I understand it and have tested it.</span>
-<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>This project follows the <span class="co">[</span><span class="ot">ICMJE (International Committee of Medical Journal Editors) authorship guidelines</span><span class="co">](https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html)</span>. Under those guidelines, authorship requires all four criteria: substantial contributions to conception or design; drafting the work or critically revising it; final approval of the version to be published; and accountability for accuracy and integrity. AI cannot meet these criteria because it cannot take responsibility for the accuracy, integrity, or originality of the work (ICMJE Section II.A.4). The tasks AI performs here (writing assistance, editing, proofreading, code scaffolding) are specifically listed by the ICMJE as activities that alone do not qualify a contributor for authorship (Section II.A.3).</span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a>AI raises legitimate questions about authorship, and this project takes those questions seriously. The guiding principles are straightforward:</span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Is the intent helpful?** Every use of AI in this project serves the goal of advancing public health practice.</span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Am I the author?** The intellectual work (problem identification, solution design, domain context, quality review) is mine. AI assists with drafting, editing, and code generation, but those contributions do not constitute authorship.</span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Does the output reflect my thinking?** My drafts, original code, and ideas are the starting points. AI refines and extends that work under my direction. Code is only used if I understand it and have tested it.</span>
 <span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a>As the ICMJE further notes, AI can generate authoritative-sounding output that is incorrect, incomplete, or biased. Every AI-generated contribution in this project is carefully reviewed, tested, and edited before inclusion. The author takes full responsibility, understands the work deeply, and ensures it reflects professional judgment grounded in public health domain expertise.</span>
+<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a>This project follows the <span class="co">[</span><span class="ot">ICMJE (International Committee of Medical Journal Editors) authorship guidelines</span><span class="co">](https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html)</span>. Under those guidelines, authorship requires all four criteria: substantial contributions to conception or design; drafting the work or critically revising it; final approval of the version to be published; and accountability for accuracy and integrity. AI cannot meet these criteria because it cannot take responsibility for the accuracy, integrity, or originality of the work (ICMJE Section II.A.4). The tasks AI performs here (writing assistance, editing, proofreading, code scaffolding) are specifically listed by the ICMJE as activities that alone do not qualify a contributor for authorship (Section II.A.3).</span>
 <span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a>In the spirit of full transparency and disclosure, the entire development history of this project is publicly available at the <span class="co">[</span><span class="ot">Public Health Automation Clinic GitHub repository</span><span class="co">](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic)</span>. Every commit, every change, and every contribution is visible and inspectable. This openness allows anyone to verify how the resource was built, what role AI played, and how human judgment shaped the final product.</span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a>As the ICMJE further notes, AI can generate authoritative-sounding output that is incorrect, incomplete, or biased. Every AI-generated contribution in this project is carefully reviewed, tested, and edited before inclusion. The author takes full responsibility, understands the work deeply, and ensures it reflects professional judgment grounded in public health domain expertise.</span>
 <span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a>AI is useful for preliminary research, but it cannot be trusted to be systematic or reproducible in the way that scientific work demands. The structured approach, the verification, and the domain-specific validation remain human responsibilities.</span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a>In the spirit of full transparency and disclosure, the entire development history of this project is publicly available at the <span class="co">[</span><span class="ot">Public Health Automation Clinic GitHub repository</span><span class="co">](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic)</span>. Every commit, every change, and every contribution is visible and inspectable. This openness allows anyone to verify how the resource was built, what role AI played, and how human judgment shaped the final product.</span>
 <span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a><span class="fu">### Your Authorship of Your Outputs</span></span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a>AI is useful for preliminary research, but it cannot be trusted to be systematic or reproducible in the way that scientific work demands. The structured approach, the verification, and the domain-specific validation remain human responsibilities.</span>
 <span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a>The same principle applies to professionals who use these tools in their own work. When you take a script from this library, adapt it to your data, run it, and produce a report or analysis, **you are the author of that output**. You are responsible for verifying the results, understanding the logic, and ensuring the output is appropriate for your context.</span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a><span class="fu">### Your Authorship of Your Outputs</span></span>
 <span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>The tools published here are instruments. Authorship belongs to the person who wields them with intent and accountability.</span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>The same principle applies to professionals who use these tools in their own work. When you take a script from this library, adapt it to your data, run it, and produce a report or analysis, **you are the author of that output**. You are responsible for verifying the results, understanding the logic, and ensuring the output is appropriate for your context.</span>
 <span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### Citing This Resource</span></span>
+<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a>The tools published here are instruments. Authorship belongs to the person who wields them with intent and accountability.</span>
 <span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a>If the Public Health Automation Clinic has been useful in your work, please consider citing it. A citation helps others discover the resource and supports the community of practice this project aims to build.</span>
+<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### Citing This Resource</span></span>
 <span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; André van Zyl, *Public Health Automation Clinic*, Intersect Collaborations LLC, 2025. Available at: </span><span class="ot">&lt;https://andre-inter-collab-llc.github.io/Public-Health-Automation-Clinic/&gt;</span></span>
+<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a>If the Public Health Automation Clinic has been useful in your work, please consider citing it. A citation helps others discover the resource and supports the community of practice this project aims to build.</span>
 <span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local Development Setup</span></span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; André van Zyl, *Public Health Automation Clinic*, Intersect Collaborations LLC, 2025. Available at: </span><span class="ot">&lt;https://andre-inter-collab-llc.github.io/Public-Health-Automation-Clinic/&gt;</span></span>
 <span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a>For contributors who want to modify or extend this book:</span>
+<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a><span class="fu">## Local Development Setup</span></span>
 <span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a><span class="fu">### Prerequisites</span></span>
+<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a>For contributors who want to modify or extend this book:</span>
 <span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Install Quarto**: Download from <span class="co">[</span><span class="ot">quarto.org</span><span class="co">](https://quarto.org/docs/get-started/)</span></span>
-<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Install VS Code**: Download from <span class="co">[</span><span class="ot">code.visualstudio.com</span><span class="co">](https://code.visualstudio.com/)</span></span>
-<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Install Git**: Download from <span class="co">[</span><span class="ot">git-scm.com</span><span class="co">](https://git-scm.com/)</span></span>
-<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Install the Quarto VS Code Extension**: Search "Quarto" in VS Code extensions</span>
-<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### Clone and Preview</span></span>
+<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a><span class="fu">### Prerequisites</span></span>
+<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Install Quarto**: Download from <span class="co">[</span><span class="ot">quarto.org</span><span class="co">](https://quarto.org/docs/get-started/)</span></span>
+<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Install VS Code**: Download from <span class="co">[</span><span class="ot">code.visualstudio.com</span><span class="co">](https://code.visualstudio.com/)</span></span>
+<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Install Git**: Download from <span class="co">[</span><span class="ot">git-scm.com</span><span class="co">](https://git-scm.com/)</span></span>
+<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Install the Quarto VS Code Extension**: Search "Quarto" in VS Code extensions</span>
 <span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git</span>
-<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Public-Health-Automation-Clinic</span>
-<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span>
-<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a>This starts a local server and opens the book in your browser. Changes to <span class="in">`.qmd`</span> files automatically refresh.</span>
+<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a><span class="fu">### Clone and Preview</span></span>
+<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git</span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Public-Health-Automation-Clinic</span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### Render the Book</span></span>
+<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a>This starts a local server and opens the book in your browser. Changes to <span class="in">`.qmd`</span> files automatically refresh.</span>
 <span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
-<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a>Output is generated in the <span class="in">`_site/`</span> directory.</span>
+<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a><span class="fu">### Render the Book</span></span>
+<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a><span class="fu">## Repository Structure</span></span>
+<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a>Output is generated in the <span class="in">`_site/`</span> directory.</span>
 <span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a><span class="in">Public-Health-Automation-Clinic/</span></span>
-<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml               # Book configuration (chapters, output, theme)</span></span>
-<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a><span class="in">├── _brand.yml                 # Intersect Collaborations branding</span></span>
-<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.qmd                  # Book landing page / preface</span></span>
-<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a><span class="in">├── chapters/                  # Book chapters (.qmd files)</span></span>
-<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── 01-automation-intake.qmd</span></span>
-<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── 02-desktop-automation.qmd</span></span>
-<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── ...</span></span>
-<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── D-development-tools.qmd</span></span>
-<span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a><span class="in">├── assets/</span></span>
-<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── branding/              # Logos, icons, images</span></span>
-<span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── styles/                # Custom SCSS</span></span>
-<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a><span class="in">├── .github/</span></span>
-<span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── copilot-instructions.md  # AI assistant project context</span></span>
-<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── workflows/</span></span>
-<span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a><span class="in">│       └── publish.yml        # GitHub Actions deployment</span></span>
-<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a><span class="in">└── _site/                     # Generated output (gitignored)</span></span>
-<span id="cb4-239"><a href="#cb4-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resources</span></span>
+<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## Repository Structure</span></span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a><span class="in">Public-Health-Automation-Clinic/</span></span>
+<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a><span class="in">├── _quarto.yml               # Book configuration (chapters, output, theme)</span></span>
+<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a><span class="in">├── _brand.yml                 # Intersect Collaborations branding</span></span>
+<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a><span class="in">├── index.qmd                  # Book landing page / preface</span></span>
+<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a><span class="in">├── chapters/                  # Book chapters (.qmd files)</span></span>
+<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── 01-automation-intake.qmd</span></span>
+<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── 02-desktop-automation.qmd</span></span>
+<span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── ...</span></span>
+<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── D-development-tools.qmd</span></span>
+<span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a><span class="in">├── assets/</span></span>
+<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── branding/              # Logos, icons, images</span></span>
+<span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── styles/                # Custom SCSS</span></span>
+<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a><span class="in">├── .github/</span></span>
+<span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── copilot-instructions.md  # AI assistant project context</span></span>
+<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── workflows/</span></span>
+<span id="cb4-239"><a href="#cb4-239" aria-hidden="true" tabindex="-1"></a><span class="in">│       └── publish.yml        # GitHub Actions deployment</span></span>
+<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a><span class="in">└── _site/                     # Generated output (gitignored)</span></span>
+<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto Documentation</span><span class="co">](https://quarto.org/docs/guide/)</span></span>
-<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto Books Guide</span><span class="co">](https://quarto.org/docs/books/)</span></span>
-<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Mermaid Documentation</span><span class="co">](https://mermaid.js.org/intro/)</span></span>
-<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">GitHub Copilot Documentation</span><span class="co">](https://docs.github.com/en/copilot)</span></span>
-<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">GitHub Pages Documentation</span><span class="co">](https://docs.github.com/en/pages)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resources</span></span>
+<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto Documentation</span><span class="co">](https://quarto.org/docs/guide/)</span></span>
+<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto Books Guide</span><span class="co">](https://quarto.org/docs/books/)</span></span>
+<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Mermaid Documentation</span><span class="co">](https://mermaid.js.org/intro/)</span></span>
+<span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">GitHub Copilot Documentation</span><span class="co">](https://docs.github.com/en/copilot)</span></span>
+<span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">GitHub Pages Documentation</span><span class="co">](https://docs.github.com/en/pages)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
