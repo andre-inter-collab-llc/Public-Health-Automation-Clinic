@@ -101,13 +101,15 @@ The following tools are used to build and maintain this book and develop its sol
 
 ### LLM Models Used
 
-GitHub Copilot provides access to multiple large language models during development:
+GitHub Copilot provides access to large language models from multiple providers during development:
 
-| Provider | Models | Primary Use |
-|:---------|:-------|:------------|
-| **[Anthropic](https://www.anthropic.com/)** | Claude (Sonnet, Opus) | Complex analysis, long-form content development |
-| **[Google](https://deepmind.google/technologies/gemini/)** | Gemini | Research, cross-referencing, fact-checking |
-| **[OpenAI](https://openai.com/)** | GPT-4, GPT-4o | Code generation, quick edits, formatting |
+| Provider | Primary Use |
+|:---------|:------------|
+| **[Anthropic](https://www.anthropic.com/)** | Complex analysis, long-form content development |
+| **[Google](https://deepmind.google/technologies/gemini/)** | Research, cross-referencing, fact-checking |
+| **[OpenAI](https://openai.com/)** | Code generation, quick edits, formatting |
+
+Specific models evolve frequently. For the current list of available models, see the [GitHub Copilot model comparison](https://docs.github.com/en/copilot/reference/ai-models/model-comparison).
 
 ### Copilot Features Used
 
@@ -180,6 +182,12 @@ AI is useful for preliminary research, but it cannot be trusted to be systematic
 The same principle applies to professionals who use these tools in their own work. When you take a script from this library, adapt it to your data, run it, and produce a report or analysis, **you are the author of that output**. You are responsible for verifying the results, understanding the logic, and ensuring the output is appropriate for your context.
 
 The tools published here are instruments. Authorship belongs to the person who wields them with intent and accountability.
+
+### Citing This Resource
+
+If the Public Health Automation Clinic has been useful in your work, please consider citing it. A citation helps others discover the resource and supports the community of practice this project aims to build.
+
+> André van Zyl, *Public Health Automation Clinic*, Intersect Collaborations LLC, 2025. Available at: <https://andre-inter-collab-llc.github.io/Public-Health-Automation-Clinic/>
 
 ## Local Development Setup
 
