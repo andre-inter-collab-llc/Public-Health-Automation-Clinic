@@ -1,0 +1,212 @@
+---
+title: "Combine and Compare Spreadsheets"
+---
+
+# The Problem
+
+Public health teams frequently distribute Excel-based data collection forms to multiple sites, facilities, or respondents. A common workflow looks like this: a program coordinator creates a standardized spreadsheet template, emails it to ten county offices, and asks each office to fill in their data and return it. Sometimes the spreadsheets are stored in a shared folder instead. Either way, the coordinator eventually needs to combine all responses into a single dataset for analysis.
+
+This process breaks down in predictable ways:
+
+- **Column headers get renamed.** One site changes "date_of_diagnosis" to "dx_date." Another adds a space. A third capitalizes it differently.
+- **Columns are added or removed.** A site inserts an extra column for local tracking, or deletes a column they consider irrelevant.
+- **Sheet names differ.** The template uses "Data Entry" but a respondent renames the tab to "Sheet1."
+- **Manual merging is tedious and error-prone.** Copy-pasting rows from ten spreadsheets into a master file can take hours and risks misaligned columns, dropped records, or duplicated data.
+
+The coordinator may then try to analyze the combined data in Excel or R, only to discover that the structural inconsistencies have created problems downstream: mismatched column counts, unexpected blanks, or silently misaligned values.
+
+## The Scale of the Problem
+
+Consider a state cancer registry that collects annual data submissions from 88 county health departments using a standardized Excel template. Each year, staff must:
+
+1. Download or receive 88 completed workbooks
+2. Open each one to verify the correct sheet exists
+3. Check that column headers match the template
+4. Copy and paste (or append) the data into a master file
+5. Troubleshoot the files that do not match
+
+At 5 to 10 minutes per file, this is 7 to 15 hours of manual work, repeated every reporting cycle. And that estimate assumes nothing goes wrong.
+
+# The Solution
+
+The **Combine & Compare Spreadsheets** app is a Shiny web application that automates this entire workflow. Upload your spreadsheets, click a button, and get:
+
+- A **combined dataset** with a source file column tracking which record came from which file
+- A **column comparison matrix** showing exactly which columns appear in which files, making structural differences immediately visible
+- A **file issues report** listing any files with missing sheets, read errors, or empty data
+- An **interactive pivot table** for exploring the combined data
+- A **branded Excel download** containing all analysis sheets
+
+The app supports `.xlsx`, `.xls`, and `.csv` files, and can handle mixed file types in a single upload.
+
+## User Story
+
+> **As a** public health data coordinator who collects Excel-based data from multiple sites,
+> **I want** a tool that automatically combines spreadsheets and flags structural differences,
+> **so that** I can spend my time on analysis instead of copy-pasting and troubleshooting column mismatches.
+
+## GPS (Given-Person-Should)
+
+> **Given** a set of Excel workbooks returned by multiple respondents using a common template,
+> **the** data coordinator **should** upload them to the Combine & Compare app and review the column comparison matrix
+> **to** identify and resolve structural inconsistencies before combining the data for analysis.
+
+# Getting Started
+
+## Download the App
+
+The app is available in the Public Health Automation Clinic GitHub repository:
+
+1. **Download the app folder** from the repository:
+   - Go to [github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic){target="_blank"}
+   - Navigate to `apps/combine-and-compare-spreadsheets/`
+   - Download the entire folder (or clone the full repository)
+
+2. **Clone the full repository** (recommended if you use Git):
+
+```bash
+git clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git
+```
+
+The app files are located at `apps/combine-and-compare-spreadsheets/` within the repository.
+
+## Install Requirements
+
+The app requires [R](https://cran.r-project.org/){target="_blank"} (version 4.1 or later) and the following packages:
+
+```{r}
+#| eval: false
+#| code-fold: false
+
+install.packages(c(
+  "shiny",
+  "bslib",
+  "readxl",
+  "dplyr",
+  "janitor",
+  "openxlsx",
+  "DT",
+  "tidyr",
+  "purrr",
+  "tibble",
+  "rpivotTable"
+))
+```
+
+[RStudio Desktop](https://posit.co/download/rstudio-desktop/){target="_blank"} (free) is the recommended IDE for running the app, though any R environment will work.
+
+## Run the App
+
+Open `app.R` in RStudio and click **Run App**, or run the following from an R console:
+
+```{r}
+#| eval: false
+#| code-fold: false
+
+shiny::runApp("apps/combine-and-compare-spreadsheets")
+```
+
+The app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.
+
+# How to Use the App
+
+## Step 1: Upload Files
+
+Click **Upload Spreadsheets** in the sidebar and select one or more Excel (`.xlsx`, `.xls`) or CSV (`.csv`) files. You can upload a mix of file types in a single batch.
+
+## Step 2: Select Sheet Name
+
+For Excel files, the app reads all available sheet names across uploaded workbooks and presents them in a dropdown. Select the sheet containing the data you want to combine. CSV files do not require sheet selection.
+
+## Step 3: Set the Header Row
+
+If your spreadsheets have title rows, instructions, or logos above the actual column headers, set the **Header Row** to the row number where headers appear. The default is row 1.
+
+## Step 4: Process Files
+
+Click **Process Files**. The app will:
+
+1. Read data from each file using the selected sheet name and header row
+2. Clean and standardize column names (lowercase, underscores, consistent formatting)
+3. Add a `source_file` column to track the origin of each record
+4. Combine all data into a single dataset
+5. Build a column comparison matrix
+6. Log any file issues (missing sheets, read errors, empty data)
+
+A progress bar shows status during processing.
+
+## Step 5: Review Results
+
+The Workbench tab provides four views:
+
+### Combined Data
+
+The full merged dataset with all records from all files. Use the column filters to search and sort. The `source_file` column identifies which file each record came from.
+
+### Column Comparison
+
+A presence/absence matrix showing which columns appear in which files:
+
+- **✓** (teal) indicates the column is present in that file
+- **✗** (red) indicates the column is missing from that file
+- **files_present** shows the count of files containing each column
+- Columns are sorted so that those missing from some files appear at the top
+
+This is the most important view for identifying structural problems. If all columns show ✓ across all files, your templates were returned consistently.
+
+### File Issues
+
+A summary of any problems encountered during processing:
+
+| Issue Type | Meaning |
+|:-----------|:--------|
+| Missing Sheet | The selected sheet name was not found in the workbook |
+| Read Error | The file could not be read (corrupt, password-protected, or unsupported format) |
+| Empty Data | The file or sheet contained no data rows |
+
+If all files processed successfully, this tab shows "All files processed successfully."
+
+### Explore Data
+
+An interactive pivot table ([rpivotTable](https://github.com/smartinsightsfromdata/rpivotTable){target="_blank"}) for ad-hoc exploration of the combined data. Drag columns into rows, columns, or filters to create cross-tabulations, charts, and summaries without writing code.
+
+## Step 6: Download
+
+Click **Download Combined XLSX** to export a formatted Excel workbook with three sheets:
+
+1. **Combined Data**: the full merged dataset
+2. **Column Comparison**: the presence/absence matrix
+3. **File Issues**: the issue log
+
+The workbook uses professional formatting with styled headers.
+
+# Supported File Formats
+
+| Format | Extension | Notes |
+|:-------|:----------|:------|
+| Excel (modern) | `.xlsx` | Full support including sheet selection |
+| Excel (legacy) | `.xls` | Full support including sheet selection |
+| CSV | `.csv` | Sheet selection is not applicable |
+
+Mixed file types can be uploaded together. For example, you can upload eight `.xlsx` files and two `.csv` files in the same batch.
+
+# Tips and Best Practices
+
+::: {.callout-tip title="Preventing Problems at the Source"}
+The best way to handle column mismatches is to prevent them. When distributing data collection templates:
+
+- **Lock the header row** in Excel (Review > Protect Sheet, allow only data entry in the data range)
+- **Use data validation** on key columns to constrain inputs
+- **Name your sheets consistently** and include instructions not to rename them
+- **Include a "do not modify" note** in the template header
+
+The Combine & Compare app is most valuable when prevention was not possible, which, in practice, is most of the time.
+:::
+
+::: {.callout-tip title="Large File Uploads"}
+The app supports uploads up to 100 MB total. For very large collections of spreadsheets, consider processing them in batches and combining the downloaded outputs.
+:::
+
+::: {.callout-note title="Local-First"}
+This app runs entirely on your local machine. No data is uploaded to external servers. This makes it suitable for use with protected health information (PHI) and other sensitive data, subject to your organization's policies for running local software.
+:::
