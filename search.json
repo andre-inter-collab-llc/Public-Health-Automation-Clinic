@@ -212,575 +212,718 @@
     ]
   },
   {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html",
+    "href": "chapters/04a-combine-compare-spreadsheets.html",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "",
+    "text": "7 The Problem\nPublic health teams frequently distribute Excel-based data collection forms to multiple sites, facilities, or respondents. A common workflow looks like this: a program coordinator creates a standardized spreadsheet template, emails it to ten county offices, and asks each office to fill in their data and return it. Sometimes the spreadsheets are stored in a shared folder instead. Either way, the coordinator eventually needs to combine all responses into a single dataset for analysis.\nThis process breaks down in predictable ways:\nThe coordinator may then try to analyze the combined data in Excel or R, only to discover that the structural inconsistencies have created problems downstream: mismatched column counts, unexpected blanks, or silently misaligned values.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#the-scale-of-the-problem",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#the-scale-of-the-problem",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "7.1 The Scale of the Problem",
+    "text": "7.1 The Scale of the Problem\nConsider a state cancer registry that collects annual data submissions from 88 county health departments using a standardized Excel template. Each year, staff must:\n\nDownload or receive 88 completed workbooks\nOpen each one to verify the correct sheet exists\nCheck that column headers match the template\nCopy and paste (or append) the data into a master file\nTroubleshoot the files that do not match\n\nAt 5 to 10 minutes per file, this is 7 to 15 hours of manual work, repeated every reporting cycle. And that estimate assumes nothing goes wrong.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#user-story",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#user-story",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "8.1 User Story",
+    "text": "8.1 User Story\n\nAs a public health data coordinator who collects Excel-based data from multiple sites, I want a tool that automatically combines spreadsheets and flags structural differences, so that I can spend my time on analysis instead of copy-pasting and troubleshooting column mismatches.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#gps-given-person-should",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#gps-given-person-should",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "8.2 GPS (Given-Person-Should)",
+    "text": "8.2 GPS (Given-Person-Should)\n\nGiven a set of Excel workbooks returned by multiple respondents using a common template, the data coordinator should upload them to the Combine & Compare app and review the column comparison matrix to identify and resolve structural inconsistencies before combining the data for analysis.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#download-the-app",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#download-the-app",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "9.1 Download the App",
+    "text": "9.1 Download the App\nThe app is available in the Public Health Automation Clinic GitHub repository:\n\nDownload the app folder from the repository:\n\nGo to github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic\nNavigate to apps/combine-and-compare-spreadsheets/\nDownload the entire folder (or clone the full repository)\n\nClone the full repository (recommended if you use Git):\n\ngit clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git\nThe app files are located at apps/combine-and-compare-spreadsheets/ within the repository.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#install-requirements",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#install-requirements",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "9.2 Install Requirements",
+    "text": "9.2 Install Requirements\nThe app requires R (version 4.1 or later) and the following packages:\n\ninstall.packages(c(\n  \"shiny\",\n  \"bslib\",\n  \"readxl\",\n  \"dplyr\",\n  \"janitor\",\n  \"openxlsx\",\n  \"DT\",\n  \"tidyr\",\n  \"purrr\",\n  \"tibble\",\n  \"rpivotTable\"\n))\n\nRStudio Desktop (free) is the recommended IDE for running the app, though any R environment will work.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#run-the-app",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#run-the-app",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "9.3 Run the App",
+    "text": "9.3 Run the App\nOpen app.R in RStudio and click Run App, or run the following from an R console:\n\nshiny::runApp(\"apps/combine-and-compare-spreadsheets\")\n\nThe app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#step-1-upload-files",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#step-1-upload-files",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "10.1 Step 1: Upload Files",
+    "text": "10.1 Step 1: Upload Files\nClick Upload Spreadsheets in the sidebar and select one or more Excel (.xlsx, .xls) or CSV (.csv) files. You can upload a mix of file types in a single batch.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#step-2-select-sheet-name",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#step-2-select-sheet-name",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "10.2 Step 2: Select Sheet Name",
+    "text": "10.2 Step 2: Select Sheet Name\nFor Excel files, the app reads all available sheet names across uploaded workbooks and presents them in a dropdown. Select the sheet containing the data you want to combine. CSV files do not require sheet selection.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#step-3-set-the-header-row",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#step-3-set-the-header-row",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "10.3 Step 3: Set the Header Row",
+    "text": "10.3 Step 3: Set the Header Row\nIf your spreadsheets have title rows, instructions, or logos above the actual column headers, set the Header Row to the row number where headers appear. The default is row 1.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#step-4-process-files",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#step-4-process-files",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "10.4 Step 4: Process Files",
+    "text": "10.4 Step 4: Process Files\nClick Process Files. The app will:\n\nRead data from each file using the selected sheet name and header row\nClean and standardize column names (lowercase, underscores, consistent formatting)\nAdd a source_file column to track the origin of each record\nCombine all data into a single dataset\nBuild a column comparison matrix\nLog any file issues (missing sheets, read errors, empty data)\n\nA progress bar shows status during processing.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#step-5-review-results",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#step-5-review-results",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "10.5 Step 5: Review Results",
+    "text": "10.5 Step 5: Review Results\nThe Workbench tab provides four views:\n\n10.5.1 Combined Data\nThe full merged dataset with all records from all files. Use the column filters to search and sort. The source_file column identifies which file each record came from.\n\n\n10.5.2 Column Comparison\nA presence/absence matrix showing which columns appear in which files:\n\n✓ (teal) indicates the column is present in that file\n✗ (red) indicates the column is missing from that file\nfiles_present shows the count of files containing each column\nColumns are sorted so that those missing from some files appear at the top\n\nThis is the most important view for identifying structural problems. If all columns show ✓ across all files, your templates were returned consistently.\n\n\n10.5.3 File Issues\nA summary of any problems encountered during processing:\n\n\n\n\n\n\n\nIssue Type\nMeaning\n\n\n\n\nMissing Sheet\nThe selected sheet name was not found in the workbook\n\n\nRead Error\nThe file could not be read (corrupt, password-protected, or unsupported format)\n\n\nEmpty Data\nThe file or sheet contained no data rows\n\n\n\nIf all files processed successfully, this tab shows “All files processed successfully.”\n\n\n10.5.4 Explore Data\nAn interactive pivot table (rpivotTable) for ad-hoc exploration of the combined data. Drag columns into rows, columns, or filters to create cross-tabulations, charts, and summaries without writing code.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/04a-combine-compare-spreadsheets.html#step-6-download",
+    "href": "chapters/04a-combine-compare-spreadsheets.html#step-6-download",
+    "title": "6  Combine and Compare Spreadsheets",
+    "section": "10.6 Step 6: Download",
+    "text": "10.6 Step 6: Download\nClick Download Combined XLSX to export a formatted Excel workbook with three sheets:\n\nCombined Data: the full merged dataset\nColumn Comparison: the presence/absence matrix\nFile Issues: the issue log\n\nThe workbook uses professional formatting with styled headers.",
+    "crumbs": [
+      "Data Cleaning and Transformation",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"
+    ]
+  },
+  {
     "objectID": "chapters/05-data-analysis-reporting.html",
     "href": "chapters/05-data-analysis-reporting.html",
-    "title": "6  Data Analysis and Reporting",
+    "title": "7  Data Analysis and Reporting",
     "section": "",
-    "text": "7 Data Analysis and Reporting\nRecurring surveillance analyses, reproducible reports with Quarto and R Markdown, interactive dashboards with Shiny, and automated chart and table generation. These solutions turn analysis-ready data into actionable outputs.",
+    "text": "8 Data Analysis and Reporting\nRecurring surveillance analyses, reproducible reports with Quarto and R Markdown, interactive dashboards with Shiny, and automated chart and table generation. These solutions turn analysis-ready data into actionable outputs.",
     "crumbs": [
       "Data Analysis and Reporting",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Analysis and Reporting</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Analysis and Reporting</span>"
     ]
   },
   {
     "objectID": "chapters/05-data-analysis-reporting.html#what-belongs-here",
     "href": "chapters/05-data-analysis-reporting.html#what-belongs-here",
-    "title": "6  Data Analysis and Reporting",
-    "section": "7.1 What Belongs Here",
-    "text": "7.1 What Belongs Here\nSolutions in this part address tasks involving analysis and output generation:\n\nRecurring surveillance reports automated with parameterized Quarto or R Markdown documents\nAutomated chart and table generation for standard epidemiological outputs (incidence tables, trend charts, demographic breakdowns)\nInteractive dashboards built with R Shiny for local or team use (code provided; hosting is not included)\nParameterized report templates that generate jurisdiction-specific or time-period-specific outputs from a single script\nAutomated data visualization pipelines using ggplot2, Plotly, or similar tools\nSpatial analysis and mapping using QGIS or R spatial packages for geographic health data",
+    "title": "7  Data Analysis and Reporting",
+    "section": "8.1 What Belongs Here",
+    "text": "8.1 What Belongs Here\nSolutions in this part address tasks involving analysis and output generation:\n\nRecurring surveillance reports automated with parameterized Quarto or R Markdown documents\nAutomated chart and table generation for standard epidemiological outputs (incidence tables, trend charts, demographic breakdowns)\nInteractive dashboards built with R Shiny for local or team use (code provided; hosting is not included)\nParameterized report templates that generate jurisdiction-specific or time-period-specific outputs from a single script\nAutomated data visualization pipelines using ggplot2, Plotly, or similar tools\nSpatial analysis and mapping using QGIS or R spatial packages for geographic health data",
     "crumbs": [
       "Data Analysis and Reporting",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Data Analysis and Reporting</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Analysis and Reporting</span>"
     ]
   },
   {
     "objectID": "chapters/06-business-process-automation.html",
     "href": "chapters/06-business-process-automation.html",
-    "title": "7  Business Process Automation",
+    "title": "8  Business Process Automation",
     "section": "",
-    "text": "8 Business Process Automation\nProject status reports, grant milestone tracking, workload distribution, and cross-agency data exchange. These solutions automate the work around the analytical work.",
+    "text": "9 Business Process Automation\nProject status reports, grant milestone tracking, workload distribution, and cross-agency data exchange. These solutions automate the work around the analytical work.",
     "crumbs": [
       "Business Process Automation",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Business Process Automation</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Business Process Automation</span>"
     ]
   },
   {
     "objectID": "chapters/06-business-process-automation.html#what-belongs-here",
     "href": "chapters/06-business-process-automation.html#what-belongs-here",
-    "title": "7  Business Process Automation",
-    "section": "8.1 What Belongs Here",
-    "text": "8.1 What Belongs Here\nSolutions in this part address operational and administrative tasks:\n\nProject status reports generated from project management tool exports (e.g., GanttProject, OpenProject)\nGrant milestone tracking automated from workplan data\nWorkload distribution reports generated from task management or timesheet data\nCross-agency data exchange with automated format conversion and packaging\nMeeting preparation with automated agenda, status summary, or slide generation\nEmail or notification automation for recurring status updates or deadline reminders",
+    "title": "8  Business Process Automation",
+    "section": "9.1 What Belongs Here",
+    "text": "9.1 What Belongs Here\nSolutions in this part address operational and administrative tasks:\n\nProject status reports generated from project management tool exports (e.g., GanttProject, OpenProject)\nGrant milestone tracking automated from workplan data\nWorkload distribution reports generated from task management or timesheet data\nCross-agency data exchange with automated format conversion and packaging\nMeeting preparation with automated agenda, status summary, or slide generation\nEmail or notification automation for recurring status updates or deadline reminders",
     "crumbs": [
       "Business Process Automation",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Business Process Automation</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Business Process Automation</span>"
     ]
   },
   {
     "objectID": "chapters/07-from-manual-to-automated.html",
     "href": "chapters/07-from-manual-to-automated.html",
-    "title": "8  From Manual to Automated",
+    "title": "9  From Manual to Automated",
     "section": "",
-    "text": "9 From Manual to Automated\nThis chapter covers the practical thinking behind automation: how to evaluate your own workflows, where to start, and how to navigate the organizational realities of changing how work gets done.",
+    "text": "10 From Manual to Automated\nThis chapter covers the practical thinking behind automation: how to evaluate your own workflows, where to start, and how to navigate the organizational realities of changing how work gets done.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>From Manual to Automated</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>From Manual to Automated</span>"
     ]
   },
   {
     "objectID": "chapters/07-from-manual-to-automated.html#the-optimization-hierarchy",
     "href": "chapters/07-from-manual-to-automated.html#the-optimization-hierarchy",
-    "title": "8  From Manual to Automated",
-    "section": "9.1 The Optimization Hierarchy",
-    "text": "9.1 The Optimization Hierarchy\nBefore writing a single line of code, ask three questions in order:\n\nCan the task be eliminated? Sometimes a process exists because it always has, not because it still serves a purpose. The most efficient automation is realizing you do not need the task at all.\nCan it be automated? If the task has clear inputs, defined steps, and predictable outputs, a script or tool can likely handle it. This is where most automation wins are found.\nCan it be standardized? Even if full automation is not feasible, documenting the process with clear steps, naming conventions, and templates reduces variability and training time.",
+    "title": "9  From Manual to Automated",
+    "section": "10.1 The Optimization Hierarchy",
+    "text": "10.1 The Optimization Hierarchy\nBefore writing a single line of code, ask three questions in order:\n\nCan the task be eliminated? Sometimes a process exists because it always has, not because it still serves a purpose. The most efficient automation is realizing you do not need the task at all.\nCan it be automated? If the task has clear inputs, defined steps, and predictable outputs, a script or tool can likely handle it. This is where most automation wins are found.\nCan it be standardized? Even if full automation is not feasible, documenting the process with clear steps, naming conventions, and templates reduces variability and training time.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>From Manual to Automated</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>From Manual to Automated</span>"
     ]
   },
   {
     "objectID": "chapters/07-from-manual-to-automated.html#where-to-start",
     "href": "chapters/07-from-manual-to-automated.html#where-to-start",
-    "title": "8  From Manual to Automated",
-    "section": "9.2 Where to Start",
-    "text": "9.2 Where to Start\nThe best first automation project is one that:\n\nYou perform frequently (weekly or more)\nFollows the same steps every time\nInvolves files, spreadsheets, or data you can access on your own machine\nWould take less than a day to automate (even if it saves only 30 minutes per cycle)\n\nDesktop automation tasks (file renaming, folder organization, format conversion) are ideal first projects because they are self-contained, low-risk, and produce immediate, visible results.",
+    "title": "9  From Manual to Automated",
+    "section": "10.2 Where to Start",
+    "text": "10.2 Where to Start\nThe best first automation project is one that:\n\nYou perform frequently (weekly or more)\nFollows the same steps every time\nInvolves files, spreadsheets, or data you can access on your own machine\nWould take less than a day to automate (even if it saves only 30 minutes per cycle)\n\nDesktop automation tasks (file renaming, folder organization, format conversion) are ideal first projects because they are self-contained, low-risk, and produce immediate, visible results.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>From Manual to Automated</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>From Manual to Automated</span>"
     ]
   },
   {
     "objectID": "chapters/07-from-manual-to-automated.html#automation-and-workforce-identity",
     "href": "chapters/07-from-manual-to-automated.html#automation-and-workforce-identity",
-    "title": "8  From Manual to Automated",
-    "section": "9.3 Automation and Workforce Identity",
-    "text": "9.3 Automation and Workforce Identity\nA concern that deserves honest acknowledgment: in many public health organizations, some people’s entire job descriptions are built around the manual processes that automation would replace. That is a real and uncomfortable tension.\nAutomating a task is straightforward. Rethinking someone’s role so they can contribute at a higher level is a much harder organizational problem, one that requires leadership willing to invest in retraining and redesigning positions rather than simply eliminating them.\nThe vision behind this initiative is not fewer people. It is the same people doing more meaningful work: interpreting data instead of copying it, investigating outbreaks instead of renaming files, designing surveillance strategies instead of reformatting spreadsheets. But that only happens if organizations commit to the transition, not just the tool.\n\n\n\n\n\n\nTipFraming Automation for Your Team\n\n\n\nWhen introducing automation to colleagues or leadership, frame it in terms of time recovered, not tasks eliminated. “This script saves 8 hours per month that can be redirected to case investigation” is more effective than “This script replaces what someone currently does.”",
+    "title": "9  From Manual to Automated",
+    "section": "10.3 Automation and Workforce Identity",
+    "text": "10.3 Automation and Workforce Identity\nA concern that deserves honest acknowledgment: in many public health organizations, some people’s entire job descriptions are built around the manual processes that automation would replace. That is a real and uncomfortable tension.\nAutomating a task is straightforward. Rethinking someone’s role so they can contribute at a higher level is a much harder organizational problem, one that requires leadership willing to invest in retraining and redesigning positions rather than simply eliminating them.\nThe vision behind this initiative is not fewer people. It is the same people doing more meaningful work: interpreting data instead of copying it, investigating outbreaks instead of renaming files, designing surveillance strategies instead of reformatting spreadsheets. But that only happens if organizations commit to the transition, not just the tool.\n\n\n\n\n\n\nTipFraming Automation for Your Team\n\n\n\nWhen introducing automation to colleagues or leadership, frame it in terms of time recovered, not tasks eliminated. “This script saves 8 hours per month that can be redirected to case investigation” is more effective than “This script replaces what someone currently does.”",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>From Manual to Automated</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>From Manual to Automated</span>"
     ]
   },
   {
     "objectID": "chapters/07-from-manual-to-automated.html#getting-started-with-scripting",
     "href": "chapters/07-from-manual-to-automated.html#getting-started-with-scripting",
-    "title": "8  From Manual to Automated",
-    "section": "9.4 Getting Started with Scripting",
-    "text": "9.4 Getting Started with Scripting\nIf you have never written a script before, the barrier feels higher than it actually is. A few practical starting points:\n\nR with RStudio: The Posit ecosystem provides a free, integrated environment. Start with the fs package for file operations and readxl/writexl for spreadsheet automation.\nPython: The standard library’s os, shutil, and pathlib modules handle file operations. pandas covers spreadsheet work. Install Anaconda for a batteries-included setup.\nStart small: Automate one task you do every week. Prove the value to yourself before expanding.\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis chapter will be expanded with worked examples, decision frameworks, and practical guidance as the solutions library grows.",
+    "title": "9  From Manual to Automated",
+    "section": "10.4 Getting Started with Scripting",
+    "text": "10.4 Getting Started with Scripting\nIf you have never written a script before, the barrier feels higher than it actually is. A few practical starting points:\n\nR with RStudio: The Posit ecosystem provides a free, integrated environment. Start with the fs package for file operations and readxl/writexl for spreadsheet automation.\nPython: The standard library’s os, shutil, and pathlib modules handle file operations. pandas covers spreadsheet work. Install Anaconda for a batteries-included setup.\nStart small: Automate one task you do every week. Prove the value to yourself before expanding.\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis chapter will be expanded with worked examples, decision frameworks, and practical guidance as the solutions library grows.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>From Manual to Automated</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>From Manual to Automated</span>"
     ]
   },
   {
     "objectID": "chapters/08-community-of-practice.html",
     "href": "chapters/08-community-of-practice.html",
-    "title": "9  Building a Community of Practice",
+    "title": "10  Building a Community of Practice",
     "section": "",
-    "text": "10 Building a Community of Practice\nThe long-term vision for the Automation Clinic extends beyond individual problem-solving. Each submission and solution contributes to a growing, shared resource for the public health workforce.",
+    "text": "11 Building a Community of Practice\nThe long-term vision for the Automation Clinic extends beyond individual problem-solving. Each submission and solution contributes to a growing, shared resource for the public health workforce.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Building a Community of Practice</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Building a Community of Practice</span>"
     ]
   },
   {
     "objectID": "chapters/08-community-of-practice.html#the-pattern-library",
     "href": "chapters/08-community-of-practice.html#the-pattern-library",
-    "title": "9  Building a Community of Practice",
-    "section": "10.1 The Pattern Library",
-    "text": "10.1 The Pattern Library\nEvery automation problem submitted to the clinic reveals a pattern: a type of task, a category of data, a workflow structure that recurs across teams, agencies, and jurisdictions. Over time, these patterns form a library that makes it faster to develop solutions for new submissions and easier for professionals to find existing solutions that match their needs.",
+    "title": "10  Building a Community of Practice",
+    "section": "11.1 The Pattern Library",
+    "text": "11.1 The Pattern Library\nEvery automation problem submitted to the clinic reveals a pattern: a type of task, a category of data, a workflow structure that recurs across teams, agencies, and jurisdictions. Over time, these patterns form a library that makes it faster to develop solutions for new submissions and easier for professionals to find existing solutions that match their needs.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Building a Community of Practice</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Building a Community of Practice</span>"
     ]
   },
   {
     "objectID": "chapters/08-community-of-practice.html#contributing-solutions",
     "href": "chapters/08-community-of-practice.html#contributing-solutions",
-    "title": "9  Building a Community of Practice",
-    "section": "10.2 Contributing Solutions",
-    "text": "10.2 Contributing Solutions\nPublic health professionals who have solved their own automation challenges are encouraged to share those solutions. The clinic is not a one-way service; it is a community resource. If you have written a script that saves your team time, consider contributing it to the library so others facing the same problem can benefit.",
+    "title": "10  Building a Community of Practice",
+    "section": "11.2 Contributing Solutions",
+    "text": "11.2 Contributing Solutions\nPublic health professionals who have solved their own automation challenges are encouraged to share those solutions. The clinic is not a one-way service; it is a community resource. If you have written a script that saves your team time, consider contributing it to the library so others facing the same problem can benefit.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Building a Community of Practice</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Building a Community of Practice</span>"
     ]
   },
   {
     "objectID": "chapters/08-community-of-practice.html#the-public-github-repository",
     "href": "chapters/08-community-of-practice.html#the-public-github-repository",
-    "title": "9  Building a Community of Practice",
-    "section": "10.3 The Public GitHub Repository",
-    "text": "10.3 The Public GitHub Repository\nWhile this is currently a one-person effort, the plan is to make the solution library available as a public GitHub repository. This will allow others to:\n\nBrowse and download existing solutions\nSubmit improvements or bug fixes to published solutions\nContribute entirely new solutions\nRequest features or report issues through GitHub Issues\n\nThe goal is for the repository to become a shared, community-maintained resource for public health automation, growing beyond what any single person could produce.",
+    "title": "10  Building a Community of Practice",
+    "section": "11.3 The Public GitHub Repository",
+    "text": "11.3 The Public GitHub Repository\nWhile this is currently a one-person effort, the plan is to make the solution library available as a public GitHub repository. This will allow others to:\n\nBrowse and download existing solutions\nSubmit improvements or bug fixes to published solutions\nContribute entirely new solutions\nRequest features or report issues through GitHub Issues\n\nThe goal is for the repository to become a shared, community-maintained resource for public health automation, growing beyond what any single person could produce.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Building a Community of Practice</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Building a Community of Practice</span>"
     ]
   },
   {
     "objectID": "chapters/08-community-of-practice.html#workforce-development",
     "href": "chapters/08-community-of-practice.html#workforce-development",
-    "title": "9  Building a Community of Practice",
-    "section": "10.4 Workforce Development",
-    "text": "10.4 Workforce Development\nEach published solution serves a dual purpose: it solves an immediate problem, and it demonstrates what is possible with accessible tools. For professionals who have never seen automation applied to their workflows, a single working example can shift their understanding of what R, Python, and open source tools can do.\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis chapter will be expanded with contribution guidelines, community governance plans, and examples of successful public health open source collaborations as the initiative matures.",
+    "title": "10  Building a Community of Practice",
+    "section": "11.4 Workforce Development",
+    "text": "11.4 Workforce Development\nEach published solution serves a dual purpose: it solves an immediate problem, and it demonstrates what is possible with accessible tools. For professionals who have never seen automation applied to their workflows, a single working example can shift their understanding of what R, Python, and open source tools can do.\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis chapter will be expanded with contribution guidelines, community governance plans, and examples of successful public health open source collaborations as the initiative matures.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Building a Community of Practice</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Building a Community of Practice</span>"
     ]
   },
   {
     "objectID": "chapters/09-automation-education.html",
     "href": "chapters/09-automation-education.html",
-    "title": "10  Automation and Public Health Education",
+    "title": "11  Automation and Public Health Education",
     "section": "",
-    "text": "11 Automation and Public Health Education\nThis chapter addresses a structural gap: the way public health professionals are trained to use programming tools, and the opportunities being missed as a result.",
+    "text": "12 Automation and Public Health Education\nThis chapter addresses a structural gap: the way public health professionals are trained to use programming tools, and the opportunities being missed as a result.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
     ]
   },
   {
     "objectID": "chapters/09-automation-education.html#the-curriculum-gap",
     "href": "chapters/09-automation-education.html#the-curriculum-gap",
-    "title": "10  Automation and Public Health Education",
-    "section": "11.1 The Curriculum Gap",
-    "text": "11.1 The Curriculum Gap\nMost MPH programs treat scripting as an epidemiology tool. Students learn to clean data, run models, and generate output, typically in SAS, R, or increasingly Python. The result is a workforce that can run a logistic regression but still manually renames 200 files by hand.\nWhat is often overlooked is that R and Python are incredibly powerful general-purpose programming languages capable of far more than data cleaning and statistical analysis. They can rename thousands of files, parse XML exports, generate formatted reports, interact with APIs, automate email workflows, and orchestrate entire data pipelines. These capabilities are standard knowledge in software engineering and IT business analysis, but they are almost entirely absent from public health training.",
+    "title": "11  Automation and Public Health Education",
+    "section": "12.1 The Curriculum Gap",
+    "text": "12.1 The Curriculum Gap\nMost MPH programs treat scripting as an epidemiology tool. Students learn to clean data, run models, and generate output, typically in SAS, R, or increasingly Python. The result is a workforce that can run a logistic regression but still manually renames 200 files by hand.\nWhat is often overlooked is that R and Python are incredibly powerful general-purpose programming languages capable of far more than data cleaning and statistical analysis. They can rename thousands of files, parse XML exports, generate formatted reports, interact with APIs, automate email workflows, and orchestrate entire data pipelines. These capabilities are standard knowledge in software engineering and IT business analysis, but they are almost entirely absent from public health training.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
     ]
   },
   {
     "objectID": "chapters/09-automation-education.html#r-and-python-as-general-purpose-tools",
     "href": "chapters/09-automation-education.html#r-and-python-as-general-purpose-tools",
-    "title": "10  Automation and Public Health Education",
-    "section": "11.2 R and Python as General-Purpose Tools",
-    "text": "11.2 R and Python as General-Purpose Tools\nThe public health workforce has access to two of the most versatile programming languages in existence, yet uses them for a narrow slice of what they can do. Consider the gap:\n\n\n\n\n\n\n\nWhat MPH programs teach\nWhat R and Python can also do\n\n\n\n\nData import and cleaning\nBatch file operations (rename, move, convert)\n\n\nStatistical modeling\nAPI integration (Google Sheets, REDCap, CDC portals)\n\n\nVisualization (ggplot2, matplotlib)\nAutomated report generation (Quarto, R Markdown)\n\n\nEpidemiological analysis\nWeb scraping of public health data\n\n\n\nProject management reporting from tool exports\n\n\n\nEmail and notification automation\n\n\n\nInteractive dashboards (Shiny)",
+    "title": "11  Automation and Public Health Education",
+    "section": "12.2 R and Python as General-Purpose Tools",
+    "text": "12.2 R and Python as General-Purpose Tools\nThe public health workforce has access to two of the most versatile programming languages in existence, yet uses them for a narrow slice of what they can do. Consider the gap:\n\n\n\n\n\n\n\nWhat MPH programs teach\nWhat R and Python can also do\n\n\n\n\nData import and cleaning\nBatch file operations (rename, move, convert)\n\n\nStatistical modeling\nAPI integration (Google Sheets, REDCap, CDC portals)\n\n\nVisualization (ggplot2, matplotlib)\nAutomated report generation (Quarto, R Markdown)\n\n\nEpidemiological analysis\nWeb scraping of public health data\n\n\n\nProject management reporting from tool exports\n\n\n\nEmail and notification automation\n\n\n\nInteractive dashboards (Shiny)",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
     ]
   },
   {
     "objectID": "chapters/09-automation-education.html#business-process-automation-the-missing-module",
     "href": "chapters/09-automation-education.html#business-process-automation-the-missing-module",
-    "title": "10  Automation and Public Health Education",
-    "section": "11.3 Business Process Automation: The Missing Module",
-    "text": "11.3 Business Process Automation: The Missing Module\nBusiness process automation, desktop automation, and workflow design are core competencies in IT business analysis but almost entirely absent from public health training. This is precisely the gap that Bridgeframe tries to address: translating tools and thinking between the IT and public health worlds.\nA single module in an MPH program on “automating the work around the work” could transform how graduates approach their first positions. Instead of accepting manual reporting processes as inevitable, they would arrive with the mindset and skills to ask: can this be scripted?",
+    "title": "11  Automation and Public Health Education",
+    "section": "12.3 Business Process Automation: The Missing Module",
+    "text": "12.3 Business Process Automation: The Missing Module\nBusiness process automation, desktop automation, and workflow design are core competencies in IT business analysis but almost entirely absent from public health training. This is precisely the gap that Bridgeframe tries to address: translating tools and thinking between the IT and public health worlds.\nA single module in an MPH program on “automating the work around the work” could transform how graduates approach their first positions. Instead of accepting manual reporting processes as inevitable, they would arrive with the mindset and skills to ask: can this be scripted?",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
     ]
   },
   {
     "objectID": "chapters/09-automation-education.html#what-schools-of-public-health-could-do",
     "href": "chapters/09-automation-education.html#what-schools-of-public-health-could-do",
-    "title": "10  Automation and Public Health Education",
-    "section": "11.4 What Schools of Public Health Could Do",
-    "text": "11.4 What Schools of Public Health Could Do\nEven modest curriculum changes could have significant impact:\n\nAdd a module on desktop automation to existing R or Python courses, covering file operations, batch processing, and task scheduling\nInclude API integration as a practical skill alongside data analysis, since public health data increasingly lives in web-accessible systems\nTeach report automation with Quarto or R Markdown as a standard output format, not just a research tool\nFrame scripting as problem-solving, not just analysis, so students recognize automation opportunities beyond the analytical pipeline\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis chapter will be expanded with specific curriculum recommendations, examples from programs that are already incorporating automation skills, and resources for instructors interested in adding automation content to existing courses.",
+    "title": "11  Automation and Public Health Education",
+    "section": "12.4 What Schools of Public Health Could Do",
+    "text": "12.4 What Schools of Public Health Could Do\nEven modest curriculum changes could have significant impact:\n\nAdd a module on desktop automation to existing R or Python courses, covering file operations, batch processing, and task scheduling\nInclude API integration as a practical skill alongside data analysis, since public health data increasingly lives in web-accessible systems\nTeach report automation with Quarto or R Markdown as a standard output format, not just a research tool\nFrame scripting as problem-solving, not just analysis, so students recognize automation opportunities beyond the analytical pipeline\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis chapter will be expanded with specific curriculum recommendations, examples from programs that are already incorporating automation skills, and resources for instructors interested in adding automation content to existing courses.",
     "crumbs": [
       "The Automation Mindset",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Automation and Public Health Education</span>"
     ]
   },
   {
     "objectID": "chapters/A-tool-recommendations.html",
     "href": "chapters/A-tool-recommendations.html",
-    "title": "11  Tool Recommendations",
+    "title": "12  Tool Recommendations",
     "section": "",
-    "text": "12 Tool Recommendations\nThis appendix provides a comparison of commercial and open source tools relevant to public health automation, organized by category. The clinic prioritizes free and open source options, but commercial alternatives are noted where they are commonly encountered in public health settings.",
+    "text": "13 Tool Recommendations\nThis appendix provides a comparison of commercial and open source tools relevant to public health automation, organized by category. The clinic prioritizes free and open source options, but commercial alternatives are noted where they are commonly encountered in public health settings.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Recommendations</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Tool Recommendations</span>"
     ]
   },
   {
     "objectID": "chapters/A-tool-recommendations.html#tool-comparison",
     "href": "chapters/A-tool-recommendations.html#tool-comparison",
-    "title": "11  Tool Recommendations",
-    "section": "12.1 Tool Comparison",
-    "text": "12.1 Tool Comparison\n\n\n\nCategory\nCommercial / Enterprise\nOpen Source / Public Health\nNotes\n\n\n\n\nData Analysis\nSAS, SPSS, Stata\nR (tidyverse), Python (pandas), Epi Info\nR and Python are the core clinic tools\n\n\nReporting\n\nQuarto, R Markdown\nReproducible documents and reports\n\n\nInteractive Tools\nTableau, Power BI\nR Shiny, Plotly\nCode provided; hosting not included\n\n\nIDE\n\nRStudio, VS Code\nFree, full-featured environments\n\n\nVisualization\nTableau\nggplot2, Plotly, QGIS\nQGIS for spatial epidemiology\n\n\nData Collection\nQualtrics, Microsoft Forms\nREDCap, KoBoToolbox\nREDCap is HIPAA-compliant\n\n\nProject Management\nJira, MS Project\nGanttProject, OpenProject\nFree desktop tools\n\n\nGIS / Mapping\nArcGIS, Mapbox\nQGIS, Leaflet, R (sf package)\nQGIS widely used for disease mapping\n\n\nVersion Control\nAzure Repos\nGit, GitHub\nFor solution sharing and collaboration",
+    "title": "12  Tool Recommendations",
+    "section": "13.1 Tool Comparison",
+    "text": "13.1 Tool Comparison\n\n\n\nCategory\nCommercial / Enterprise\nOpen Source / Public Health\nNotes\n\n\n\n\nData Analysis\nSAS, SPSS, Stata\nR (tidyverse), Python (pandas), Epi Info\nR and Python are the core clinic tools\n\n\nReporting\n\nQuarto, R Markdown\nReproducible documents and reports\n\n\nInteractive Tools\nTableau, Power BI\nR Shiny, Plotly\nCode provided; hosting not included\n\n\nIDE\n\nRStudio, VS Code\nFree, full-featured environments\n\n\nVisualization\nTableau\nggplot2, Plotly, QGIS\nQGIS for spatial epidemiology\n\n\nData Collection\nQualtrics, Microsoft Forms\nREDCap, KoBoToolbox\nREDCap is HIPAA-compliant\n\n\nProject Management\nJira, MS Project\nGanttProject, OpenProject\nFree desktop tools\n\n\nGIS / Mapping\nArcGIS, Mapbox\nQGIS, Leaflet, R (sf package)\nQGIS widely used for disease mapping\n\n\nVersion Control\nAzure Repos\nGit, GitHub\nFor solution sharing and collaboration",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Recommendations</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Tool Recommendations</span>"
     ]
   },
   {
     "objectID": "chapters/A-tool-recommendations.html#when-to-recommend-which-tool",
     "href": "chapters/A-tool-recommendations.html#when-to-recommend-which-tool",
-    "title": "11  Tool Recommendations",
-    "section": "12.2 When to Recommend Which Tool",
-    "text": "12.2 When to Recommend Which Tool\n\nREDCap over commercial survey tools: For research studies requiring compliance (HIPAA, 21 CFR Part 11)\nEpi Info over Excel: For rapid outbreak investigation with built-in epidemiological statistics\nQGIS over ArcGIS: When budget is constrained but spatial analysis is critical\nR/Python over SAS: When licensing costs are prohibitive and the team can invest in learning open tools\nGanttProject over MS Project: For lightweight project tracking without enterprise licensing\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis appendix will be expanded with setup guides, configuration tips, and integration patterns as the solutions library grows.",
+    "title": "12  Tool Recommendations",
+    "section": "13.2 When to Recommend Which Tool",
+    "text": "13.2 When to Recommend Which Tool\n\nREDCap over commercial survey tools: For research studies requiring compliance (HIPAA, 21 CFR Part 11)\nEpi Info over Excel: For rapid outbreak investigation with built-in epidemiological statistics\nQGIS over ArcGIS: When budget is constrained but spatial analysis is critical\nR/Python over SAS: When licensing costs are prohibitive and the team can invest in learning open tools\nGanttProject over MS Project: For lightweight project tracking without enterprise licensing\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis appendix will be expanded with setup guides, configuration tips, and integration patterns as the solutions library grows.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Tool Recommendations</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Tool Recommendations</span>"
     ]
   },
   {
     "objectID": "chapters/B-submission-templates.html",
     "href": "chapters/B-submission-templates.html",
-    "title": "12  Submission Templates and Examples",
+    "title": "13  Submission Templates and Examples",
     "section": "",
-    "text": "13 Submission Templates and Examples\nThis appendix provides detailed templates and worked examples for the three submission formats accepted by the Automation Clinic. Use whichever format feels most natural; the goal is to clearly communicate the problem, not to follow a rigid structure.",
+    "text": "14 Submission Templates and Examples\nThis appendix provides detailed templates and worked examples for the three submission formats accepted by the Automation Clinic. Use whichever format feels most natural; the goal is to clearly communicate the problem, not to follow a rigid structure.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
     ]
   },
   {
     "objectID": "chapters/B-submission-templates.html#user-story-format",
     "href": "chapters/B-submission-templates.html#user-story-format",
-    "title": "12  Submission Templates and Examples",
-    "section": "13.1 User Story Format",
-    "text": "13.1 User Story Format\nTemplate: As a [role], I want [action], so that [outcome].\n\n13.1.1 Worked Examples\n\n“As an epidemiologist, I want to automatically extract patient demographics from 200 monthly PDF lab reports into a single spreadsheet, so that I can eliminate 8 hours of manual data entry and transcription errors.”\n\n\n“As a data analyst, I want to geocode 5,000 addresses using free tools without ArcGIS, so that I can produce maps for a community health assessment on a limited budget.”\n\n\n“As a program manager, I want to generate a weekly summary of task completion rates from our project tracking spreadsheet, so that I can report progress to the steering committee without manually compiling data from multiple tabs.”",
+    "title": "13  Submission Templates and Examples",
+    "section": "14.1 User Story Format",
+    "text": "14.1 User Story Format\nTemplate: As a [role], I want [action], so that [outcome].\n\n14.1.1 Worked Examples\n\n“As an epidemiologist, I want to automatically extract patient demographics from 200 monthly PDF lab reports into a single spreadsheet, so that I can eliminate 8 hours of manual data entry and transcription errors.”\n\n\n“As a data analyst, I want to geocode 5,000 addresses using free tools without ArcGIS, so that I can produce maps for a community health assessment on a limited budget.”\n\n\n“As a program manager, I want to generate a weekly summary of task completion rates from our project tracking spreadsheet, so that I can report progress to the steering committee without manually compiling data from multiple tabs.”",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
     ]
   },
   {
     "objectID": "chapters/B-submission-templates.html#gps-format-given-person-should",
     "href": "chapters/B-submission-templates.html#gps-format-given-person-should",
-    "title": "12  Submission Templates and Examples",
-    "section": "13.2 GPS Format (Given-Person-Should)",
-    "text": "13.2 GPS Format (Given-Person-Should)\nTemplate: Given [context], the [role] should [action] to [outcome].\n\n13.2.1 Worked Examples\n\n“Given a surveillance system export that produces cryptic filenames (e.g., RPT_20260115_0847_A3F2.pdf), the registrar should be able to batch-rename all files to the convention [PatientID]_[FacilityCode]_[ReportDate].pdf, to enable rapid file retrieval and consistent record-keeping.”\n\n\n“Given a monthly data extract from the state vital records system in fixed-width text format, the analyst should be able to automatically convert and load the data into a standardized CSV with proper column headers, to eliminate manual reformatting before analysis.”",
+    "title": "13  Submission Templates and Examples",
+    "section": "14.2 GPS Format (Given-Person-Should)",
+    "text": "14.2 GPS Format (Given-Person-Should)\nTemplate: Given [context], the [role] should [action] to [outcome].\n\n14.2.1 Worked Examples\n\n“Given a surveillance system export that produces cryptic filenames (e.g., RPT_20260115_0847_A3F2.pdf), the registrar should be able to batch-rename all files to the convention [PatientID]_[FacilityCode]_[ReportDate].pdf, to enable rapid file retrieval and consistent record-keeping.”\n\n\n“Given a monthly data extract from the state vital records system in fixed-width text format, the analyst should be able to automatically convert and load the data into a standardized CSV with proper column headers, to eliminate manual reformatting before analysis.”",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
     ]
   },
   {
     "objectID": "chapters/B-submission-templates.html#situational-protocol-format",
     "href": "chapters/B-submission-templates.html#situational-protocol-format",
-    "title": "12  Submission Templates and Examples",
-    "section": "13.3 Situational Protocol Format",
-    "text": "13.3 Situational Protocol Format\nTemplate: When [trigger], the [process/system] shall [action] within [constraint].\n\n13.3.1 Worked Examples\n\n“When the quarterly reporting cycle begins, the analyst’s workflow shall merge incidence data from three Excel workbooks into a summary template automatically, because the structure is identical every quarter and the current manual copy-paste process takes a full day.”\n\n\n“When a new registry extract is received, the data quality process shall check all 15 edit rules (e.g., diagnosis date precedes treatment date, age between 0 and 120) and generate an exception report, because these rules never change and manual checking is error-prone.”",
+    "title": "13  Submission Templates and Examples",
+    "section": "14.3 Situational Protocol Format",
+    "text": "14.3 Situational Protocol Format\nTemplate: When [trigger], the [process/system] shall [action] within [constraint].\n\n14.3.1 Worked Examples\n\n“When the quarterly reporting cycle begins, the analyst’s workflow shall merge incidence data from three Excel workbooks into a summary template automatically, because the structure is identical every quarter and the current manual copy-paste process takes a full day.”\n\n\n“When a new registry extract is received, the data quality process shall check all 15 edit rules (e.g., diagnosis date precedes treatment date, age between 0 and 120) and generate an exception report, because these rules never change and manual checking is error-prone.”",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
     ]
   },
   {
     "objectID": "chapters/B-submission-templates.html#tips-for-any-format",
     "href": "chapters/B-submission-templates.html#tips-for-any-format",
-    "title": "12  Submission Templates and Examples",
-    "section": "13.4 Tips for Any Format",
-    "text": "13.4 Tips for Any Format\nRegardless of format, the most useful submissions clearly describe:\n\nContext: What triggers the task? What system or data source is involved?\nRole: Who performs this task? What is their expertise level?\nCurrent process: What steps do you follow today? How long does it take?\nDesired outcome: What should the result look like? What format, structure, or output do you need?\nVolume and frequency: How many records, files, or items? How often?\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis appendix will be expanded with additional examples drawn from actual clinic submissions (anonymized) as the solutions library grows.",
+    "title": "13  Submission Templates and Examples",
+    "section": "14.4 Tips for Any Format",
+    "text": "14.4 Tips for Any Format\nRegardless of format, the most useful submissions clearly describe:\n\nContext: What triggers the task? What system or data source is involved?\nRole: Who performs this task? What is their expertise level?\nCurrent process: What steps do you follow today? How long does it take?\nDesired outcome: What should the result look like? What format, structure, or output do you need?\nVolume and frequency: How many records, files, or items? How often?\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis appendix will be expanded with additional examples drawn from actual clinic submissions (anonymized) as the solutions library grows.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Submission Templates and Examples</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html",
     "href": "chapters/D-development-tools.html",
-    "title": "13  Development Tools and AI Transparency",
+    "title": "14  Development Tools and AI Transparency",
     "section": "",
-    "text": "14 Development Tools and AI Transparency\nThis appendix documents the tools used to build and maintain the Public Health Automation Clinic, including the role of AI in its development. Transparency about how this resource is created is central to the clinic’s values.",
+    "text": "15 Development Tools and AI Transparency\nThis appendix documents the tools used to build and maintain the Public Health Automation Clinic, including the role of AI in its development. Transparency about how this resource is created is central to the clinic’s values.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#the-core-commitment",
     "href": "chapters/D-development-tools.html#the-core-commitment",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.1 The Core Commitment",
-    "text": "14.1 The Core Commitment\n\n\n\nBuilt with AI. Owned by You.\n\n\nThe Public Health Automation Clinic uses AI tools to rapidly develop solutions that public health professionals can run deterministically on a local computer or server, without needing any AI tools going forward. Every script, template, and workflow published in this book runs locally on standard hardware using open source tools. No AI subscription, cloud API, or large language model is required to execute any solution.\nAI accelerates the authoring and development process; it does not become a dependency for the end user.\nThe solutions developed here are based on real experience and real needs in the field of public health. AI coding tools are used to package and refine that expertise into working, well-documented code. The domain knowledge, problem framing, and quality standards come from years of applied work in epidemiology and public health informatics.\nThis distinction matters. Many public health agencies still prohibit staff from using AI tools directly. Because every solution published here is openly available as standard R or Python code, professionals in those agencies can use the outputs without any AI involvement. The code is public, inspectable, and runs entirely on your machine.\n\n\n\n\n\n\nImportantBuilt with AI. Owned by You.\n\n\n\nThe solutions in this book are designed to be fully transparent, fully local, and fully independent of AI once delivered. If you can run R or Python on your machine, you can run every solution published here. All software required to access or use this resource is free and open source.",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.1 The Core Commitment",
+    "text": "15.1 The Core Commitment\n\n\n\nBuilt with AI. Owned by You.\n\n\nThe Public Health Automation Clinic uses AI tools to rapidly develop solutions that public health professionals can run deterministically on a local computer or server, without needing any AI tools going forward. Every script, template, and workflow published in this book runs locally on standard hardware using open source tools. No AI subscription, cloud API, or large language model is required to execute any solution.\nAI accelerates the authoring and development process; it does not become a dependency for the end user.\nThe solutions developed here are based on real experience and real needs in the field of public health. AI coding tools are used to package and refine that expertise into working, well-documented code. The domain knowledge, problem framing, and quality standards come from years of applied work in epidemiology and public health informatics.\nThis distinction matters. Many public health agencies still prohibit staff from using AI tools directly. Because every solution published here is openly available as standard R or Python code, professionals in those agencies can use the outputs without any AI involvement. The code is public, inspectable, and runs entirely on your machine.\n\n\n\n\n\n\nImportantBuilt with AI. Owned by You.\n\n\n\nThe solutions in this book are designed to be fully transparent, fully local, and fully independent of AI once delivered. If you can run R or Python on your machine, you can run every solution published here. All software required to access or use this resource is free and open source.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#data-sovereignty",
     "href": "chapters/D-development-tools.html#data-sovereignty",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.2 Data Sovereignty",
-    "text": "14.2 Data Sovereignty\nThis project supports and strengthens the principle of data sovereignty. No data needs to leave your computer or network to use any solution published here. Every script processes data locally, and no solution phones home, uploads telemetry, or requires a cloud connection to function.\nFor public health agencies handling sensitive surveillance data, protected health information, or data subject to jurisdictional data governance policies, this is not a nice-to-have; it is a requirement. The local-first design ensures that adopting these tools introduces no new data-sharing risks.\nAll software needed to run the solutions (R, Python, RStudio, Quarto, and their dependencies) is free, open source, and installable without cloud accounts or subscription services.",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.2 Data Sovereignty",
+    "text": "15.2 Data Sovereignty\nThis project supports and strengthens the principle of data sovereignty. No data needs to leave your computer or network to use any solution published here. Every script processes data locally, and no solution phones home, uploads telemetry, or requires a cloud connection to function.\nFor public health agencies handling sensitive surveillance data, protected health information, or data subject to jurisdictional data governance policies, this is not a nice-to-have; it is a requirement. The local-first design ensures that adopting these tools introduces no new data-sharing risks.\nAll software needed to run the solutions (R, Python, RStudio, Quarto, and their dependencies) is free, open source, and installable without cloud accounts or subscription services.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#sustainability-and-reliability",
     "href": "chapters/D-development-tools.html#sustainability-and-reliability",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.3 Sustainability and Reliability",
-    "text": "14.3 Sustainability and Reliability\nA deterministic script or rule that runs reliably on a local device is far more sustainable and reliable than having a large language model process data in the cloud. Cloud-based AI introduces dependencies on network availability, API pricing, rate limits, model versioning, and third-party data handling policies. Any of these can change without notice, breaking workflows that public health teams depend on. LLMs and generative AI also require an enormous amount of compute to generate content and code, far more than most laptops can provide. That computational cost is ongoing every time the model is invoked, making it an impractical foundation for routine, recurring tasks.\nA local R or Python script, by contrast, produces the same output every time it runs against the same input. It does not require an internet connection. It does not incur per-query costs. It does not change behavior because a model was updated. It can be version-controlled, tested, audited, and handed to a colleague who can run it years later with predictable results.\nThat said, it is clear that LLMs are often better than most humans at writing that initial deterministic code. AI excels at rapidly scaffolding scripts, translating requirements into working functions, and generating boilerplate that would take a developer much longer to write from scratch. The key insight is to use AI where it is strongest (generating code quickly) and then deploy the result where deterministic tools are strongest (running reliably, locally, indefinitely).\nThis is the model the Automation Clinic follows: AI accelerates the development of solutions that, once delivered, are entirely self-sufficient.",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.3 Sustainability and Reliability",
+    "text": "15.3 Sustainability and Reliability\nA deterministic script or rule that runs reliably on a local device is far more sustainable and reliable than having a large language model process data in the cloud. Cloud-based AI introduces dependencies on network availability, API pricing, rate limits, model versioning, and third-party data handling policies. Any of these can change without notice, breaking workflows that public health teams depend on. LLMs and generative AI also require an enormous amount of compute to generate content and code, far more than most laptops can provide. That computational cost is ongoing every time the model is invoked, making it an impractical foundation for routine, recurring tasks.\nA local R or Python script, by contrast, produces the same output every time it runs against the same input. It does not require an internet connection. It does not incur per-query costs. It does not change behavior because a model was updated. It can be version-controlled, tested, audited, and handed to a colleague who can run it years later with predictable results.\nThat said, it is clear that LLMs are often better than most humans at writing that initial deterministic code. AI excels at rapidly scaffolding scripts, translating requirements into working functions, and generating boilerplate that would take a developer much longer to write from scratch. The key insight is to use AI where it is strongest (generating code quickly) and then deploy the result where deterministic tools are strongest (running reliably, locally, indefinitely).\nThis is the model the Automation Clinic follows: AI accelerates the development of solutions that, once delivered, are entirely self-sufficient.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#recommended-software-for-using-this-resource",
     "href": "chapters/D-development-tools.html#recommended-software-for-using-this-resource",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.4 Recommended Software for Using This Resource",
-    "text": "14.4 Recommended Software for Using This Resource\nTo run the solutions published in this book, you will need a small set of free, open source software. Nothing here requires a paid license or cloud subscription.\n\n14.4.1 Essential\n\n\n\nSoftware\nPurpose\nDownload\n\n\n\n\nR\nCore language for most solutions\ncloud.r-project.org\n\n\nAn IDE (see recommendations below)\nWriting, running, and debugging code\nSee below\n\n\n\nR is the primary language used across the clinic’s solutions. Most scripts, reports, and workflows are written in R and require it to run.\n\n\n14.4.2 Recommended IDEs\nAny of the following integrated development environments will work well. All three are free:\n\n\n\nIDE\nBest For\nDownload\n\n\n\n\nRStudio Desktop\nR-focused work; the most widely used IDE for R among public health professionals\nposit.co/download/rstudio-desktop\n\n\nPositron\nA next-generation IDE from Posit with native support for both R and Python\npositron.posit.co\n\n\nVS Code\nA general-purpose editor with R and Python support via extensions; ideal if you already use it for other work\ncode.visualstudio.com\n\n\n\nIf you are new to programming or primarily working in R, RStudio Desktop is the most straightforward starting point. If you work in both R and Python, Positron or VS Code may be a better fit.\n\n\n14.4.3 Used in Some Solutions\n\n\n\nSoftware\nPurpose\nDownload\n\n\n\n\nPython\nUsed in some solutions, particularly for data quality checks and file operations\npython.org/downloads\n\n\nQuarto\nRequired for solutions that produce formatted reports or documents\nquarto.org/docs/get-started\n\n\nGit\nVersion control; useful for downloading and tracking updates to solutions\ngit-scm.com\n\n\n\n\n\n\n\n\n\nTipGetting Started\n\n\n\nAt minimum, install R and RStudio Desktop. This combination is sufficient to run the majority of solutions published in this book. Install Python, Quarto, or Git only when a specific solution requires them; each solution’s documentation will note its dependencies.",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.4 Recommended Software for Using This Resource",
+    "text": "15.4 Recommended Software for Using This Resource\nTo run the solutions published in this book, you will need a small set of free, open source software. Nothing here requires a paid license or cloud subscription.\n\n15.4.1 Essential\n\n\n\nSoftware\nPurpose\nDownload\n\n\n\n\nR\nCore language for most solutions\ncloud.r-project.org\n\n\nAn IDE (see recommendations below)\nWriting, running, and debugging code\nSee below\n\n\n\nR is the primary language used across the clinic’s solutions. Most scripts, reports, and workflows are written in R and require it to run.\n\n\n15.4.2 Recommended IDEs\nAny of the following integrated development environments will work well. All three are free:\n\n\n\nIDE\nBest For\nDownload\n\n\n\n\nRStudio Desktop\nR-focused work; the most widely used IDE for R among public health professionals\nposit.co/download/rstudio-desktop\n\n\nPositron\nA next-generation IDE from Posit with native support for both R and Python\npositron.posit.co\n\n\nVS Code\nA general-purpose editor with R and Python support via extensions; ideal if you already use it for other work\ncode.visualstudio.com\n\n\n\nIf you are new to programming or primarily working in R, RStudio Desktop is the most straightforward starting point. If you work in both R and Python, Positron or VS Code may be a better fit.\n\n\n15.4.3 Used in Some Solutions\n\n\n\nSoftware\nPurpose\nDownload\n\n\n\n\nPython\nUsed in some solutions, particularly for data quality checks and file operations\npython.org/downloads\n\n\nQuarto\nRequired for solutions that produce formatted reports or documents\nquarto.org/docs/get-started\n\n\nGit\nVersion control; useful for downloading and tracking updates to solutions\ngit-scm.com\n\n\n\n\n\n\n\n\n\nTipGetting Started\n\n\n\nAt minimum, install R and RStudio Desktop. This combination is sufficient to run the majority of solutions published in this book. Install Python, Quarto, or Git only when a specific solution requires them; each solution’s documentation will note its dependencies.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#technology-stack",
     "href": "chapters/D-development-tools.html#technology-stack",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.5 Technology Stack",
-    "text": "14.5 Technology Stack\nThe following tools are used to build and maintain this book and develop its solutions:\n\n\n\nTool\nPurpose\nDetails\n\n\n\n\nQuarto\nDocument publishing system\nRenders the book to HTML for GitHub Pages\n\n\nVS Code\nCode editor\nPrimary development environment\n\n\nGitHub Copilot\nAI-assisted development\nContent drafting, code generation, editing\n\n\nGit / GitHub\nVersion control and hosting\nSource code management and public repository\n\n\nGitHub Actions\nAutomated publishing\nDeploys book to GitHub Pages on push to main\n\n\nMermaid\nDiagram generation\nWorkflow and process diagrams (built into Quarto)\n\n\nR / Python\nSolution development\nCore languages for automation solutions",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.5 Technology Stack",
+    "text": "15.5 Technology Stack\nThe following tools are used to build and maintain this book and develop its solutions:\n\n\n\nTool\nPurpose\nDetails\n\n\n\n\nQuarto\nDocument publishing system\nRenders the book to HTML for GitHub Pages\n\n\nVS Code\nCode editor\nPrimary development environment\n\n\nGitHub Copilot\nAI-assisted development\nContent drafting, code generation, editing\n\n\nGit / GitHub\nVersion control and hosting\nSource code management and public repository\n\n\nGitHub Actions\nAutomated publishing\nDeploys book to GitHub Pages on push to main\n\n\nMermaid\nDiagram generation\nWorkflow and process diagrams (built into Quarto)\n\n\nR / Python\nSolution development\nCore languages for automation solutions",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#ai-assisted-development",
     "href": "chapters/D-development-tools.html#ai-assisted-development",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.6 AI-Assisted Development",
-    "text": "14.6 AI-Assisted Development\nGitHub Copilot is used throughout the development of this book and its solutions for:\n\nContent development: Drafting, structuring, and refining chapter content and instructional material\nCode generation: Writing R and Python scripts, Mermaid diagrams, and configuration files\nProblem translation: Converting vague workflow descriptions into structured automation specifications\nQuality review: Checking consistency across chapters, identifying gaps, and improving clarity\nRapid prototyping: Quickly producing working solution drafts that are then reviewed and refined\n\n\n14.6.1 LLM Models Used\nGitHub Copilot provides access to large language models from multiple providers during development:\n\n\n\nProvider\nPrimary Use\n\n\n\n\nAnthropic\nComplex analysis, long-form content development\n\n\nGoogle\nResearch, cross-referencing, fact-checking\n\n\nOpenAI\nCode generation, quick edits, formatting\n\n\n\nSpecific models evolve frequently. For the current list of available models, see the GitHub Copilot model comparison.\n\n\n14.6.2 Copilot Features Used\n\nChat: Interactive development sessions for complex content and solution design\nInline suggestions: Real-time code and prose completion during editing\nAgent mode: Multi-step tasks including file creation, refactoring, and terminal operations\n\n\n\n14.6.3 Deep Research Tools\nExtended research and analysis is supported by deep research capabilities in:\n\nGoogle Gemini: Literature review, public health context research, and tool landscape analysis\nOpenAI ChatGPT: Deep research mode for exploring automation patterns, public health data standards, and implementation approaches\n\nThese tools complement GitHub Copilot by providing broader research context beyond the immediate codebase.\n\n\n14.6.4 Project Context for AI\nA detailed project context file (.github/copilot-instructions.md) provides Copilot with specifics about the repository, including:\n\nBook structure and chapter organization\nContent style guidelines and deduplication rules\nPublic health terminology and conventions\nPrivacy rules (e.g., keeping communications/ content local-only)\nBranding and formatting standards\n\nThis context file ensures that AI-generated contributions are consistent with the book’s voice, scope, and technical standards.",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.6 AI-Assisted Development",
+    "text": "15.6 AI-Assisted Development\nGitHub Copilot is used throughout the development of this book and its solutions for:\n\nContent development: Drafting, structuring, and refining chapter content and instructional material\nCode generation: Writing R and Python scripts, Mermaid diagrams, and configuration files\nProblem translation: Converting vague workflow descriptions into structured automation specifications\nQuality review: Checking consistency across chapters, identifying gaps, and improving clarity\nRapid prototyping: Quickly producing working solution drafts that are then reviewed and refined\n\n\n15.6.1 LLM Models Used\nGitHub Copilot provides access to large language models from multiple providers during development:\n\n\n\nProvider\nPrimary Use\n\n\n\n\nAnthropic\nComplex analysis, long-form content development\n\n\nGoogle\nResearch, cross-referencing, fact-checking\n\n\nOpenAI\nCode generation, quick edits, formatting\n\n\n\nSpecific models evolve frequently. For the current list of available models, see the GitHub Copilot model comparison.\n\n\n15.6.2 Copilot Features Used\n\nChat: Interactive development sessions for complex content and solution design\nInline suggestions: Real-time code and prose completion during editing\nAgent mode: Multi-step tasks including file creation, refactoring, and terminal operations\n\n\n\n15.6.3 Deep Research Tools\nExtended research and analysis is supported by deep research capabilities in:\n\nGoogle Gemini: Literature review, public health context research, and tool landscape analysis\nOpenAI ChatGPT: Deep research mode for exploring automation patterns, public health data standards, and implementation approaches\n\nThese tools complement GitHub Copilot by providing broader research context beyond the immediate codebase.\n\n\n15.6.4 Project Context for AI\nA detailed project context file (.github/copilot-instructions.md) provides Copilot with specifics about the repository, including:\n\nBook structure and chapter organization\nContent style guidelines and deduplication rules\nPublic health terminology and conventions\nPrivacy rules (e.g., keeping communications/ content local-only)\nBranding and formatting standards\n\nThis context file ensures that AI-generated contributions are consistent with the book’s voice, scope, and technical standards.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#why-this-transparency-matters",
     "href": "chapters/D-development-tools.html#why-this-transparency-matters",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.7 Why This Transparency Matters",
-    "text": "14.7 Why This Transparency Matters\nPublic health professionals deserve to know how the tools they rely on are built. AI-assisted development raises legitimate questions:\n\nCan I trust the output? Every solution is reviewed for correctness before publication. AI drafts are starting points, not final products.\nWill I need AI to use this? No. Solutions are standard R and Python scripts. They require no AI tools to execute.\nIs the content original? AI assists with drafting and refinement, but the domain expertise, problem framing, and quality assurance come from the author’s experience in public health informatics and epidemiology.\nWhat about data privacy? No real patient data, protected health information, or identifiable submission details are shared with AI tools. All examples are anonymized and generalized.\n\n\n\n\n\n\n\nNoteA Practical View of AI in Development\n\n\n\nUsing AI to build automation tools for public health is analogous to using a calculator for arithmetic. The calculator does not replace the understanding of what to calculate or why; it accelerates the mechanical work. Similarly, AI accelerates the writing of scripts and documentation while the public health logic, context, and quality standards remain human responsibilities.",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.7 Why This Transparency Matters",
+    "text": "15.7 Why This Transparency Matters\nPublic health professionals deserve to know how the tools they rely on are built. AI-assisted development raises legitimate questions:\n\nCan I trust the output? Every solution is reviewed for correctness before publication. AI drafts are starting points, not final products.\nWill I need AI to use this? No. Solutions are standard R and Python scripts. They require no AI tools to execute.\nIs the content original? AI assists with drafting and refinement, but the domain expertise, problem framing, and quality assurance come from the author’s experience in public health informatics and epidemiology.\nWhat about data privacy? No real patient data, protected health information, or identifiable submission details are shared with AI tools. All examples are anonymized and generalized.\n\n\n\n\n\n\n\nNoteA Practical View of AI in Development\n\n\n\nUsing AI to build automation tools for public health is analogous to using a calculator for arithmetic. The calculator does not replace the understanding of what to calculate or why; it accelerates the mechanical work. Similarly, AI accelerates the writing of scripts and documentation while the public health logic, context, and quality standards remain human responsibilities.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#what-ai-does-not-replace",
     "href": "chapters/D-development-tools.html#what-ai-does-not-replace",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.8 What AI Does Not Replace",
-    "text": "14.8 What AI Does Not Replace\nAI tools are powerful accelerators, but they do not replace:\n\nDomain expertise: Understanding which public health workflows need automation, and why, requires years of field experience\nProblem framing: Translating a vague “this takes too long” into a clear automation specification is a human skill\nQuality assurance: Every script must be tested against realistic data and edge cases\nEthical judgment: Decisions about data privacy, anonymization, and appropriate use require human oversight\nCommunity relationships: Building trust with submitters and understanding their real working conditions cannot be automated",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.8 What AI Does Not Replace",
+    "text": "15.8 What AI Does Not Replace\nAI tools are powerful accelerators, but they do not replace:\n\nDomain expertise: Understanding which public health workflows need automation, and why, requires years of field experience\nProblem framing: Translating a vague “this takes too long” into a clear automation specification is a human skill\nQuality assurance: Every script must be tested against realistic data and edge cases\nEthical judgment: Decisions about data privacy, anonymization, and appropriate use require human oversight\nCommunity relationships: Building trust with submitters and understanding their real working conditions cannot be automated",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#authorship-and-ai",
     "href": "chapters/D-development-tools.html#authorship-and-ai",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.9 Authorship and AI",
-    "text": "14.9 Authorship and AI\nAI raises legitimate questions about authorship, and this project takes those questions seriously. The guiding principles are straightforward:\n\nIs the intent helpful? Every use of AI in this project serves the goal of advancing public health practice.\nAm I the author? The intellectual work (problem identification, solution design, domain context, quality review) is mine. AI assists with drafting, editing, and code generation, but those contributions do not constitute authorship.\nDoes the output reflect my thinking? My drafts, original code, and ideas are the starting points. AI refines and extends that work under my direction. Code is only used if I understand it and have tested it.\n\nThis project follows the ICMJE (International Committee of Medical Journal Editors) authorship guidelines. Under those guidelines, authorship requires all four criteria: substantial contributions to conception or design; drafting the work or critically revising it; final approval of the version to be published; and accountability for accuracy and integrity. AI cannot meet these criteria because it cannot take responsibility for the accuracy, integrity, or originality of the work (ICMJE Section II.A.4). The tasks AI performs here (writing assistance, editing, proofreading, code scaffolding) are specifically listed by the ICMJE as activities that alone do not qualify a contributor for authorship (Section II.A.3).\nAs the ICMJE further notes, AI can generate authoritative-sounding output that is incorrect, incomplete, or biased. Every AI-generated contribution in this project is carefully reviewed, tested, and edited before inclusion. The author takes full responsibility, understands the work deeply, and ensures it reflects professional judgment grounded in public health domain expertise.\nIn the spirit of full transparency and disclosure, the entire development history of this project is publicly available at the Public Health Automation Clinic GitHub repository. Every commit, every change, and every contribution is visible and inspectable. This openness allows anyone to verify how the resource was built, what role AI played, and how human judgment shaped the final product.\nAI is useful for preliminary research, but it cannot be trusted to be systematic or reproducible in the way that scientific work demands. The structured approach, the verification, and the domain-specific validation remain human responsibilities.\n\n14.9.1 Your Authorship of Your Outputs\nThe same principle applies to professionals who use these tools in their own work. When you take a script from this library, adapt it to your data, run it, and produce a report or analysis, you are the author of that output. You are responsible for verifying the results, understanding the logic, and ensuring the output is appropriate for your context.\nThe tools published here are instruments. Authorship belongs to the person who wields them with intent and accountability.\n\n\n14.9.2 Citing This Resource\nIf the Public Health Automation Clinic has been useful in your work, please consider citing it. A citation helps others discover the resource and supports the community of practice this project aims to build.\n\nAndré van Zyl, Public Health Automation Clinic, Intersect Collaborations LLC, 2025. Available at: https://andre-inter-collab-llc.github.io/Public-Health-Automation-Clinic/",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.9 Authorship and AI",
+    "text": "15.9 Authorship and AI\nAI raises legitimate questions about authorship, and this project takes those questions seriously. The guiding principles are straightforward:\n\nIs the intent helpful? Every use of AI in this project serves the goal of advancing public health practice.\nAm I the author? The intellectual work (problem identification, solution design, domain context, quality review) is mine. AI assists with drafting, editing, and code generation, but those contributions do not constitute authorship.\nDoes the output reflect my thinking? My drafts, original code, and ideas are the starting points. AI refines and extends that work under my direction. Code is only used if I understand it and have tested it.\n\nThis project follows the ICMJE (International Committee of Medical Journal Editors) authorship guidelines. Under those guidelines, authorship requires all four criteria: substantial contributions to conception or design; drafting the work or critically revising it; final approval of the version to be published; and accountability for accuracy and integrity. AI cannot meet these criteria because it cannot take responsibility for the accuracy, integrity, or originality of the work (ICMJE Section II.A.4). The tasks AI performs here (writing assistance, editing, proofreading, code scaffolding) are specifically listed by the ICMJE as activities that alone do not qualify a contributor for authorship (Section II.A.3).\nAs the ICMJE further notes, AI can generate authoritative-sounding output that is incorrect, incomplete, or biased. Every AI-generated contribution in this project is carefully reviewed, tested, and edited before inclusion. The author takes full responsibility, understands the work deeply, and ensures it reflects professional judgment grounded in public health domain expertise.\nIn the spirit of full transparency and disclosure, the entire development history of this project is publicly available at the Public Health Automation Clinic GitHub repository. Every commit, every change, and every contribution is visible and inspectable. This openness allows anyone to verify how the resource was built, what role AI played, and how human judgment shaped the final product.\nAI is useful for preliminary research, but it cannot be trusted to be systematic or reproducible in the way that scientific work demands. The structured approach, the verification, and the domain-specific validation remain human responsibilities.\n\n15.9.1 Your Authorship of Your Outputs\nThe same principle applies to professionals who use these tools in their own work. When you take a script from this library, adapt it to your data, run it, and produce a report or analysis, you are the author of that output. You are responsible for verifying the results, understanding the logic, and ensuring the output is appropriate for your context.\nThe tools published here are instruments. Authorship belongs to the person who wields them with intent and accountability.\n\n\n15.9.2 Citing This Resource\nIf the Public Health Automation Clinic has been useful in your work, please consider citing it. A citation helps others discover the resource and supports the community of practice this project aims to build.\n\nAndré van Zyl, Public Health Automation Clinic, Intersect Collaborations LLC, 2025. Available at: https://andre-inter-collab-llc.github.io/Public-Health-Automation-Clinic/",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#local-development-setup",
     "href": "chapters/D-development-tools.html#local-development-setup",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.10 Local Development Setup",
-    "text": "14.10 Local Development Setup\nFor contributors who want to modify or extend this book:\n\n14.10.1 Prerequisites\n\nInstall Quarto: Download from quarto.org\nInstall VS Code: Download from code.visualstudio.com\nInstall Git: Download from git-scm.com\nInstall the Quarto VS Code Extension: Search “Quarto” in VS Code extensions\n\n\n\n14.10.2 Clone and Preview\ngit clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git\ncd Public-Health-Automation-Clinic\nquarto preview\nThis starts a local server and opens the book in your browser. Changes to .qmd files automatically refresh.\n\n\n14.10.3 Render the Book\nquarto render\nOutput is generated in the _site/ directory.",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.10 Local Development Setup",
+    "text": "15.10 Local Development Setup\nFor contributors who want to modify or extend this book:\n\n15.10.1 Prerequisites\n\nInstall Quarto: Download from quarto.org\nInstall VS Code: Download from code.visualstudio.com\nInstall Git: Download from git-scm.com\nInstall the Quarto VS Code Extension: Search “Quarto” in VS Code extensions\n\n\n\n15.10.2 Clone and Preview\ngit clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git\ncd Public-Health-Automation-Clinic\nquarto preview\nThis starts a local server and opens the book in your browser. Changes to .qmd files automatically refresh.\n\n\n15.10.3 Render the Book\nquarto render\nOutput is generated in the _site/ directory.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#repository-structure",
     "href": "chapters/D-development-tools.html#repository-structure",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.11 Repository Structure",
-    "text": "14.11 Repository Structure\nPublic-Health-Automation-Clinic/\n├── _quarto.yml               # Book configuration (chapters, output, theme)\n├── _brand.yml                 # Intersect Collaborations branding\n├── index.qmd                  # Book landing page / preface\n├── chapters/                  # Book chapters (.qmd files)\n│   ├── 01-automation-intake.qmd\n│   ├── 02-desktop-automation.qmd\n│   ├── ...\n│   └── D-development-tools.qmd\n├── assets/\n│   ├── branding/              # Logos, icons, images\n│   └── styles/                # Custom SCSS\n├── .github/\n│   ├── copilot-instructions.md  # AI assistant project context\n│   └── workflows/\n│       └── publish.yml        # GitHub Actions deployment\n└── _site/                     # Generated output (gitignored)",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.11 Repository Structure",
+    "text": "15.11 Repository Structure\nPublic-Health-Automation-Clinic/\n├── _quarto.yml               # Book configuration (chapters, output, theme)\n├── _brand.yml                 # Intersect Collaborations branding\n├── index.qmd                  # Book landing page / preface\n├── chapters/                  # Book chapters (.qmd files)\n│   ├── 01-automation-intake.qmd\n│   ├── 02-desktop-automation.qmd\n│   ├── ...\n│   └── D-development-tools.qmd\n├── assets/\n│   ├── branding/              # Logos, icons, images\n│   └── styles/                # Custom SCSS\n├── .github/\n│   ├── copilot-instructions.md  # AI assistant project context\n│   └── workflows/\n│       └── publish.yml        # GitHub Actions deployment\n└── _site/                     # Generated output (gitignored)",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/D-development-tools.html#resources",
     "href": "chapters/D-development-tools.html#resources",
-    "title": "13  Development Tools and AI Transparency",
-    "section": "14.12 Resources",
-    "text": "14.12 Resources\n\nQuarto Documentation\nQuarto Books Guide\nMermaid Documentation\nGitHub Copilot Documentation\nGitHub Pages Documentation",
+    "title": "14  Development Tools and AI Transparency",
+    "section": "15.12 Resources",
+    "text": "15.12 Resources\n\nQuarto Documentation\nQuarto Books Guide\nMermaid Documentation\nGitHub Copilot Documentation\nGitHub Pages Documentation",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Development Tools and AI Transparency</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html",
     "href": "chapters/C-glossary.html",
-    "title": "14  Glossary",
+    "title": "15  Glossary",
     "section": "",
-    "text": "15 Glossary\nKey terms used throughout this book, organized alphabetically.",
+    "text": "16 Glossary\nKey terms used throughout this book, organized alphabetically.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#a",
     "href": "chapters/C-glossary.html#a",
-    "title": "14  Glossary",
-    "section": "15.1 A",
-    "text": "15.1 A\n\nAPI (Application Programming Interface)\n\nA set of rules and protocols that allows software programs to communicate with each other. In public health automation, APIs are commonly used to send or receive data from services like Google Sheets, REDCap, or CDC data portals.\n\nAutomation\n\nThe use of scripts, tools, or software to perform tasks that would otherwise require manual effort. In this book, automation refers primarily to R and Python scripts that handle repetitive data and file operations.",
+    "title": "15  Glossary",
+    "section": "16.1 A",
+    "text": "16.1 A\n\nAPI (Application Programming Interface)\n\nA set of rules and protocols that allows software programs to communicate with each other. In public health automation, APIs are commonly used to send or receive data from services like Google Sheets, REDCap, or CDC data portals.\n\nAutomation\n\nThe use of scripts, tools, or software to perform tasks that would otherwise require manual effort. In this book, automation refers primarily to R and Python scripts that handle repetitive data and file operations.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#b",
     "href": "chapters/C-glossary.html#b",
-    "title": "14  Glossary",
-    "section": "15.2 B",
-    "text": "15.2 B\n\nBatch processing\n\nRunning a single operation across many files or records at once, rather than processing them one at a time. Example: renaming 500 files using a script instead of renaming each manually.",
+    "title": "15  Glossary",
+    "section": "16.2 B",
+    "text": "16.2 B\n\nBatch processing\n\nRunning a single operation across many files or records at once, rather than processing them one at a time. Example: renaming 500 files using a script instead of renaming each manually.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#d",
     "href": "chapters/C-glossary.html#d",
-    "title": "14  Glossary",
-    "section": "15.3 D",
-    "text": "15.3 D\n\nData pipeline\n\nA sequence of automated steps that moves data from its source through cleaning, transformation, and analysis to a final output such as a report or dashboard.\n\nDeduplication\n\nThe process of identifying and resolving duplicate records in a dataset, using either exact matching (deterministic) or probabilistic methods.",
+    "title": "15  Glossary",
+    "section": "16.3 D",
+    "text": "16.3 D\n\nData pipeline\n\nA sequence of automated steps that moves data from its source through cleaning, transformation, and analysis to a final output such as a report or dashboard.\n\nDeduplication\n\nThe process of identifying and resolving duplicate records in a dataset, using either exact matching (deterministic) or probabilistic methods.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#e",
     "href": "chapters/C-glossary.html#e",
-    "title": "14  Glossary",
-    "section": "15.4 E",
-    "text": "15.4 E\n\nEdit rules\n\nValidation checks applied to data to ensure logical consistency. Example: “diagnosis date must precede treatment date” or “age at diagnosis must be between 0 and 120.”\n\nException report\n\nA report that lists records failing one or more validation checks, enabling targeted review and correction.",
+    "title": "15  Glossary",
+    "section": "16.4 E",
+    "text": "16.4 E\n\nEdit rules\n\nValidation checks applied to data to ensure logical consistency. Example: “diagnosis date must precede treatment date” or “age at diagnosis must be between 0 and 120.”\n\nException report\n\nA report that lists records failing one or more validation checks, enabling targeted review and correction.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#g",
     "href": "chapters/C-glossary.html#g",
-    "title": "14  Glossary",
-    "section": "15.5 G",
-    "text": "15.5 G\n\nGPS format (Given-Person-Should)\n\nA submission format for describing automation needs: “Given [context], the [role] should [action] to [outcome].”",
+    "title": "15  Glossary",
+    "section": "16.5 G",
+    "text": "16.5 G\n\nGPS format (Given-Person-Should)\n\nA submission format for describing automation needs: “Given [context], the [role] should [action] to [outcome].”",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#l",
     "href": "chapters/C-glossary.html#l",
-    "title": "14  Glossary",
-    "section": "15.6 L",
-    "text": "15.6 L\n\nLocal-first\n\nA design philosophy prioritizing solutions that run on the user’s own computer or local server, without requiring cloud services, AI subscriptions, or remote API access.",
+    "title": "15  Glossary",
+    "section": "16.6 L",
+    "text": "16.6 L\n\nLocal-first\n\nA design philosophy prioritizing solutions that run on the user’s own computer or local server, without requiring cloud services, AI subscriptions, or remote API access.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#p",
     "href": "chapters/C-glossary.html#p",
-    "title": "14  Glossary",
-    "section": "15.7 P",
-    "text": "15.7 P\n\nParameterized report\n\nA report template (typically in Quarto or R Markdown) that accepts input parameters (e.g., jurisdiction, time period) and generates customized output for each set of parameters.\n\nPosit\n\nThe company (formerly RStudio) behind RStudio, Quarto, Shiny, and related open source tools widely used in data science and public health analytics. Website: posit.co",
+    "title": "15  Glossary",
+    "section": "16.7 P",
+    "text": "16.7 P\n\nParameterized report\n\nA report template (typically in Quarto or R Markdown) that accepts input parameters (e.g., jurisdiction, time period) and generates customized output for each set of parameters.\n\nPosit\n\nThe company (formerly RStudio) behind RStudio, Quarto, Shiny, and related open source tools widely used in data science and public health analytics. Website: posit.co",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#q",
     "href": "chapters/C-glossary.html#q",
-    "title": "14  Glossary",
-    "section": "15.8 Q",
-    "text": "15.8 Q\n\nQuarto\n\nAn open source publishing system for creating reproducible documents, reports, presentations, and websites. Supports R, Python, Julia, and Observable. Website: quarto.org",
+    "title": "15  Glossary",
+    "section": "16.8 Q",
+    "text": "16.8 Q\n\nQuarto\n\nAn open source publishing system for creating reproducible documents, reports, presentations, and websites. Supports R, Python, Julia, and Observable. Website: quarto.org",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#r",
     "href": "chapters/C-glossary.html#r",
-    "title": "14  Glossary",
-    "section": "15.9 R",
-    "text": "15.9 R\n\nReproducible analysis\n\nAn analysis that can be re-run by anyone with access to the code and data, producing the same results. Quarto and R Markdown facilitate reproducibility by combining code and narrative in a single document.",
+    "title": "15  Glossary",
+    "section": "16.9 R",
+    "text": "16.9 R\n\nReproducible analysis\n\nAn analysis that can be re-run by anyone with access to the code and data, producing the same results. Quarto and R Markdown facilitate reproducibility by combining code and narrative in a single document.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#s",
     "href": "chapters/C-glossary.html#s",
-    "title": "14  Glossary",
-    "section": "15.10 S",
-    "text": "15.10 S\n\nShiny\n\nAn R framework for building interactive web applications. In the clinic context, Shiny apps are provided as code that users run locally; hosting is not included. Website: shiny.posit.co\n\nSituational Protocol format\n\nA submission format for describing automation needs: “When [trigger], the [process/system] shall [action] within [constraint].”",
+    "title": "15  Glossary",
+    "section": "16.10 S",
+    "text": "16.10 S\n\nShiny\n\nAn R framework for building interactive web applications. In the clinic context, Shiny apps are provided as code that users run locally; hosting is not included. Website: shiny.posit.co\n\nSituational Protocol format\n\nA submission format for describing automation needs: “When [trigger], the [process/system] shall [action] within [constraint].”",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   },
   {
     "objectID": "chapters/C-glossary.html#u",
     "href": "chapters/C-glossary.html#u",
-    "title": "14  Glossary",
-    "section": "15.11 U",
-    "text": "15.11 U\n\nUser Story format\n\nA submission format for describing automation needs: “As a [role], I want [action], so that [outcome].”\n\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis glossary will be expanded as new terms are introduced in the solutions library and mindset chapters.",
+    "title": "15  Glossary",
+    "section": "16.11 U",
+    "text": "16.11 U\n\nUser Story format\n\nA submission format for describing automation needs: “As a [role], I want [action], so that [outcome].”\n\n\n\n\n\n\n\n\nNotePlaceholder\n\n\n\nThis glossary will be expanded as new terms are introduced in the solutions library and mindset chapters.",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Glossary</span>"
     ]
   }
 ]
