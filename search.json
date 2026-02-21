@@ -282,7 +282,7 @@
     "href": "chapters/04a-combine-compare-spreadsheets.html#run-the-app",
     "title": "6  Combine and Compare Spreadsheets",
     "section": "9.3 Run the App",
-    "text": "9.3 Run the App\nOpen app.R in RStudio and click Run App, or run the following from an R console:\n\nshiny::runApp(\"apps/combine-and-compare-spreadsheets\")\n\nThe app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.\n\n\n\nThe About page introduces the app, explains its purpose, and lists the key features.",
+    "text": "9.3 Run the App\nOpen app.R in RStudio and click Run App, or run the following from an R console:\n\nshiny::runApp(here::here(\"apps\", \"combine-and-compare-spreadsheets\"))\n\nThe app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.\n\n\n\nThe About page introduces the app, explains its purpose, and lists the key features.",
     "crumbs": [
       "Data Cleaning and Transformation",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Combine and Compare Spreadsheets</span>"

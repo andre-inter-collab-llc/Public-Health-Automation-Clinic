@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a835e6e7f2760cfc7d4625d2295057a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0498724944ae8b4873471dd41fb12bef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-a835e6e7f2760cfc7d4625d2295057a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-14f82c463c8fe26062a60e93003a4987.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-31e31e4e7d1317add0186254dcf5e9b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-14f82c463c8fe26062a60e93003a4987.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -161,8 +161,8 @@ background-size: cover;
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../assets/branding/logos/intesect_logo_v1.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../assets/branding/logos/intesect_logo_v1.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../assets\branding\logos\intesect_logo_v1.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../assets\branding\logos\intesect_logo_v1.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Public Health Automation Clinic</a> 
@@ -521,7 +521,7 @@ background-size: cover;
 <h2 data-number="9.3" class="anchored" data-anchor-id="run-the-app"><span class="header-section-number">9.3</span> Run the App</h2>
 <p>Open <code>app.R</code> in RStudio and click <strong>Run App</strong>, or run the following from an R console:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>shiny<span class="sc">::</span><span class="fu">runApp</span>(<span class="st">"apps/combine-and-compare-spreadsheets"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>shiny<span class="sc">::</span><span class="fu">runApp</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"apps"</span>, <span class="st">"combine-and-compare-spreadsheets"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1403,7 +1403,7 @@ background-size: cover;
 <span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
 <span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>shiny<span class="sc">::</span><span class="fu">runApp</span>(<span class="st">"apps/combine-and-compare-spreadsheets"</span>)</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>shiny<span class="sc">::</span><span class="fu">runApp</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"apps"</span>, <span class="st">"combine-and-compare-spreadsheets"</span>))</span>
 <span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>The app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.</span>
