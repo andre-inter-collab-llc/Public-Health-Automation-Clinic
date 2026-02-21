@@ -80,9 +80,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-8caf6eaa0938078aad3b4e3e78d03e50.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a835e6e7f2760cfc7d4625d2295057a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0498724944ae8b4873471dd41fb12bef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-a835e6e7f2760cfc7d4625d2295057a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-14f82c463c8fe26062a60e93003a4987.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-31e31e4e7d1317add0186254dcf5e9b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-14f82c463c8fe26062a60e93003a4987.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -161,8 +161,8 @@ background-size: cover;
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../assets/branding/logos/intesect_logo_v1.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../assets/branding/logos/intesect_logo_v1.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../assets\branding\logos\intesect_logo_v1.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../assets\branding\logos\intesect_logo_v1.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Public Health Automation Clinic</a> 
@@ -369,8 +369,10 @@ background-size: cover;
   </ul></li>
   <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution"><span class="header-section-number">8</span> The Solution</a>
   <ul>
-  <li><a href="#user-story" id="toc-user-story" class="nav-link" data-scroll-target="#user-story"><span class="header-section-number">8.1</span> User Story</a></li>
-  <li><a href="#gps-given-person-should" id="toc-gps-given-person-should" class="nav-link" data-scroll-target="#gps-given-person-should"><span class="header-section-number">8.2</span> GPS (Given-Person-Should)</a></li>
+  <li><a href="#why-this-app-exists" id="toc-why-this-app-exists" class="nav-link" data-scroll-target="#why-this-app-exists"><span class="header-section-number">8.1</span> Why This App Exists</a></li>
+  <li><a href="#why-local-first-sharing" id="toc-why-local-first-sharing" class="nav-link" data-scroll-target="#why-local-first-sharing"><span class="header-section-number">8.2</span> Why Local-First Sharing?</a></li>
+  <li><a href="#user-story" id="toc-user-story" class="nav-link" data-scroll-target="#user-story"><span class="header-section-number">8.3</span> User Story</a></li>
+  <li><a href="#gps-given-person-should" id="toc-gps-given-person-should" class="nav-link" data-scroll-target="#gps-given-person-should"><span class="header-section-number">8.4</span> GPS (Given-Person-Should)</a></li>
   </ul></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">9</span> Getting Started</a>
   <ul>
@@ -467,14 +469,63 @@ background-size: cover;
 <li>A <strong>branded Excel download</strong> containing all analysis sheets</li>
 </ul>
 <p>The app supports <code>.xlsx</code>, <code>.xls</code>, and <code>.csv</code> files, and can handle mixed file types in a single upload.</p>
-<section id="user-story" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="user-story"><span class="header-section-number">8.1</span> User Story</h2>
+<section id="why-this-app-exists" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="why-this-app-exists"><span class="header-section-number">8.1</span> Why This App Exists</h2>
+<p>Over the past 20 years, I have watched colleagues across public health programs wrestle with this exact task: merging a pile of returned spreadsheets into a single, usable dataset. I have also received enough requests to perform this merge myself that the pattern became impossible to ignore. The task is universal, the pain is real, and the solution is straightforward to automate.</p>
+<p>I built this app so that I can share it with colleagues who have little or no programming experience. Rather than walking someone through an R script or doing the merge for them, I can point them to this tool and let them handle it independently.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="A Note on GUI Apps and Automation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A Note on GUI Apps and Automation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In general, I do not recommend using GUI applications for automated workflows. If a task is recurring, the better investment is a scripted pipeline that runs without manual interaction. However, a point-and-click app like this one earns its place in two situations:</p>
+<ul>
+<li><strong>Truly one-off requests.</strong> Sometimes you receive a batch of spreadsheets once and will never repeat the exercise. Setting up a project directory, writing a script, and configuring outputs is not justified for a single use.</li>
+<li><strong>Quick pre-project checks.</strong> Before committing to a full data pipeline, you may want to take a first look at received files: Are the columns consistent? Are there empty submissions? How many records came back? This app provides that structural overview in seconds, helping you decide how to proceed.</li>
+</ul>
+<p>For anything that will be repeated on a schedule, build a script.</p>
+</div>
+</div>
+</section>
+<section id="why-local-first-sharing" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="why-local-first-sharing"><span class="header-section-number">8.2</span> Why Local-First Sharing?</h2>
+<p><a href="https://shiny.posit.co/" target="_blank">Shiny</a> applications can be shared in <a href="https://shiny.posit.co/r/getstarted/shiny-basics/lesson7/" target="_blank">several ways</a>: as hosted web applications on <a href="https://www.shinyapps.io/" target="_blank">shinyapps.io</a>, on a <a href="https://posit.co/products/open-source/shinyserver/" target="_blank">Shiny Server</a>, or as source files that users run locally. I explicitly chose local-first distribution for this app because of the data it handles.</p>
+<p>Public health spreadsheets frequently contain protected health information (PHI), personally identifiable information (PII), or other sensitive data. Hosting this app as a public webpage would invite users to upload that data to an external server, which creates unnecessary risk and may violate organizational data governance policies. By distributing the app as source code that runs on the user’s own machine, no data ever leaves the local environment.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Hosting with Posit Connect">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hosting with Posit Connect
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your organization wants to make this app available to a team internally, <a href="https://posit.co/products/enterprise/connect/" target="_blank">Posit Connect</a> is a publishing platform that supports Shiny applications with enterprise features:</p>
+<ul>
+<li>Password authentication</li>
+<li>SSL support</li>
+<li>Administrator tools</li>
+<li>Priority support</li>
+</ul>
+<p>Posit Connect allows you to publish Shiny applications, R Markdown reports, dashboards, Jupyter Notebooks, and more in a centralized, access-controlled environment. You can publish directly from the RStudio IDE and configure flexible security policies to control who can access the app.</p>
+<p>This is a good option for teams working in a for-profit or regulated setting where centralized access control and audit trails are required. Learn more at <a href="https://posit.co/products/enterprise/connect/" target="_blank">posit.co/products/enterprise/connect</a>.</p>
+</div>
+</div>
+</section>
+<section id="user-story" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="user-story"><span class="header-section-number">8.3</span> User Story</h2>
 <blockquote class="blockquote">
 <p><strong>As a</strong> public health data coordinator who collects Excel-based data from multiple sites, <strong>I want</strong> a tool that automatically combines spreadsheets and flags structural differences, <strong>so that</strong> I can spend my time on analysis instead of copy-pasting and troubleshooting column mismatches.</p>
 </blockquote>
 </section>
-<section id="gps-given-person-should" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="gps-given-person-should"><span class="header-section-number">8.2</span> GPS (Given-Person-Should)</h2>
+<section id="gps-given-person-should" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="gps-given-person-should"><span class="header-section-number">8.4</span> GPS (Given-Person-Should)</h2>
 <blockquote class="blockquote">
 <p><strong>Given</strong> a set of Excel workbooks returned by multiple respondents using a common template, <strong>the</strong> data coordinator <strong>should</strong> upload them to the Combine &amp; Compare app and review the column comparison matrix <strong>to</strong> identify and resolve structural inconsistencies before combining the data for analysis.</p>
 </blockquote>
@@ -1339,228 +1390,262 @@ background-size: cover;
 <span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>The app supports <span class="in">`.xlsx`</span>, <span class="in">`.xls`</span>, and <span class="in">`.csv`</span> files, and can handle mixed file types in a single upload.</span>
 <span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## User Story</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why This App Exists</span></span>
 <span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **As a** public health data coordinator who collects Excel-based data from multiple sites,</span></span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **I want** a tool that automatically combines spreadsheets and flags structural differences,</span></span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **so that** I can spend my time on analysis instead of copy-pasting and troubleshooting column mismatches.</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>Over the past 20 years, I have watched colleagues across public health programs wrestle with this exact task: merging a pile of returned spreadsheets into a single, usable dataset. I have also received enough requests to perform this merge myself that the pattern became impossible to ignore. The task is universal, the pain is real, and the solution is straightforward to automate.</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>I built this app so that I can share it with colleagues who have little or no programming experience. Rather than walking someone through an R script or doing the merge for them, I can point them to this tool and let them handle it independently.</span>
 <span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## GPS (Given-Person-Should)</span></span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Given** a set of Excel workbooks returned by multiple respondents using a common template,</span></span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **the** data coordinator **should** upload them to the Combine &amp; Compare app and review the column comparison matrix</span></span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **to** identify and resolve structural inconsistencies before combining the data for analysis.</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="A Note on GUI Apps and Automation"}</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>In general, I do not recommend using GUI applications for automated workflows. If a task is recurring, the better investment is a scripted pipeline that runs without manual interaction. However, a point-and-click app like this one earns its place in two situations:</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Truly one-off requests.** Sometimes you receive a batch of spreadsheets once and will never repeat the exercise. Setting up a project directory, writing a script, and configuring outputs is not justified for a single use.</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Quick pre-project checks.** Before committing to a full data pipeline, you may want to take a first look at received files: Are the columns consistent? Are there empty submissions? How many records came back? This app provides that structural overview in seconds, helping you decide how to proceed.</span>
 <span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="fu"># Getting Started</span></span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Download the App</span></span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>The app is available in the Public Health Automation Clinic GitHub repository:</span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Download the app folder** from the repository:</span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Go to <span class="co">[</span><span class="ot">github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic</span><span class="co">](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic)</span>{target="_blank"}</span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Navigate to <span class="in">`apps/combine-and-compare-spreadsheets/`</span></span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Download the entire folder (or clone the full repository)</span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Clone the full repository** (recommended if you use Git):</span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git</span>
-<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>For anything that will be repeated on a schedule, build a script.</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why Local-First Sharing?</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Shiny</span><span class="co">](https://shiny.posit.co/)</span>{target="_blank"} applications can be shared in <span class="co">[</span><span class="ot">several ways</span><span class="co">](https://shiny.posit.co/r/getstarted/shiny-basics/lesson7/)</span>{target="_blank"}: as hosted web applications on <span class="co">[</span><span class="ot">shinyapps.io</span><span class="co">](https://www.shinyapps.io/)</span>{target="_blank"}, on a <span class="co">[</span><span class="ot">Shiny Server</span><span class="co">](https://posit.co/products/open-source/shinyserver/)</span>{target="_blank"}, or as source files that users run locally. I explicitly chose local-first distribution for this app because of the data it handles.</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>Public health spreadsheets frequently contain protected health information (PHI), personally identifiable information (PII), or other sensitive data. Hosting this app as a public webpage would invite users to upload that data to an external server, which creates unnecessary risk and may violate organizational data governance policies. By distributing the app as source code that runs on the user's own machine, no data ever leaves the local environment.</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Hosting with Posit Connect"}</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>If your organization wants to make this app available to a team internally, <span class="co">[</span><span class="ot">Posit Connect</span><span class="co">](https://posit.co/products/enterprise/connect/)</span>{target="_blank"} is a publishing platform that supports Shiny applications with enterprise features:</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Password authentication</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>SSL support</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Administrator tools</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Priority support</span>
 <span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>The app files are located at <span class="in">`apps/combine-and-compare-spreadsheets/`</span> within the repository.</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>Posit Connect allows you to publish Shiny applications, R Markdown reports, dashboards, Jupyter Notebooks, and more in a centralized, access-controlled environment. You can publish directly from the RStudio IDE and configure flexible security policies to control who can access the app.</span>
 <span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Install Requirements</span></span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>The app requires <span class="co">[</span><span class="ot">R</span><span class="co">](https://cran.r-project.org/)</span>{target="_blank"} (version 4.1 or later) and the following packages:</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>  <span class="st">"shiny"</span>,</span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>  <span class="st">"bslib"</span>,</span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>  <span class="st">"readxl"</span>,</span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>,</span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>  <span class="st">"janitor"</span>,</span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>  <span class="st">"openxlsx"</span>,</span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>  <span class="st">"DT"</span>,</span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyr"</span>,</span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>  <span class="st">"purrr"</span>,</span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tibble"</span>,</span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>  <span class="st">"rpivotTable"</span></span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">RStudio Desktop</span><span class="co">](https://posit.co/download/rstudio-desktop/)</span>{target="_blank"} (free) is the recommended IDE for running the app, though any R environment will work.</span>
-<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## Run the App</span></span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>Open <span class="in">`app.R`</span> in RStudio and click **Run App**, or run the following from an R console:</span>
-<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
-<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>shiny<span class="sc">::</span><span class="fu">runApp</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"apps"</span>, <span class="st">"combine-and-compare-spreadsheets"</span>))</span>
-<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>The app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.</span>
-<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a><span class="al">![The About page introduces the app, explains its purpose, and lists the key features.](../assets/images/04a-combine-compare/01-about-page.png)</span>{fig-alt="Screenshot of the Combine and Compare Spreadsheets app About page showing the app description and feature overview."}</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>This is a good option for teams working in a for-profit or regulated setting where centralized access control and audit trails are required. Learn more at <span class="co">[</span><span class="ot">posit.co/products/enterprise/connect</span><span class="co">](https://posit.co/products/enterprise/connect/)</span>{target="_blank"}.</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## User Story</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **As a** public health data coordinator who collects Excel-based data from multiple sites,</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **I want** a tool that automatically combines spreadsheets and flags structural differences,</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **so that** I can spend my time on analysis instead of copy-pasting and troubleshooting column mismatches.</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## GPS (Given-Person-Should)</span></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Given** a set of Excel workbooks returned by multiple respondents using a common template,</span></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **the** data coordinator **should** upload them to the Combine &amp; Compare app and review the column comparison matrix</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **to** identify and resolve structural inconsistencies before combining the data for analysis.</span></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="fu"># Getting Started</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## Download the App</span></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>The app is available in the Public Health Automation Clinic GitHub repository:</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Download the app folder** from the repository:</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Go to <span class="co">[</span><span class="ot">github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic</span><span class="co">](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic)</span>{target="_blank"}</span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Navigate to <span class="in">`apps/combine-and-compare-spreadsheets/`</span></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Download the entire folder (or clone the full repository)</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Clone the full repository** (recommended if you use Git):</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>The app files are located at <span class="in">`apps/combine-and-compare-spreadsheets/`</span> within the repository.</span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Install Requirements</span></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>The app requires <span class="co">[</span><span class="ot">R</span><span class="co">](https://cran.r-project.org/)</span>{target="_blank"} (version 4.1 or later) and the following packages:</span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
 <span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a><span class="fu"># How to Use the App</span></span>
-<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 1: Upload Files</span></span>
-<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>Click **Upload Spreadsheets** in the sidebar and select one or more Excel (<span class="in">`.xlsx`</span>, <span class="in">`.xls`</span>) or CSV (<span class="in">`.csv`</span>) files. You can upload a mix of file types in a single batch.</span>
-<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a><span class="al">![The Workbench tab before any files are uploaded, showing the file upload area and processing controls.](../assets/images/04a-combine-compare/02-workbench-empty.png)</span>{fig-alt="Screenshot of the empty Workbench tab with the file upload control and processing options visible in the sidebar."}</span>
-<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 2: Select Sheet Name</span></span>
-<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>For Excel files, the app reads all available sheet names across uploaded workbooks and presents them in a dropdown. Select the sheet containing the data you want to combine. CSV files do not require sheet selection.</span>
-<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 3: Set the Header Row</span></span>
-<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>If your spreadsheets have title rows, instructions, or logos above the actual column headers, set the **Header Row** to the row number where headers appear. The default is row 1.</span>
-<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a><span class="al">![After uploading five county spreadsheets, the sidebar shows the selected sheet name and header row settings.](../assets/images/04a-combine-compare/03-files-uploaded.png)</span>{fig-alt="Screenshot showing five uploaded Excel files listed in the sidebar with sheet name dropdown and header row selector."}</span>
-<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 4: Process Files</span></span>
-<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>Click **Process Files**. The app will:</span>
-<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Read data from each file using the selected sheet name and header row</span>
-<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Clean and standardize column names (lowercase, underscores, consistent formatting)</span>
-<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Add a <span class="in">`source_file`</span> column to track the origin of each record</span>
-<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Combine all data into a single dataset</span>
-<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Build a column comparison matrix</span>
-<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Log any file issues (missing sheets, read errors, empty data)</span>
-<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a>A progress bar shows status during processing.</span>
-<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 5: Review Results</span></span>
-<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>The Workbench tab provides four views:</span>
-<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a><span class="fu">### Combined Data</span></span>
-<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>The full merged dataset with all records from all files. Use the column filters to search and sort. The <span class="in">`source_file`</span> column identifies which file each record came from.</span>
-<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a><span class="al">![The Combined Data view showing all records merged into a single table with the source_file column.](../assets/images/04a-combine-compare/04-combined-data.png)</span>{fig-alt="Screenshot of the Combined Data tab displaying a merged dataset with columns from all uploaded files and a source_file tracking column."}</span>
-<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Column Comparison</span></span>
-<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a>The Column Comparison tab contains three sub-views, designed to scale from a handful of files to hundreds:</span>
-<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Discrepancies Only</span></span>
-<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a>The default and most compact view. Shows **only columns that are not present in every file**. For each mismatched column you can see:</span>
-<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How many files contain it and how many are missing it</span>
-<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The percentage of files where it appears</span>
-<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The exact filenames that are missing the column</span>
-<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a>If all files have identical column structures, this view shows a green "no discrepancies" message and an empty table. This is the view to check first: if it is empty, your data is structurally consistent and you can proceed directly to analysis.</span>
-<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a><span class="al">![The Discrepancies Only view highlighting columns that are not present in every file.](../assets/images/04a-combine-compare/05-discrepancies.png)</span>{fig-alt="Screenshot of the Discrepancies Only sub-tab showing a table of columns with mismatches across files, including file counts and missing file names."}</span>
-<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Full Matrix</span></span>
-<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a>A complete presence/absence matrix with **files as rows** and **column names as headers**:</span>
-<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**✓** (teal) indicates the column is present in that file</span>
-<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**✗** (red) indicates the column is missing from that file</span>
-<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The <span class="in">`columns_present`</span> and <span class="in">`columns_missing`</span> summary columns appear at the end of each row</span>
-<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The file column is frozen so it stays visible while scrolling horizontally</span>
-<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Files with more missing columns sort to the top</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>  <span class="st">"shiny"</span>,</span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>  <span class="st">"bslib"</span>,</span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>  <span class="st">"readxl"</span>,</span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>,</span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>  <span class="st">"janitor"</span>,</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>  <span class="st">"openxlsx"</span>,</span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>  <span class="st">"DT"</span>,</span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyr"</span>,</span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>  <span class="st">"purrr"</span>,</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tibble"</span>,</span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>  <span class="st">"rpivotTable"</span></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">RStudio Desktop</span><span class="co">](https://posit.co/download/rstudio-desktop/)</span>{target="_blank"} (free) is the recommended IDE for running the app, though any R environment will work.</span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## Run the App</span></span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>Open <span class="in">`app.R`</span> in RStudio and click **Run App**, or run the following from an R console:</span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>shiny<span class="sc">::</span><span class="fu">runApp</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"apps"</span>, <span class="st">"combine-and-compare-spreadsheets"</span>))</span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a>The app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.</span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a><span class="al">![The About page introduces the app, explains its purpose, and lists the key features.](../assets/images/04a-combine-compare/01-about-page.png)</span>{fig-alt="Screenshot of the Combine and Compare Spreadsheets app About page showing the app description and feature overview."}</span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a><span class="fu"># How to Use the App</span></span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 1: Upload Files</span></span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a>Click **Upload Spreadsheets** in the sidebar and select one or more Excel (<span class="in">`.xlsx`</span>, <span class="in">`.xls`</span>) or CSV (<span class="in">`.csv`</span>) files. You can upload a mix of file types in a single batch.</span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a><span class="al">![The Workbench tab before any files are uploaded, showing the file upload area and processing controls.](../assets/images/04a-combine-compare/02-workbench-empty.png)</span>{fig-alt="Screenshot of the empty Workbench tab with the file upload control and processing options visible in the sidebar."}</span>
+<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 2: Select Sheet Name</span></span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a>For Excel files, the app reads all available sheet names across uploaded workbooks and presents them in a dropdown. Select the sheet containing the data you want to combine. CSV files do not require sheet selection.</span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 3: Set the Header Row</span></span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a>If your spreadsheets have title rows, instructions, or logos above the actual column headers, set the **Header Row** to the row number where headers appear. The default is row 1.</span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a><span class="al">![After uploading five county spreadsheets, the sidebar shows the selected sheet name and header row settings.](../assets/images/04a-combine-compare/03-files-uploaded.png)</span>{fig-alt="Screenshot showing five uploaded Excel files listed in the sidebar with sheet name dropdown and header row selector."}</span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 4: Process Files</span></span>
+<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a>Click **Process Files**. The app will:</span>
+<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Read data from each file using the selected sheet name and header row</span>
+<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Clean and standardize column names (lowercase, underscores, consistent formatting)</span>
+<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Add a <span class="in">`source_file`</span> column to track the origin of each record</span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Combine all data into a single dataset</span>
+<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Build a column comparison matrix</span>
+<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Log any file issues (missing sheets, read errors, empty data)</span>
+<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a>A progress bar shows status during processing.</span>
+<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 5: Review Results</span></span>
 <span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a>This layout scales better than column-per-file because typical datasets have 10 to 50 columns (manageable as table headers) while file counts can grow to hundreds or thousands (which work well as scrollable rows). For very large uploads, use the Excel download to filter and search the matrix in Excel.</span>
+<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a>The Workbench tab provides four views:</span>
 <span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a><span class="al">![The Full Matrix view with files as rows and columns as headers, using check marks and X marks to show presence and absence.](../assets/images/04a-combine-compare/06-full-matrix.png)</span>{fig-alt="Screenshot of the Full Matrix sub-tab showing a file-by-column presence/absence grid with teal check marks and red X marks."}</span>
+<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a><span class="fu">### Combined Data</span></span>
 <span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a><span class="fu">#### File Profiles</span></span>
+<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a>The full merged dataset with all records from all files. Use the column filters to search and sort. The <span class="in">`source_file`</span> column identifies which file each record came from.</span>
 <span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a>A per-file summary showing:</span>
+<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a><span class="al">![The Combined Data view showing all records merged into a single table with the source_file column.](../assets/images/04a-combine-compare/04-combined-data.png)</span>{fig-alt="Screenshot of the Combined Data tab displaying a merged dataset with columns from all uploaded files and a source_file tracking column."}</span>
 <span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> Meaning <span class="pp">|</span></span>
-<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------|:--------|</span></span>
-<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rows <span class="pp">|</span> Number of data rows in the file <span class="pp">|</span></span>
-<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Columns <span class="pp">|</span> Number of columns in the file <span class="pp">|</span></span>
-<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Expected <span class="pp">|</span> Number of "expected" columns (those present in more than half of all files) <span class="pp">|</span></span>
-<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Missing <span class="pp">|</span> How many expected columns are absent from this file <span class="pp">|</span></span>
-<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Missing Columns <span class="pp">|</span> Semicolon-separated list of which expected columns are missing <span class="pp">|</span></span>
-<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Extra <span class="pp">|</span> How many columns this file has that are not in the expected set <span class="pp">|</span></span>
-<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Extra Columns <span class="pp">|</span> Semicolon-separated list of non-standard columns added to this file <span class="pp">|</span></span>
-<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a>Files with more missing or extra columns sort to the top, making it easy to spot outliers that need manual correction before analysis.</span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Column Comparison</span></span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a>The Column Comparison tab contains three sub-views, designed to scale from a handful of files to hundreds:</span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Discrepancies Only</span></span>
+<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a>The default and most compact view. Shows **only columns that are not present in every file**. For each mismatched column you can see:</span>
+<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>How many files contain it and how many are missing it</span>
+<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The percentage of files where it appears</span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The exact filenames that are missing the column</span>
 <span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a><span class="al">![The File Profiles view summarizing each file's row count, column count, and any missing or extra columns.](../assets/images/04a-combine-compare/07-file-profiles.png)</span>{fig-alt="Screenshot of the File Profiles sub-tab showing a per-file summary table with rows, columns, expected, missing, and extra column counts."}</span>
+<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a>If all files have identical column structures, this view shows a green "no discrepancies" message and an empty table. This is the view to check first: if it is empty, your data is structurally consistent and you can proceed directly to analysis.</span>
 <span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a><span class="fu">### File Issues</span></span>
+<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a><span class="al">![The Discrepancies Only view highlighting columns that are not present in every file.](../assets/images/04a-combine-compare/05-discrepancies.png)</span>{fig-alt="Screenshot of the Discrepancies Only sub-tab showing a table of columns with mismatches across files, including file counts and missing file names."}</span>
 <span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a>This tab is separate from column discrepancies. It lists files that **could not be processed at all**:</span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Full Matrix</span></span>
 <span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Issue Type <span class="pp">|</span> Meaning <span class="pp">|</span></span>
-<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------|:--------|</span></span>
-<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Missing Sheet <span class="pp">|</span> The selected sheet name was not found in the workbook <span class="pp">|</span></span>
-<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Read Error <span class="pp">|</span> The file could not be read (corrupt, password-protected, or unsupported format) <span class="pp">|</span></span>
-<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Empty Data <span class="pp">|</span> The file or sheet contained no data rows after the header <span class="pp">|</span></span>
-<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a>If all files processed successfully, this tab shows "All files processed successfully." Files listed here are excluded from the combined dataset and from the column comparison.</span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a>A complete presence/absence matrix with **files as rows** and **column names as headers**:</span>
+<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**✓** (teal) indicates the column is present in that file</span>
+<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**✗** (red) indicates the column is missing from that file</span>
+<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The <span class="in">`columns_present`</span> and <span class="in">`columns_missing`</span> summary columns appear at the end of each row</span>
+<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The file column is frozen so it stays visible while scrolling horizontally</span>
+<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Files with more missing columns sort to the top</span>
 <span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a><span class="al">![The File Issues tab listing files that could not be processed, with issue type descriptions.](../assets/images/04a-combine-compare/08-file-issues.png)</span>{fig-alt="Screenshot of the File Issues tab showing a table of files with processing problems such as missing sheets or read errors."}</span>
+<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a>This layout scales better than column-per-file because typical datasets have 10 to 50 columns (manageable as table headers) while file counts can grow to hundreds or thousands (which work well as scrollable rows). For very large uploads, use the Excel download to filter and search the matrix in Excel.</span>
 <span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a><span class="fu">### Explore Data</span></span>
+<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a><span class="al">![The Full Matrix view with files as rows and columns as headers, using check marks and X marks to show presence and absence.](../assets/images/04a-combine-compare/06-full-matrix.png)</span>{fig-alt="Screenshot of the Full Matrix sub-tab showing a file-by-column presence/absence grid with teal check marks and red X marks."}</span>
 <span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a>An interactive pivot table (<span class="co">[</span><span class="ot">rpivotTable</span><span class="co">](https://github.com/smartinsightsfromdata/rpivotTable)</span>{target="_blank"}) for ad-hoc exploration of the combined data. Drag columns into rows, columns, or filters to create cross-tabulations, charts, and summaries without writing code.</span>
+<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a><span class="fu">#### File Profiles</span></span>
 <span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a><span class="al">![The Explore Data tab with an interactive pivot table for ad-hoc analysis of the combined dataset.](../assets/images/04a-combine-compare/09-explore-data.png)</span>{fig-alt="Screenshot of the Explore Data tab showing the rpivotTable interface with drag-and-drop column fields for building cross-tabulations."}</span>
+<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a>A per-file summary showing:</span>
 <span id="cb4-239"><a href="#cb4-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 6: Download</span></span>
-<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a>Click **Download Combined XLSX** to export a formatted Excel workbook with five sheets:</span>
-<span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Combined Data**: the full merged dataset</span>
-<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Discrepancies**: only the mismatched columns (empty if all files match)</span>
-<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Column Matrix**: the full file-by-column presence/absence matrix</span>
-<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**File Profiles**: per-file row/column counts with missing and extra columns listed</span>
-<span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**File Issues**: the processing issue log</span>
+<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column <span class="pp">|</span> Meaning <span class="pp">|</span></span>
+<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------|:--------|</span></span>
+<span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rows <span class="pp">|</span> Number of data rows in the file <span class="pp">|</span></span>
+<span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Columns <span class="pp">|</span> Number of columns in the file <span class="pp">|</span></span>
+<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Expected <span class="pp">|</span> Number of "expected" columns (those present in more than half of all files) <span class="pp">|</span></span>
+<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Missing <span class="pp">|</span> How many expected columns are absent from this file <span class="pp">|</span></span>
+<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Missing Columns <span class="pp">|</span> Semicolon-separated list of which expected columns are missing <span class="pp">|</span></span>
+<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Extra <span class="pp">|</span> How many columns this file has that are not in the expected set <span class="pp">|</span></span>
+<span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Extra Columns <span class="pp">|</span> Semicolon-separated list of non-standard columns added to this file <span class="pp">|</span></span>
 <span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a>The workbook uses professional formatting with styled headers. The **Discrepancies** and **File Profiles** sheets are particularly useful for filtering and searching in Excel when dealing with hundreds of files.</span>
+<span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a>Files with more missing or extra columns sort to the top, making it easy to spot outliers that need manual correction before analysis.</span>
 <span id="cb4-251"><a href="#cb4-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-252"><a href="#cb4-252" aria-hidden="true" tabindex="-1"></a><span class="fu"># Supported File Formats</span></span>
+<span id="cb4-252"><a href="#cb4-252" aria-hidden="true" tabindex="-1"></a><span class="al">![The File Profiles view summarizing each file's row count, column count, and any missing or extra columns.](../assets/images/04a-combine-compare/07-file-profiles.png)</span>{fig-alt="Screenshot of the File Profiles sub-tab showing a per-file summary table with rows, columns, expected, missing, and extra column counts."}</span>
 <span id="cb4-253"><a href="#cb4-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Format <span class="pp">|</span> Extension <span class="pp">|</span> Notes <span class="pp">|</span></span>
-<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------|:----------|:------|</span></span>
-<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Excel (modern) <span class="pp">|</span> <span class="in">`.xlsx`</span> <span class="pp">|</span> Full support including sheet selection <span class="pp">|</span></span>
-<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Excel (legacy) <span class="pp">|</span> <span class="in">`.xls`</span> <span class="pp">|</span> Full support including sheet selection <span class="pp">|</span></span>
-<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CSV <span class="pp">|</span> <span class="in">`.csv`</span> <span class="pp">|</span> Sheet selection is not applicable <span class="pp">|</span></span>
-<span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a>Mixed file types can be uploaded together. For example, you can upload eight <span class="in">`.xlsx`</span> files and two <span class="in">`.csv`</span> files in the same batch.</span>
-<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tips and Best Practices</span></span>
+<span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a><span class="fu">### File Issues</span></span>
+<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a>This tab is separate from column discrepancies. It lists files that **could not be processed at all**:</span>
+<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Issue Type <span class="pp">|</span> Meaning <span class="pp">|</span></span>
+<span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----------|:--------|</span></span>
+<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Missing Sheet <span class="pp">|</span> The selected sheet name was not found in the workbook <span class="pp">|</span></span>
+<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Read Error <span class="pp">|</span> The file could not be read (corrupt, password-protected, or unsupported format) <span class="pp">|</span></span>
+<span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Empty Data <span class="pp">|</span> The file or sheet contained no data rows after the header <span class="pp">|</span></span>
 <span id="cb4-263"><a href="#cb4-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Preventing Problems at the Source"}</span>
-<span id="cb4-265"><a href="#cb4-265" aria-hidden="true" tabindex="-1"></a>The best way to handle column mismatches is to prevent them. When distributing data collection templates:</span>
-<span id="cb4-266"><a href="#cb4-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Lock the header row** in Excel (Review &gt; Protect Sheet, allow only data entry in the data range)</span>
-<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Use data validation** on key columns to constrain inputs</span>
-<span id="cb4-269"><a href="#cb4-269" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Name your sheets consistently** and include instructions not to rename them</span>
-<span id="cb4-270"><a href="#cb4-270" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Include a "do not modify" note** in the template header</span>
+<span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a>If all files processed successfully, this tab shows "All files processed successfully." Files listed here are excluded from the combined dataset and from the column comparison.</span>
+<span id="cb4-265"><a href="#cb4-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-266"><a href="#cb4-266" aria-hidden="true" tabindex="-1"></a><span class="al">![The File Issues tab listing files that could not be processed, with issue type descriptions.](../assets/images/04a-combine-compare/08-file-issues.png)</span>{fig-alt="Screenshot of the File Issues tab showing a table of files with processing problems such as missing sheets or read errors."}</span>
+<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a><span class="fu">### Explore Data</span></span>
+<span id="cb4-269"><a href="#cb4-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-270"><a href="#cb4-270" aria-hidden="true" tabindex="-1"></a>An interactive pivot table (<span class="co">[</span><span class="ot">rpivotTable</span><span class="co">](https://github.com/smartinsightsfromdata/rpivotTable)</span>{target="_blank"}) for ad-hoc exploration of the combined data. Drag columns into rows, columns, or filters to create cross-tabulations, charts, and summaries without writing code.</span>
 <span id="cb4-271"><a href="#cb4-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-272"><a href="#cb4-272" aria-hidden="true" tabindex="-1"></a>The Combine &amp; Compare app is most valuable when prevention was not possible, which, in practice, is most of the time.</span>
-<span id="cb4-273"><a href="#cb4-273" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-274"><a href="#cb4-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-275"><a href="#cb4-275" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Large File Uploads"}</span>
-<span id="cb4-276"><a href="#cb4-276" aria-hidden="true" tabindex="-1"></a>The app supports uploads up to 100 MB total. For very large collections of spreadsheets, consider processing them in batches and combining the downloaded outputs.</span>
-<span id="cb4-277"><a href="#cb4-277" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-278"><a href="#cb4-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-279"><a href="#cb4-279" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Local-First"}</span>
-<span id="cb4-280"><a href="#cb4-280" aria-hidden="true" tabindex="-1"></a>This app runs entirely on your local machine. No data is uploaded to external servers. This makes it suitable for use with protected health information (PHI) and other sensitive data, subject to your organization's policies for running local software.</span>
-<span id="cb4-281"><a href="#cb4-281" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-272"><a href="#cb4-272" aria-hidden="true" tabindex="-1"></a><span class="al">![The Explore Data tab with an interactive pivot table for ad-hoc analysis of the combined dataset.](../assets/images/04a-combine-compare/09-explore-data.png)</span>{fig-alt="Screenshot of the Explore Data tab showing the rpivotTable interface with drag-and-drop column fields for building cross-tabulations."}</span>
+<span id="cb4-273"><a href="#cb4-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-274"><a href="#cb4-274" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 6: Download</span></span>
+<span id="cb4-275"><a href="#cb4-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-276"><a href="#cb4-276" aria-hidden="true" tabindex="-1"></a>Click **Download Combined XLSX** to export a formatted Excel workbook with five sheets:</span>
+<span id="cb4-277"><a href="#cb4-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-278"><a href="#cb4-278" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Combined Data**: the full merged dataset</span>
+<span id="cb4-279"><a href="#cb4-279" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Discrepancies**: only the mismatched columns (empty if all files match)</span>
+<span id="cb4-280"><a href="#cb4-280" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Column Matrix**: the full file-by-column presence/absence matrix</span>
+<span id="cb4-281"><a href="#cb4-281" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**File Profiles**: per-file row/column counts with missing and extra columns listed</span>
+<span id="cb4-282"><a href="#cb4-282" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**File Issues**: the processing issue log</span>
+<span id="cb4-283"><a href="#cb4-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-284"><a href="#cb4-284" aria-hidden="true" tabindex="-1"></a>The workbook uses professional formatting with styled headers. The **Discrepancies** and **File Profiles** sheets are particularly useful for filtering and searching in Excel when dealing with hundreds of files.</span>
+<span id="cb4-285"><a href="#cb4-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-286"><a href="#cb4-286" aria-hidden="true" tabindex="-1"></a><span class="fu"># Supported File Formats</span></span>
+<span id="cb4-287"><a href="#cb4-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-288"><a href="#cb4-288" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Format <span class="pp">|</span> Extension <span class="pp">|</span> Notes <span class="pp">|</span></span>
+<span id="cb4-289"><a href="#cb4-289" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-------|:----------|:------|</span></span>
+<span id="cb4-290"><a href="#cb4-290" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Excel (modern) <span class="pp">|</span> <span class="in">`.xlsx`</span> <span class="pp">|</span> Full support including sheet selection <span class="pp">|</span></span>
+<span id="cb4-291"><a href="#cb4-291" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Excel (legacy) <span class="pp">|</span> <span class="in">`.xls`</span> <span class="pp">|</span> Full support including sheet selection <span class="pp">|</span></span>
+<span id="cb4-292"><a href="#cb4-292" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CSV <span class="pp">|</span> <span class="in">`.csv`</span> <span class="pp">|</span> Sheet selection is not applicable <span class="pp">|</span></span>
+<span id="cb4-293"><a href="#cb4-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-294"><a href="#cb4-294" aria-hidden="true" tabindex="-1"></a>Mixed file types can be uploaded together. For example, you can upload eight <span class="in">`.xlsx`</span> files and two <span class="in">`.csv`</span> files in the same batch.</span>
+<span id="cb4-295"><a href="#cb4-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-296"><a href="#cb4-296" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tips and Best Practices</span></span>
+<span id="cb4-297"><a href="#cb4-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-298"><a href="#cb4-298" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Preventing Problems at the Source"}</span>
+<span id="cb4-299"><a href="#cb4-299" aria-hidden="true" tabindex="-1"></a>The best way to handle column mismatches is to prevent them. When distributing data collection templates:</span>
+<span id="cb4-300"><a href="#cb4-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Lock the header row** in Excel (Review &gt; Protect Sheet, allow only data entry in the data range)</span>
+<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Use data validation** on key columns to constrain inputs</span>
+<span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Name your sheets consistently** and include instructions not to rename them</span>
+<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Include a "do not modify" note** in the template header</span>
+<span id="cb4-305"><a href="#cb4-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-306"><a href="#cb4-306" aria-hidden="true" tabindex="-1"></a>The Combine &amp; Compare app is most valuable when prevention was not possible, which, in practice, is most of the time.</span>
+<span id="cb4-307"><a href="#cb4-307" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-308"><a href="#cb4-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-309"><a href="#cb4-309" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Large File Uploads"}</span>
+<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a>The app supports uploads up to 100 MB total. For very large collections of spreadsheets, consider processing them in batches and combining the downloaded outputs.</span>
+<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-313"><a href="#cb4-313" aria-hidden="true" tabindex="-1"></a>::: {.callout-note title="Local-First"}</span>
+<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a>This app runs entirely on your local machine. No data is uploaded to external servers. This makes it suitable for use with protected health information (PHI) and other sensitive data, subject to your organization's policies for running local software.</span>
+<span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
