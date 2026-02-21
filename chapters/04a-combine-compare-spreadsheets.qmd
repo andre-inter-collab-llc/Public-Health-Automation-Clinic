@@ -117,7 +117,7 @@ Open `app.R` in RStudio and click **Run App**, or run the following from an R co
 #| eval: false
 #| code-fold: false
 
-shiny::runApp("apps/combine-and-compare-spreadsheets")
+shiny::runApp(here::here("apps", "combine-and-compare-spreadsheets"))
 ```
 
 The app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.
