@@ -53,6 +53,19 @@ app_theme <- bs_theme(
 # Increase max upload size to 100 MB
 options(shiny.maxRequestSize = 100 * 1024^2)
 
+# Always open in the system default browser (not the IDE viewer pane).
+# IDE extensions (VS Code, RStudio) can intercept browseURL, so we call
+# the OS browser directly.
+options(shiny.launch.browser = function(url) {
+  if (.Platform$OS.type == "windows") {
+    shell.exec(url)
+  } else if (Sys.info()["sysname"] == "Darwin") {
+    system(paste("open", shQuote(url)))
+  } else {
+    system(paste("xdg-open", shQuote(url)))
+  }
+})
+
 # --- Helper Functions ---------------------------------------------------------
 
 #' Read a spreadsheet file (Excel or CSV)
