@@ -135,7 +135,7 @@ A detailed project context file (`.github/copilot-instructions.md`) provides Cop
 - Book structure and chapter organization
 - Content style guidelines and deduplication rules
 - Public health terminology and conventions
-- Privacy rules (e.g., keeping `communications/` content local-only)
+- Privacy rules (e.g., keeping `admin/` content local-only)
 - Branding and formatting standards
 
 This context file ensures that AI-generated contributions are consistent with the book's voice, scope, and technical standards.

@@ -12,7 +12,7 @@ The public repository packages:
 1. **Preface and book front matter** in `index.qmd`
 2. **Clinic model and scope** in `chapters/01-automation-intake.qmd` (and future chapters as the book grows)
 
-Internal development assets are kept locally in `communications/` and are not part of public publishing scope.
+Internal development assets are kept locally in `admin/` and are not part of public publishing scope.
 
 ### Core Philosophy
 
@@ -133,9 +133,12 @@ Public-Health-Automation-Clinic/
 │       └── custom.scss
 ├── chapters/                  # Book chapters (.qmd files)
 │   └── 01-automation-intake.qmd  # Chapter 1: The Automation Clinic
-├── communications/            # Local internal only; not committed/published
-│   ├── google-forms-automation-clinic-blueprint.md
-│   └── linkedin-automation-clinic-launch-post.md
+├── admin/                     # Local internal only; not committed/published
+│   ├── communications/        # LinkedIn posts, form blueprints, outreach
+│   │   ├── google-forms-automation-clinic-blueprint.md
+│   │   └── linkedin-automation-clinic-launch-post.md
+│   └── scripts/               # Development scripts (screenshots, tooling)
+│       └── capture-screenshots.R
 └── _site/                     # Generated output (in .gitignore)
 ```
 
@@ -161,9 +164,9 @@ The `.github/workflows/publish.yml` handles automated deployment. On push to `ma
 
 ## Privacy and Handling Rules
 
-- Treat everything in `communications/` as internal development context.
-- Do not commit `communications/` files to GitHub and do not include them in public site publishing.
-- `communications/` content should only be backed up to `GDRIVE_DEST=G:\My Drive\Intersect_Collaborations_LLC\04_projects\Public-Health-Automation-Clinic`.
+- Treat everything in `admin/` as internal development context.
+- Do not commit `admin/` files to GitHub and do not include them in public site publishing.
+- `admin/` content should only be backed up to `GDRIVE_DEST=G:\My Drive\Intersect_Collaborations_LLC\04_projects\Public-Health-Automation-Clinic`.
 - Treat `publish.bat` as internal operational tooling; do not surface it in public-facing documentation.
 
 ## Authoring and Editing Standards
@@ -261,7 +264,7 @@ When adding or editing submission links, always present both options so readers 
 
 ## Communications Guidance
 
-The `communications/` folder contains LinkedIn posts, form blueprints, and other outreach content. This content is **separate from the book** and not included in the Quarto build.
+The `admin/communications/` folder contains LinkedIn posts, form blueprints, and other outreach content. This content is **separate from the book** and not included in the Quarto build.
 
 ### File Naming Conventions
 - **Form blueprints**: `google-forms-[topic].md`
@@ -275,9 +278,16 @@ When editing posts and blueprint content:
 - Emphasize repetitive task automation, quality improvement, and time recovery.
 - Maintain clear expectations for free community support versus paid consulting.
 - Keep solutions anonymous and generalizable.
-- Keep files local-only under `communications/` and exclude them from public publication.
+- Keep files local-only under `admin/communications/` and exclude them from public publication.
 - **Tone**: Authoritative, insightful, accessible. Highlight common friction points and present automation as the practical solution.
 - **Hashtags**: #PublicHealth #HealthInformatics #Automation #DataScience #Epidemiology #OpenSource #RStats #Python #PublicHealthData #ProcessImprovement #HealthIT
+
+## Development Scripts
+
+The `admin/scripts/` folder contains scripts used for building and maintaining the toolkit (e.g., screenshot capture, asset generation) that are **not part of the published book or delivered solutions**. These are internal development tools only.
+
+- Keep scripts local-only under `admin/scripts/` and exclude them from public publication.
+- Do not place development scripts alongside app source code in `apps/`; app folders should contain only the deliverable solution.
 
 ## Branding Configuration
 
