@@ -9,7 +9,7 @@ Standardizing messy datasets, deduplication, edit rule validation, and exception
 ::: {.callout-note title="Published Solutions"}
 The following solutions have been developed through the clinic. Additional solutions will be added as they are completed.
 
-- [Combine and Compare Spreadsheets](04a-combine-compare-spreadsheets.qmd): a Shiny app for merging multiple Excel/CSV files and detecting column structure differences
+- [Stack and Check Spreadsheets](04a-stack-and-check-spreadsheets.qmd): a Shiny app for stacking multiple Excel/CSV files and checking column structure differences
 
 Have a data cleaning or transformation problem? **[Submit it to the clinic](https://forms.gle/cmE2un2njSVPid8C9){target="_blank"}** or **[open a GitHub Issue](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues){target="_blank"}**.
 :::

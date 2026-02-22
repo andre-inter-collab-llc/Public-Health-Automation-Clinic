@@ -1,5 +1,5 @@
 ---
-title: "Combine and Compare Spreadsheets"
+title: "Stack and Check Spreadsheets"
 ---
 
 # The Problem
@@ -43,7 +43,7 @@ At 5 to 10 minutes per file, this is 7 to 15 hours of manual work, repeated ever
 
 # The Solution
 
-The **Combine & Compare Spreadsheets** app is a Shiny web application that automates this entire workflow. Upload your spreadsheets, click a button, and get:
+The **Stack & Check Spreadsheets** app is a Shiny web application that automates this entire workflow. Upload your spreadsheets, click a button, and get:
 
 - A **combined dataset** with a source file column tracking which record came from which file
 - A **column comparison matrix** showing exactly which columns appear in which files, making structural differences immediately visible
@@ -96,27 +96,10 @@ This is a good option for teams working in a for-profit or regulated setting whe
 ## GPS (Given-Person-Should)
 
 > **Given** a set of Excel workbooks returned by multiple respondents using a common template,
-> **the** data coordinator **should** upload them to the Combine & Compare app and review the column comparison matrix
+> **the** data coordinator **should** upload them to the Stack & Check app and review the column comparison matrix
 > **to** identify and resolve structural inconsistencies before combining the data for analysis.
 
 # Getting Started
-
-## Download the App
-
-The app is available in the Public Health Automation Clinic GitHub repository:
-
-1. **Download the app folder** from the repository:
-   - Go to [github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic){target="_blank"}
-   - Navigate to `apps/combine-and-compare-spreadsheets/`
-   - Download the entire folder (or clone the full repository)
-
-2. **Clone the full repository** (recommended if you use Git):
-
-```bash
-git clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git
-```
-
-The app files are located at `apps/combine-and-compare-spreadsheets/` within the repository.
 
 ## Install Requirements
 
@@ -143,6 +126,23 @@ install.packages(c(
 
 [RStudio Desktop](https://posit.co/download/rstudio-desktop/){target="_blank"} (free) is the recommended IDE for running the app, though any R environment will work.
 
+## Download the App
+
+The app is available in the Public Health Automation Clinic GitHub repository:
+
+1. **Download the app folder** from the repository:
+   - Go to [github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic](https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic){target="_blank"}
+   - Navigate to `apps/stack-and-check-spreadsheets/`
+   - Download the entire folder (or clone the full repository)
+
+2. **Clone the full repository** (recommended if you use Git):
+
+```bash
+git clone https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic.git
+```
+
+The app files are located at `apps/stack-and-check-spreadsheets/` within the repository.
+
 ## Run the App
 
 Open `app.R` in RStudio and click **Run App**, or run the following from an R console:
@@ -151,12 +151,12 @@ Open `app.R` in RStudio and click **Run App**, or run the following from an R co
 #| eval: false
 #| code-fold: false
 
-shiny::runApp(here::here("apps", "combine-and-compare-spreadsheets"))
+shiny::runApp(here::here("apps", "stack-and-check-spreadsheets"))
 ```
 
 The app will open in your default web browser. Everything runs locally on your machine; no data leaves your computer.
 
-![The About page introduces the app, explains its purpose, and lists the key features.](../assets/images/04a-combine-compare/01-about-page.png){fig-alt="Screenshot of the Combine and Compare Spreadsheets app About page showing the app description and feature overview."}
+![The About page introduces the app, explains its purpose, and lists the key features.](../assets/images/04a-stack-and-check/01-about-page.png){fig-alt="Screenshot of the Stack and Check Spreadsheets app About page showing the app description and feature overview."}
 
 # How to Use the App
 
@@ -164,7 +164,7 @@ The app will open in your default web browser. Everything runs locally on your m
 
 Click **Upload Spreadsheets** in the sidebar and select one or more Excel (`.xlsx`, `.xls`) or CSV (`.csv`) files. You can upload a mix of file types in a single batch.
 
-![The Workbench tab before any files are uploaded, showing the file upload area and processing controls.](../assets/images/04a-combine-compare/02-workbench-empty.png){fig-alt="Screenshot of the empty Workbench tab with the file upload control and processing options visible in the sidebar."}
+![The Workbench tab before any files are uploaded, showing the file upload area and processing controls.](../assets/images/04a-stack-and-check/02-workbench-empty.png){fig-alt="Screenshot of the empty Workbench tab with the file upload control and processing options visible in the sidebar."}
 
 ## Step 2: Select Sheet Name
 
@@ -174,7 +174,7 @@ For Excel files, the app reads all available sheet names across uploaded workboo
 
 If your spreadsheets have title rows, instructions, or logos above the actual column headers, set the **Header Row** to the row number where headers appear. The default is row 1.
 
-![After uploading five county spreadsheets, the sidebar shows the selected sheet name and header row settings.](../assets/images/04a-combine-compare/03-files-uploaded.png){fig-alt="Screenshot showing five uploaded Excel files listed in the sidebar with sheet name dropdown and header row selector."}
+![After uploading five county spreadsheets, the sidebar shows the selected sheet name and header row settings.](../assets/images/04a-stack-and-check/03-files-uploaded.png){fig-alt="Screenshot showing five uploaded Excel files listed in the sidebar with sheet name dropdown and header row selector."}
 
 ## Step 4: Process Files
 
@@ -197,7 +197,7 @@ The Workbench tab provides four views:
 
 The full merged dataset with all records from all files. Use the column filters to search and sort. The `source_file` column identifies which file each record came from.
 
-![The Combined Data view showing all records merged into a single table with the source_file column.](../assets/images/04a-combine-compare/04-combined-data.png){fig-alt="Screenshot of the Combined Data tab displaying a merged dataset with columns from all uploaded files and a source_file tracking column."}
+![The Combined Data view showing all records merged into a single table with the source_file column.](../assets/images/04a-stack-and-check/04-combined-data.png){fig-alt="Screenshot of the Combined Data tab displaying a merged dataset with columns from all uploaded files and a source_file tracking column."}
 
 ### Column Comparison
 
@@ -213,7 +213,7 @@ The default and most compact view. Shows **only columns that are not present in 
 
 If all files have identical column structures, this view shows a green "no discrepancies" message and an empty table. This is the view to check first: if it is empty, your data is structurally consistent and you can proceed directly to analysis.
 
-![The Discrepancies Only view highlighting columns that are not present in every file.](../assets/images/04a-combine-compare/05-discrepancies.png){fig-alt="Screenshot of the Discrepancies Only sub-tab showing a table of columns with mismatches across files, including file counts and missing file names."}
+![The Discrepancies Only view highlighting columns that are not present in every file.](../assets/images/04a-stack-and-check/05-discrepancies.png){fig-alt="Screenshot of the Discrepancies Only sub-tab showing a table of columns with mismatches across files, including file counts and missing file names."}
 
 #### Full Matrix
 
@@ -227,7 +227,7 @@ A complete presence/absence matrix with **files as rows** and **column names as 
 
 This layout scales better than column-per-file because typical datasets have 10 to 50 columns (manageable as table headers) while file counts can grow to hundreds or thousands (which work well as scrollable rows). For very large uploads, use the Excel download to filter and search the matrix in Excel.
 
-![The Full Matrix view with files as rows and columns as headers, using check marks and X marks to show presence and absence.](../assets/images/04a-combine-compare/06-full-matrix.png){fig-alt="Screenshot of the Full Matrix sub-tab showing a file-by-column presence/absence grid with teal check marks and red X marks."}
+![The Full Matrix view with files as rows and columns as headers, using check marks and X marks to show presence and absence.](../assets/images/04a-stack-and-check/06-full-matrix.png){fig-alt="Screenshot of the Full Matrix sub-tab showing a file-by-column presence/absence grid with teal check marks and red X marks."}
 
 #### File Profiles
 
@@ -245,7 +245,7 @@ A per-file summary showing:
 
 Files with more missing or extra columns sort to the top, making it easy to spot outliers that need manual correction before analysis.
 
-![The File Profiles view summarizing each file's row count, column count, and any missing or extra columns.](../assets/images/04a-combine-compare/07-file-profiles.png){fig-alt="Screenshot of the File Profiles sub-tab showing a per-file summary table with rows, columns, expected, missing, and extra column counts."}
+![The File Profiles view summarizing each file's row count, column count, and any missing or extra columns.](../assets/images/04a-stack-and-check/07-file-profiles.png){fig-alt="Screenshot of the File Profiles sub-tab showing a per-file summary table with rows, columns, expected, missing, and extra column counts."}
 
 ### File Issues
 
@@ -259,13 +259,13 @@ This tab is separate from column discrepancies. It lists files that **could not 
 
 If all files processed successfully, this tab shows "All files processed successfully." Files listed here are excluded from the combined dataset and from the column comparison.
 
-![The File Issues tab listing files that could not be processed, with issue type descriptions.](../assets/images/04a-combine-compare/08-file-issues.png){fig-alt="Screenshot of the File Issues tab showing a table of files with processing problems such as missing sheets or read errors."}
+![The File Issues tab listing files that could not be processed, with issue type descriptions.](../assets/images/04a-stack-and-check/08-file-issues.png){fig-alt="Screenshot of the File Issues tab showing a table of files with processing problems such as missing sheets or read errors."}
 
 ### Explore Data
 
 An interactive pivot table ([rpivotTable](https://github.com/smartinsightsfromdata/rpivotTable){target="_blank"}) for ad-hoc exploration of the combined data. Drag columns into rows, columns, or filters to create cross-tabulations, charts, and summaries without writing code.
 
-![The Explore Data tab with an interactive pivot table for ad-hoc analysis of the combined dataset.](../assets/images/04a-combine-compare/09-explore-data.png){fig-alt="Screenshot of the Explore Data tab showing the rpivotTable interface with drag-and-drop column fields for building cross-tabulations."}
+![The Explore Data tab with an interactive pivot table for ad-hoc analysis of the combined dataset.](../assets/images/04a-stack-and-check/09-explore-data.png){fig-alt="Screenshot of the Explore Data tab showing the rpivotTable interface with drag-and-drop column fields for building cross-tabulations."}
 
 ## Step 6: Download
 
@@ -299,7 +299,7 @@ The best way to handle column mismatches is to prevent them. When distributing d
 - **Name your sheets consistently** and include instructions not to rename them
 - **Include a "do not modify" note** in the template header
 
-The Combine & Compare app is most valuable when prevention was not possible, which, in practice, is most of the time.
+The Stack & Check app is most valuable when prevention was not possible, which, in practice, is most of the time.
 :::
 
 ::: {.callout-tip title="Large File Uploads"}

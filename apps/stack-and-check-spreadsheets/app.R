@@ -1,5 +1,5 @@
 # ==============================================================================
-# Combine & Compare Spreadsheets
+# Stack & Check Spreadsheets
 # Public Health Automation Clinic
 # https://andre-inter-collab-llc.github.io/Public-Health-Automation-Clinic/
 #
@@ -271,7 +271,7 @@ about_content <- div(
   div(
     class = "text-center mb-4",
     h2(
-      "Combine & Compare Spreadsheets",
+      "Stack & Check Spreadsheets",
       style = paste0("color: ", brand$navy, "; font-weight: 800;")
     ),
     p(
@@ -462,9 +462,9 @@ ui <- page_navbar(
       class = "me-2",
       onerror = "this.style.display='none'"
     ),
-    "Combine & Compare Spreadsheets"
+    "Stack & Check Spreadsheets"
   ),
-  window_title = "Combine & Compare | Public Health Automation Clinic",
+  window_title = "Stack & Check | Public Health Automation Clinic",
   theme = app_theme,
   fillable = FALSE,
   navbar_options = navbar_options(bg = brand$navy),

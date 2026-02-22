@@ -34,7 +34,7 @@ book:
     - part: "Data Cleaning and Transformation"
       chapters:
         - chapters/04-data-cleaning-transformation.qmd
-        - chapters/04a-combine-compare-spreadsheets.qmd
+        - chapters/04a-stack-and-check-spreadsheets.qmd
     - part: "Data Analysis and Reporting"
       chapters:
         - chapters/05-data-analysis-reporting.qmd
