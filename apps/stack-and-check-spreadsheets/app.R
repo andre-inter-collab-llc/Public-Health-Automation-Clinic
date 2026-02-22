@@ -50,8 +50,10 @@ app_theme <- bs_theme(
   "btn-border-radius" = "0.375rem"
 )
 
-# Increase max upload size to 100 MB
-options(shiny.maxRequestSize = 100 * 1024^2)
+# Remove Shiny's default 5 MB upload limit. Uploads of any size are allowed,
+# but users may experience slow performance or out-of-memory errors if total
+# upload size exceeds approximately 250 MB, depending on available RAM.
+options(shiny.maxRequestSize = Inf)
 
 # Always open in the system default browser (not the IDE viewer pane).
 # IDE extensions (VS Code, RStudio) can intercept browseURL, so we call
