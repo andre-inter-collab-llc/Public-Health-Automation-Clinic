@@ -255,12 +255,12 @@ This repository does not aim to host full software products, large proprietary d
 
 ## Submission Channels
 
-The clinic accepts problem submissions through two channels. **Both should be referenced together** wherever submission links appear in the book content.
+Submission links are published in a single, authoritative location: [Chapter 1: The Automation Clinic](https://andre-inter-collab-llc.github.io/Public-Health-Automation-Clinic/chapters/01-automation-intake.html), under the "How It Works" section (Step 1: Submit Your Problem).
 
-1. **Google Form (anonymous by default)**: <https://forms.gle/cmE2un2njSVPid8C9>
-2. **GitHub Issues (public, not anonymous)**: <https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues>
-
-When adding or editing submission links, always present both options so readers can choose based on their privacy preference.
+When adding or editing submission guidance in other parts of the book or documentation:
+- **Do not duplicate the submission links** in other chapters or sections.
+- **Direct readers to Chapter 1** instead, where both submission options (Google Form and GitHub Issues) are presented together with full context.
+- This keeps the submission pathways centralized and ensures consistency across all documentation.
 
 ## Communications Guidance
 
@@ -281,6 +281,7 @@ When editing posts and blueprint content:
 - Keep files local-only under `admin/communications/` and exclude them from public publication.
 - **Tone**: Authoritative, insightful, accessible. Highlight common friction points and present automation as the practical solution.
 - **Hashtags**: #PublicHealth #HealthInformatics #Automation #DataScience #Epidemiology #OpenSource #RStats #Python #PublicHealthData #ProcessImprovement #HealthIT
+- **Cross-linking comments**: Every new LinkedIn post must include a draft comment to be added under the original Automation Clinic launch post (`linkedin-automation-clinic-launch-post.md`). The comment should briefly announce the new content and link to the new post. Also add the comment text to the launch post file under `## Responses to Comments` for record-keeping.
 
 ## Development Scripts
 

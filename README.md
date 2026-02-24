@@ -33,8 +33,7 @@
 
 ## Submit a Problem
 
-- **Google Form (anonymous):** <https://forms.gle/cmE2un2njSVPid8C9>
-- **GitHub Issues (public):** <https://github.com/andre-inter-collab-llc/Public-Health-Automation-Clinic/issues>
+See [Chapter 1: The Automation Clinic](https://andre-inter-collab-llc.github.io/Public-Health-Automation-Clinic/chapters/01-automation-intake.html) for submission options and detailed guidance on how to describe your problem.
 
 ## Local Preview
 
