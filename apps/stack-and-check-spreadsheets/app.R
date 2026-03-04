@@ -392,6 +392,13 @@ about_content <- div(
       class = "text-muted small",
       "by ",
       tags$a(
+        "Andr\u00e9 van Zyl, MPH",
+        href = "https://www.linkedin.com/in/andre-van-zyl/",
+        target = "_blank",
+        style = paste0("color: ", brand$teal, ";")
+      ),
+      " | ",
+      tags$a(
         "Intersect Collaborations LLC",
         href = "https://www.intersectcollaborations.com/",
         target = "_blank",
